@@ -1,13 +1,332 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="88988547-7c4f-4f46-810b-d75eaaa519a9" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/supplementals/base_chr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/chr_clas/base_class.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/chr_clas/spec/barbarian.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/chr_clas/spec/bard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/chr_clas/spec/druid.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/chr_clas/spec/fighter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/chr_clas/spec/monk.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/chr_clas/spec/paladin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/chr_clas/spec/ranger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/chr_clas/spec/rogue.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/chr_clas/spec/sorcerer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/chr_clas/spec/warlock.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/chr_clas/spec/wizard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/magic_chr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/race/base_race.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/race/spec/dragonborn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/race/spec/dwarf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/race/spec/elf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/race/spec/gnome.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/race/spec/half_elf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/race/spec/half_orc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/race/spec/human.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/race/spec/tiefling.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/supplementals/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/supplementals/dictionary.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/supplementals/dictionary.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="dragonborn.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/dragonborn.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="dwarf.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/dwarf.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="elf.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/elf.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="gnome.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/gnome.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="half_elf.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/half_elf.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="half_orc.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/half_orc.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="human.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/human.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="tiefling.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/tiefling.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="base_class.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/supplementals/chr_clas/base_class.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="base_race.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/supplementals/race/base_race.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/index.py" />
+        <option value="$PROJECT_DIR$/src/supplementals/dictionary.py" />
+        <option value="$PROJECT_DIR$/src/supplementals/utils.py" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1320" />
     <option name="y" value="23" />
-    <option name="width" value="1320" />
+    <option name="width" value="979" />
     <option name="height" value="1027" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="dnd2.0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dnd2.0" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dnd2.0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dnd2.0" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dnd2.0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dnd2.0" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="supplementals" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dnd2.0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dnd2.0" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="supplementals" type="462c0819:PsiDirectoryNode" />
+              <item name="chr_clas" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dnd2.0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dnd2.0" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="supplementals" type="462c0819:PsiDirectoryNode" />
+              <item name="chr_clas" type="462c0819:PsiDirectoryNode" />
+              <item name="spec" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dnd2.0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dnd2.0" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="supplementals" type="462c0819:PsiDirectoryNode" />
+              <item name="race" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dnd2.0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dnd2.0" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="supplementals" type="462c0819:PsiDirectoryNode" />
+              <item name="race" type="462c0819:PsiDirectoryNode" />
+              <item name="spec" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/supplementals/race" />
+      <recent name="$PROJECT_DIR$/src/supplementals/race/spec" />
+      <recent name="$PROJECT_DIR$/src/supplementals/chr_clas" />
+      <recent name="$PROJECT_DIR$/src/supplementals/chr_clas/spec" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/supplementals/chr_clas" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="88988547-7c4f-4f46-810b-d75eaaa519a9" name="Default" comment="" />
+      <created>1530037414620</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1530037414620</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="979" height="1027" extended-state="0" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2828175" />
+      <window_info anchor="right" id="R Packages" />
+      <window_info anchor="right" id="R Graphics" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32903227" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/supplementals/dictionary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="661" column="101" selection-start-line="661" selection-start-column="101" selection-end-line="661" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/base_chr.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/magic_chr.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/chr_clas/spec/barbarian.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/chr_clas/spec/bard.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/chr_clas/spec/cleric.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/chr_clas/spec/druid.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/chr_clas/spec/fighter.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/chr_clas/spec/monk.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/chr_clas/spec/paladin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/chr_clas/spec/ranger.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/chr_clas/spec/rogue.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/chr_clas/spec/sorcerer.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/chr_clas/spec/warlock.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/chr_clas/spec/wizard.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/dragonborn.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/dwarf.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/elf.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/gnome.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/half_elf.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/half_orc.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/human.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/race/spec/tiefling.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/chr_clas/base_class.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/supplementals/race/base_race.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
   </component>
 </project>
