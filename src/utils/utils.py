@@ -3,6 +3,11 @@ import src.utils.dictionary as dictionary
 
 
 def ability_score_increase(chr):
+    """
+    the functionality for levelling up: gets called to level up/increase an ability score. only functionality for finding out stat and value.
+    :param chr: character object to manipulate
+    :return: nothing
+    """
     choice = input("Level Up: do you want to level up 'one' ability score by two points, or 'two' scores by one each?\n")
     while True:
         for item in chr.stats:
@@ -22,17 +27,74 @@ def ability_score_increase(chr):
 
 
 def alter_stat(chr, stat, chg):
+    """
+    used for updating/leveling up. functionality for increasing any abiltiy score by a given amount
+    :param chr: character object with scores to be modified
+    :param stat: the string stat to be changed
+    :param chg: the integer amount the stat is to be changed by
+    :return: True in the case of a success, string response in the case of failure
+    """
     assert stat in ["charisma", "constitution", "dexterity", "intelligence", "strength", "wisdom"], "That's not an ability. Try again, please"
     old = getattr(chr, stat)
     setattr(chr, stat, old + chg)
+    new = getattr(chr, stat)
+    if old != new:
+        return True
 
 
 def get_modifier(self, stat):
+    """
+    gets the ability score modifier for a score passed in
+    :param self: the object passed in - necessary because function is abstracted
+    :param stat: the string of the stat wanted to get the mod of
+    :return: the int of the modifier: +/- x
+    """
     assert stat in ["charisma", "constitution", "dexterity", "intelligence", "strength", "wisdom"], "That's not an ability, please try again."
     base = self.getattr(stat)
-    return math.floor(base - 10) / 2
+    return int(math.floor(base - 10) / 2)
 
 
 def search_dict(value):
+    """
+    function that searches through the dictionary. does not do functionality for the search loop
+    :param value: the word or phrase to be searched
+    :return: the string of the definition, or the string of an error, in that case
+    """
     comp = dict((k.lower(), v.lower()) for k, v in dictionary.dictionary.items())
+    try:
+        result = comp[value]
+        response = "\n" + value + ": "
+        line = " "
+        for word in result.split(" " ):
+            line += word + " "
+            if len(line) > 120:
+                response += "\n" + line
+                line = ""
+            return response
+    except KeyError:
+        return value + " was not found"
+
+
+def equip(chr, items):
+    """
+    equips an item or an array of items to the character's weapons and equipment.
+    :param chr: character object to have things equipped to
+    :param items: the array of item or items to equip to equipment & weapons
+    :return: nothing
+    """
+    for obj in items:
+        chr.weapons.append(obj)
+        chr.equipment.append(obj)
+
+
+def count_spells(chr):
+    """
+    returns the total amount of spells a character knows.
+    :param chr: the character object to learn about
+    :return: the total amount of spells they know
+    """
+    count = 0
+    for level in chr.spells:
+        count += level[0]
+    return count
 
