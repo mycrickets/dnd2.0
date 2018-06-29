@@ -1,5 +1,6 @@
 import math
 import src.utils.dictionary as dictionary
+import src.utils.spell_dict as spell_dict
 
 
 def ability_score_increase(chr):
@@ -64,15 +65,33 @@ def search_dict(value):
     try:
         result = comp[value]
         response = "\n" + value + ": "
-        line = " "
-        for word in result.split(" " ):
+        line = ""
+        for word in result.split():
             line += word + " "
             if len(line) > 120:
                 response += "\n" + line
                 line = ""
-            return response
+        return response
     except KeyError:
         return value + " was not found"
+
+
+def search_spell_dict(spell):
+    """
+    function that searches through the spell dictionary, parses the spell response, does not do functionality for search loop.
+    :param spell: spell name to be searched for
+    :return: the string response.
+    """
+    comp = dict((k.lower(), v) for k, v in spell_dict.spells.items())
+    try:
+        response = "\n" + spell + ": "
+        result = comp[spell.lower()]
+        for item in result:
+            for k in item:
+                response += "\n" + k + ": " + item[k]
+        return response
+    except KeyError:
+        return spell + " was not found"
 
 
 def equip(chr, items):
