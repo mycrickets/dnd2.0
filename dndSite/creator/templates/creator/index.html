@@ -1,0 +1,12 @@
+{% extends "creator/home.html" %}
+{% block content %}
+    {% if character_latest %}
+        <ul>
+        {% for char in character_latest %}
+            <li><a href="/creator/{{ char.chr_name }}/">{{ char.chr_name }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>no characters.</p>
+    {% endif %}
+{% endblock %}
