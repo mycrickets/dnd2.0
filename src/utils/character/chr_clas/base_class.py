@@ -3,7 +3,7 @@ import src.utils.character.magic_chr as magic_chr
 import src.utils.utils as utilities
 
 
-class base_class(base_chr):
+class base_class(base_chr, magic_chr):
     def __init__(self):
         self.all_skills = []
         self.hp = 0
@@ -85,7 +85,13 @@ class base_class(base_chr):
         sets character proficiencies (not skill proficiencies) based on list of options given
         :param opts: list of list of profs available to the character
         """
-        # TODO: see monk for dnd1.0 version
-
-    def set_magic(self, cant_ct):
-        magic_chr.magic_chr.set_magic(self, self.level, cant_ct, self.clas)
+        flag = True
+        while flag:
+            avail = set(opts) - set(self.proficiencies)
+            print("Which do you want to be proficient in? Options are listed below")
+            for item in avail:
+                print(item)
+            choice = input("")
+            assert choice in avail, "That wasn't an option"
+            self.proficiencies.append(choice)
+            flag = False

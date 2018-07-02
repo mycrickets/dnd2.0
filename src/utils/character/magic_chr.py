@@ -18,9 +18,17 @@ class magic_chr:
         self.nine = [0, []]
         self.spells = [self.cantrips, self.one, self.two, self.three, self.four, self.five, self.six, self.seven, self.eight, self.nine]
         self.magic_ct = utilities.count_spells(self)
-    
+
     def set_magic(self, level, cant_ct, clas):
+        """
+        set the necessary spell slots/spells known for any character, provided their level and class
+        :param level: int, the character's level
+        :param cant_ct: int, amount of cantrips known (varies by class)
+        :param clas: string of the character's class
+        :return: nothing
+        """
         level = int(level)
+        cant_ct = int(cant_ct)
         if clas in ["ranger", "paladin"]:
             if level > 1:
                 self.one[0] = 2
@@ -129,3 +137,5 @@ class magic_chr:
             if level > 19:
                 self.seven[0] = 2
                 self.seven[1].append(input("Level up: What final level seven spell do you want to learn?"))
+
+        # TODO: add_spell, magic_to_string

@@ -2,33 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88988547-7c4f-4f46-810b-d75eaaa519a9" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/base_chr.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/base_chr.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/chr_clas/base_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/base_class.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/chr_clas/spec/barbarian.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/barbarian.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/chr_clas/spec/bard.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/chr_clas/spec/cleric.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/cleric.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/chr_clas/spec/druid.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/druid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/chr_clas/spec/fighter.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/fighter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/chr_clas/spec/monk.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/monk.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/chr_clas/spec/paladin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/paladin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/chr_clas/spec/ranger.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/ranger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/chr_clas/spec/rogue.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/rogue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/chr_clas/spec/sorcerer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/sorcerer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/chr_clas/spec/warlock.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/warlock.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/chr_clas/spec/wizard.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/wizard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/magic_chr.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/magic_chr.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/race/base_race.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/base_race.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/race/spec/dragonborn.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/dragonborn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/race/spec/dwarf.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/dwarf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/race/spec/elf.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/elf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/race/spec/gnome.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/gnome.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/race/spec/half_elf.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/half_elf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/race/spec/half_orc.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/half_orc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/race/spec/human.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/human.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/race/spec/tiefling.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/tiefling.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/base_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/base_class.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/character/magic_chr.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/magic_chr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/character/race/base_race.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/base_race.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,38 +19,41 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/dnd2_0$index.coverage" NAME="index Coverage Results" MODIFIED="1530287223755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="base_chr.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/character/base_chr.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-            </state>
-          </provider>
+      <file leaf-file-name="manage.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dndSite/manage.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="base_class.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/base_class.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="90" column="75" lean-forward="true" selection-start-line="90" selection-start-column="75" selection-end-line="90" selection-end-column="75" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dndSite/dndSite/wsgi.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="base_race.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/utils/character/race/base_race.py">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dndSite/dndSite/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dndSite/dndSite/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
-            </state>
+            <state relative-caret-position="-1" />
           </provider>
         </entry>
       </file>
@@ -80,9 +62,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>self.level</find>
+      <find>self</find>
     </findStrings>
     <replaceStrings>
       <replace>level</replace>
+      <replace>chr</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -95,11 +79,13 @@
         <option value="$PROJECT_DIR$/src/supplementals/utils.py" />
         <option value="$PROJECT_DIR$/src/utils/spell_dict.py" />
         <option value="$PROJECT_DIR$/src/utils/utils.py" />
-        <option value="$PROJECT_DIR$/src/index.py" />
-        <option value="$PROJECT_DIR$/src/utils/character/magic_chr.py" />
         <option value="$PROJECT_DIR$/src/utils/character/base_chr.py" />
-        <option value="$PROJECT_DIR$/src/utils/character/chr_clas/base_class.py" />
         <option value="$PROJECT_DIR$/src/utils/character/race/base_race.py" />
+        <option value="$PROJECT_DIR$/src/utils/character/magic_chr.py" />
+        <option value="$PROJECT_DIR$/src/utils/character/chr_clas/base_class.py" />
+        <option value="$PROJECT_DIR$/src/utils/character/chr_clas/spec/barbarian.py" />
+        <option value="$PROJECT_DIR$/src/index.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -113,15 +99,17 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="-1334" />
     <option name="y" value="23" />
-    <option name="width" value="838" />
-    <option name="height" value="1027" />
+    <option name="width" value="1334" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -132,6 +120,17 @@
             <path>
               <item name="dnd2.0" type="b2602c69:ProjectViewProjectNode" />
               <item name="dnd2.0" type="462c0819:PsiDirectoryNode" />
+              <item name="dndSite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dnd2.0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dnd2.0" type="462c0819:PsiDirectoryNode" />
+              <item name="dndSite" type="462c0819:PsiDirectoryNode" />
+              <item name="dndSite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dnd2.0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dnd2.0" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -146,28 +145,11 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
               <item name="character" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dnd2.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dnd2.0" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="character" type="462c0819:PsiDirectoryNode" />
-              <item name="chr_clas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dnd2.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dnd2.0" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="character" type="462c0819:PsiDirectoryNode" />
-              <item name="race" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -239,25 +221,24 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="838" height="1027" extended-state="0" />
-    <editor active="true" />
+    <frame x="-1334" y="23" width="1334" height="1057" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32903227" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49892473" visible="true" weight="0.19974874" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32903227" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.17956989" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49892473" visible="true" weight="0.12925696" />
       <window_info anchor="right" id="R Packages" order="3" weight="0.32967034" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="R Graphics" order="3" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32972136" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" sideWeight="0.50107527" side_tool="true" weight="0.2828175" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -274,6 +255,99 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/utils/character/base_chr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/base_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/race/base_race.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/magic_chr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/base_chr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/base_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="90" column="75" selection-start-line="90" selection-start-column="75" selection-end-line="90" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/race/base_race.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/magic_chr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="136" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="18" selection-end-column="136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/spell_dict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158415">
+          <caret line="10561" column="22" selection-start-line="10561" selection-start-column="21" selection-end-line="10561" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/base_chr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/base_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="90" column="75" lean-forward="true" selection-start-line="90" selection-start-column="75" selection-end-line="90" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/race/base_race.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -307,9 +381,6 @@
           <caret line="661" column="101" selection-start-line="661" selection-start-column="101" selection-end-line="661" selection-end-column="101" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/barbarian.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -368,23 +439,9 @@
     <entry file="file://$PROJECT_DIR$/src/utils/character/race/spec/tiefling.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/spell_dict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="10561" column="22" selection-start-line="10561" selection-start-column="21" selection-end-line="10561" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-435">
+        <state relative-caret-position="855">
           <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -392,17 +449,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/character/magic_chr.py">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/spell_dict.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-607">
-          <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+        <state relative-caret-position="519">
+          <caret line="10561" column="22" selection-start-line="10561" selection-start-column="21" selection-end-line="10561" selection-end-column="22" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/magic_chr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/race/base_race.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/barbarian.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/base_class.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="90" column="75" lean-forward="true" selection-start-line="90" selection-start-column="75" selection-end-line="90" selection-end-column="75" />
+        <state relative-caret-position="853">
+          <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
@@ -411,19 +488,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/character/base_chr.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/character/race/base_race.py">
+    <entry file="file://$PROJECT_DIR$/src/index.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dndSite/manage.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dndSite/dndSite/urls.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dndSite/dndSite/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dndSite/dndSite/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dndSite/dndSite/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1" />
       </provider>
     </entry>
   </component>

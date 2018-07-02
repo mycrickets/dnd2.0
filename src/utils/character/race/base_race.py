@@ -1,6 +1,8 @@
 import src.utils.character.base_chr as base_chr
 import src.utils.utils as utilities
 
+import random as r
+
 
 class base_race:
     def __init__(self):
