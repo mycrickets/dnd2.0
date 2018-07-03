@@ -1,16 +1,16 @@
-class base_chr:
-    def __init__(self, level, strength, dexterity, charisma, constitution, intelligence, wisdom):
+import src.utils.stats as stats
+import src.utils.utils as utilities
+
+
+class BaseChr:
+
+    def __init__(self, race, clas, bg, level, scores):
         self.level = int(level)
-        self.strength = int(strength)
-        self.dexterity = int(dexterity)
-        self.charisma = int(charisma)
-        self.constitution = int(constitution)
-        self.intelligence = int(intelligence)
-        self.wisdom = int(wisdom)
-        self.clas = ""
-        self.race = ""
+        self.scores = scores
+        self.clas = clas
+        self.race = race
         self.name = ""
-        self.play_name = ""
+        self.player_name = ""
         self.age = 0
         self.weight = 0
         self.height = 0
@@ -21,3 +21,5 @@ class base_chr:
         self.flaws = ""
         self.bonds = ""
         self.alignment = ""
+
+

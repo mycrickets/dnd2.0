@@ -3,21 +3,23 @@ import src.utils.character.magic_chr as magic_chr
 import src.utils.utils as utilities
 
 
-class base_class(base_chr, magic_chr):
-    def __init__(self):
-        self.all_skills = []
-        self.hp = 0
-        self.hit_dice = ""
-        self.prof_bonus = 0
-        self.archetype = ""
-        self.saving_throws = []
-        self.skills = []
-        self.features = []
-        self.proficiencies = []
-        self.resistances = []
-        self.attack = []
-        self.armor = []
-        self.equip = ""
+class BaseClass(base_chr, magic_chr):
+    all_skills = None
+    hp = 0
+    hit_dice = None
+    prof_bonus = 0
+    archetype = None
+    saving_throws = None
+    skills = None
+    features = None
+    proficiencies = None
+    resistances = None
+    attack = None
+    armor = None
+    equip = None
+
+    def __init__(self, level, strength, dexterity, intelligence, wisdom, charisma, constitution):
+        super(base_class, self).__init__(self, level, strength, dexterity, charisma, constitution, intelligence, wisdom)
 
     def init_hit_dice(self, die):
         """

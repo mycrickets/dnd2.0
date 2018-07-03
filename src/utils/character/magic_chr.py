@@ -2,8 +2,14 @@ import src.utils.utils as utilities
 
 
 class magic_chr:
+    magic_throw = None
+    magic_dc = 0
+    magic_attack = None
+    magic_ct = 0
+    spells = None
+
     def __init__(self):
-        self.magic_throw = ""
+        '''self.magic_throw = ""
         self.magic_dc = 0
         self.attack = ""
         self.cantrips = [0, []]
@@ -16,8 +22,9 @@ class magic_chr:
         self.seven = [0, []]
         self.eight = [0, []]
         self.nine = [0, []]
-        self.spells = [self.cantrips, self.one, self.two, self.three, self.four, self.five, self.six, self.seven, self.eight, self.nine]
-        self.magic_ct = utilities.count_spells(self)
+        self.spells = [self.cantrips, self.one, self.two, self.three, self.four,
+                        self.five, self.six, self.seven, self.eight, self.nine]
+        self.magic_ct = utilities.count_spells(self)'''
 
     def set_magic(self, level, cant_ct, clas):
         """
