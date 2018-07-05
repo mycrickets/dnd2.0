@@ -1,9 +1,9 @@
-import src.utils.character.base_chr as base_chr
-import src.utils.character.magic_chr as magic_chr
+import src.utils.character.BaseChr as base_chr
+import src.utils.character.MagicChr as magic_chr
 import src.utils.utils as utilities
 
 
-class BaseClass(base_chr, magic_chr):
+class BaseClass(base_chr.BaseChr, magic_chr.magic_chr):
     all_skills = None
     hp = 0
     hit_dice = None
@@ -19,7 +19,7 @@ class BaseClass(base_chr, magic_chr):
     equip = None
 
     def __init__(self, level, strength, dexterity, intelligence, wisdom, charisma, constitution):
-        super(base_class, self).__init__(self, level, strength, dexterity, charisma, constitution, intelligence, wisdom)
+        super(BaseClass, self).__init__(self, level, strength, dexterity, charisma, constitution, intelligence, wisdom)
 
     def init_hit_dice(self, die):
         """

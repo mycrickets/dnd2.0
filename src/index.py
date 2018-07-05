@@ -1,5 +1,5 @@
 import src.utils.utils as utilities
-import src.character as character
+import src.Character as character
 
 
 def main():
