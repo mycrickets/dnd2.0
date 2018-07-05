@@ -43,7 +43,7 @@ def alter_stat(chr, stat, chg):
         return True
 
 
-def get_modifier(self, stat):
+def get_modifier(chr, stat):
     """
     gets the ability score modifier for a score passed in
     :param self: the object passed in - necessary because function is abstracted
@@ -51,7 +51,8 @@ def get_modifier(self, stat):
     :return: the int of the modifier: +/- x
     """
     assert stat in ["charisma", "constitution", "dexterity", "intelligence", "strength", "wisdom"], "That's not an ability, please try again."
-    base = self.getattr(stat)
+    base = chr.__getattribute__(stat)
+    print(base)
     return int(math.floor(base - 10) / 2)
 
 
@@ -116,4 +117,8 @@ def count_spells(chr):
     for level in chr.spells:
         count += level[0]
     return count
+
+
+def init_scores(level):
+    return [10, 10, 10, 10, 10, 10]
 

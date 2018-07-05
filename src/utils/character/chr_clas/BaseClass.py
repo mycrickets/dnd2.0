@@ -18,8 +18,8 @@ class BaseClass(base_chr.BaseChr, magic_chr.magic_chr):
     armor = None
     equip = None
 
-    def __init__(self, level, strength, dexterity, intelligence, wisdom, charisma, constitution):
-        super(BaseClass, self).__init__(self, level, strength, dexterity, charisma, constitution, intelligence, wisdom)
+    def __init__(self, check, level):
+        base_chr.BaseChr.__init__(self, check, level)
 
     def init_hit_dice(self, die):
         """

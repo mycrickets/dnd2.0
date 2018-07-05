@@ -9,7 +9,10 @@ def main():
         command = command.strip()
         if command == "create":
             print("creation of character")
+            chr = character.Character(int(input("What level are you?")))
+            chr.set_race()
 
+            print(str(chr.race.size))
 
             '''print("Let's talk about some of your stats.")
             choice = input("Do you want to do a dice 'roll' for your stats, or the standard 'array'?")

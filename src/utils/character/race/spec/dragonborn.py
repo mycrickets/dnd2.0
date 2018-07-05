@@ -4,8 +4,8 @@ import src.utils.utils as utilities
 
 
 class Dragonborn(BaseRace.BaseRace):
-    def __init__(self):
-        super(Dragonborn, self).__init__()
+    def __init__(self, level):
+        BaseRace.BaseRace.__init__(self, True, level)
         self.resistances = []
         self.attacks = []
         self.color = ""

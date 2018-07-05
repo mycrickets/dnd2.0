@@ -3,12 +3,15 @@ import src.utils.utils as utilities
 
 
 class BaseChr:
-    def __init__(self, level, strength, dexterity, intelligence, wisdom, charisma, constitution):
+    def __init__(self, check, level):
+        scores = []
+        if check:
+            scores = utilities.init_scores(level)
         self.level = int(level)
-        self.strength = int(strength)
-        self.wisdom = int(wisdom)
-        self.dexterity = int(dexterity)
-        self.intelligence = int(intelligence)
-        self.charisma = int(charisma)
-        self.constitution = int(constitution)
+        self.strength = scores[0]
+        self.dexterity = scores[1]
+        self.wisdom = scores[2]
+        self.intelligence = scores[3]
+        self.constitution = scores[4]
+        self.charisma = scores[5]
 

@@ -6,8 +6,8 @@ import random as r
 
 
 class BaseRace(base_chr.BaseChr, magic_chr.magic_chr):
-    def __init__(self, level, strength, dexterity, intelligence, wisdom, charisma, constitution):
-        super(BaseRace, self).__init__(self, level, strength, dexterity, charisma, constitution, intelligence, wisdom)
+    def __init__(self, check, level):
+        base_chr.BaseChr.__init__(self, check, level)
         self.level = int(level)
         self.age_low = 0
         self.age_high = 0
