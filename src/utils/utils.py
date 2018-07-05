@@ -36,11 +36,12 @@ def alter_stat(chr, stat, chg):
     :return: True in the case of a success, string response in the case of failure
     """
     assert stat in ["charisma", "constitution", "dexterity", "intelligence", "strength", "wisdom"], "That's not an ability. Try again, please"
-    old = getattr(chr, stat)
+    old = chr.__getattribute__(stat)
     setattr(chr, stat, old + chg)
-    new = getattr(chr, stat)
+    new = chr.__getattribute__(chr, stat)
     if old != new:
         return True
+    return "ERROR - did not update - contact admin"
 
 
 def get_modifier(chr, stat):
@@ -119,6 +120,11 @@ def count_spells(chr):
     return count
 
 
-def init_scores(level):
-    return [10, 10, 10, 10, 10, 10]
+def init_scores(chr, level):
+    chr.strength = 10
+    chr.dexterity = 10
+    chr.intelligence = 10
+    chr.wisdom = 10
+    chr.charisma = 10
+    chr.constitution = 10
 
