@@ -30,6 +30,7 @@ class Character:
 
     def set_class(self):
         dnd_class = Barbarian(self)
+        self.clas = dnd_class
 
     def set_background(self):
         pass
