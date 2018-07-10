@@ -17,11 +17,10 @@ class Character:
         self.race = None
         self.clas = None
         self.background = ""
-        self.stats = []
         self.personality = ""
-
-    def set_stats(self):
-        pass
+        self.ideals = ""
+        self.flaws = ""
+        self.bonds = ""
 
     def set_race(self):
         race = Dragonborn(self.level)

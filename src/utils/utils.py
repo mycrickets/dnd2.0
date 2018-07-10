@@ -36,13 +36,14 @@ def alter_stat(chr, stat, chg):
     :param chg: the integer amount the stat is to be changed by
     :return: True in the case of a success, string response in the case of failure
     """
-    assert stat in ["charisma", "constitution", "dexterity", "intelligence", "strength", "wisdom"], "That's not an ability. Try again, please"
-    old = chr.__getattribute__(stat)
-    setattr(chr, stat, old + chg)
-    new = chr.__getattribute__(chr, stat)
-    if old != new:
-        return True
-    return "ERROR - did not update - contact admin"
+    if is_valid_input(stat):
+        old = chr.__getattribute__(stat)
+        setattr(chr, stat, old + chg)
+        new = chr.__getattribute__(stat)
+        if old != new:
+            return True
+        return "ERROR - did not update - contact admin"
+    return False
 
 
 def get_modifier(chr, stat):
@@ -52,10 +53,11 @@ def get_modifier(chr, stat):
     :param stat: the string of the stat wanted to get the mod of
     :return: the int of the modifier: +/- x
     """
-    assert stat in ["charisma", "constitution", "dexterity", "intelligence", "strength", "wisdom"], "That's not an ability, please try again."
-    base = chr.__getattribute__(stat)
-    print(base)
-    return int(math.floor(base - 10) / 2)
+    if is_valid_input(stat):
+        base = chr.__getattribute__(stat)
+        print(base)
+        return int(math.floor(base - 10) / 2)
+    return -300
 
 
 def search_dict(value):
@@ -115,13 +117,15 @@ def count_spells(chr):
     :param chr: the character object to learn about
     :return: the total amount of spells they know
     """
-    count = 0
-    for level in chr.spells:
-        count += level[0]
-    return count
+    if chr.spells:
+        count = 0
+        for level in chr.spells:
+            count += level[0]
+        return count
+    return 0
 
 
-def init_scores(chr, level):
+def init_scores(chr):
     flag = True
     scores = []
     choices = ["strength", "dexterity", "wisdom", "intelligence", "charisma", "constitution"]
@@ -186,7 +190,9 @@ def init_scores(chr, level):
             break
 
 
-def is_valid_input(arg, choices, scores):
+def is_valid_input(arg, choices=None, scores=None):
+    if not choices:
+        choices = ["strength", "dexterity", "wisdom", "intelligence", "charisma", "constitution"]
     try:
         if is_one_string(arg):
             choice = arg.strip().split()[0]
@@ -248,3 +254,22 @@ def add_language(chr, languages, race=False, clas=False):
         for item in languages:
             chr.languages.append(item)
 
+
+def combat_to_string(chr):
+    pass
+
+
+def score_to_string(chr):
+    pass
+
+
+def feature_to_string(chr):
+    pass
+
+
+def special_to_string(chr):
+    pass
+
+
+def character_to_string(chr):
+    pass
