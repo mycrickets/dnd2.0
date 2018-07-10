@@ -1,5 +1,6 @@
 import src.utils.utils as utilities
 import src.Character as character
+import random as r
 
 
 def main():
@@ -9,25 +10,21 @@ def main():
         command = command.strip()
         if command == "create":
             print("creation of character")
-            chr = character.Character(int(input("What level are you?")))
+            chr = character.Character(5)
             chr.set_race()
             chr.set_class()
-            print("success?")
+            print("strength: " + str(chr.strength))
+            print("wisdom: " + str(chr.wisdom))
+            print("intelligence: " + str(chr.intelligence))
+            print("dexterity: " + str(chr.dexterity))
+            print("charisma: " + str(chr.charisma))
+            print("constitution: " + str(chr.constitution))
+            print(chr.race.size)
+            print(chr.race.weight)
+            print(chr.race.age)
+            print(chr.race.height)
 
-            '''print("Let's talk about some of your stats.")
-            choice = input("Do you want to do a dice 'roll' for your stats, or the standard 'array'?")
-            stats = []
-            if choice == "roll":
-                stats = roll_stats(chr)
-            else:
-                stats = [15, 14, 13, 12, 10, 8]'''
-
-            '''chr.set_race()
-            chr.set_class()
-            chr.count_spells()'''
-
-            # print(chr.to_string())
-
+            # chr.to_string()
         elif command == "help":
             print("Type in: "
                   "\ncreate: \tcreate a new character"
@@ -72,3 +69,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

@@ -3,10 +3,7 @@ import src.utils.utils as utilities
 
 
 class BaseChr:
-    def __init__(self, check, level):
-        scores = []
-        if check:
-            print("hullo")
+    def __init__(self, level):
         self.level = int(level)
 
 

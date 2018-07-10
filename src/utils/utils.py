@@ -1,4 +1,5 @@
 import math
+import random as r
 import src.utils.dictionary as dictionary
 import src.utils.spell_dict as spell_dict
 
@@ -121,10 +122,129 @@ def count_spells(chr):
 
 
 def init_scores(chr, level):
-    chr.strength = 10
-    chr.dexterity = 10
-    chr.intelligence = 10
-    chr.wisdom = 10
-    chr.charisma = 10
-    chr.constitution = 10
+    flag = True
+    scores = []
+    choices = ["strength", "dexterity", "wisdom", "intelligence", "charisma", "constitution"]
+    chr_choices = []
+    assigned = 0
+    choice = input("Do you want to 'roll' your scores, or use the 'basic' preset scores?")
+    if choice.lower() == "roll":
+        while flag:
+            while assigned < 6:
+                d1 = r.randint(1, 6)
+                d2 = r.randint(1, 6)
+                d3 = r.randint(1, 6)
+                d4 = r.randint(1, 6)
+                end = (d1+d2+d3+d4) - min(d1, d2, d3, d4)
+                scores.append(int(end))
+                assigned += 1
+            if sum(scores) >= 70:
+                flag = False
+            else:
+                scores = []
+                assigned = 0
+                print("BUG")
+                print("\n\n\n\n")
+    else:
+        scores = [15, 14, 13, 12, 10, 8]
+    while 0 <= len(chr_choices) < 6:
+        chr_score = ""
+        pennant = False
+        plinth = False
+        while not pennant:
+            # each loop of assignment. either do score_num or score -> num
+            print("below are the scores you have left to assign")
+            for item in choices:
+                print(item)
+            print("below are the remaining scores:")
+            for item in scores:
+                print(item)
+            chr_score = input("Which score do you want to assign? please input from list above\n")
+            plinth = is_one_string(chr_score)
+            pennant = is_valid_input(chr_score, choices, scores)
+        flag = False
+        if plinth:
+            while not flag:
+                flag = set_two_score(chr, chr_score)
+                # print("You can't assign that to " + chr_score.strip().split()[0])
+            choices.remove(chr_score.strip().split()[0])
+            scores.remove(int(chr_score.strip().split()[1]))
+            chr_choices.append(chr_score.strip().split()[0])
+        else:
+            while not flag:
+                flag = set_one_score(chr, chr_score, scores)
+                # if flag:
+                #   print("You can't assign that to " + chr_score)
+            choices.remove(chr_score)
+            chr_choices.append(chr_score)
+            scores.remove(getattr(chr, chr_score))
+        print("hit me")
+        if len(choices) < 2:
+            setattr(chr, choices[0], scores[0])
+            print(choices[0] + " was assigned: " + str(scores[0]))
+            print("\n")
+            break
+
+
+def is_valid_input(arg, choices, scores):
+    try:
+        if is_one_string(arg):
+            choice = arg.strip().split()[0]
+            score = int(arg.strip().split()[1])
+            assert choice in choices
+            assert score in scores
+            return True
+        else:
+            assert arg in choices
+            return True
+    except AssertionError:
+        return False
+
+
+def is_one_string(arg):
+    """
+    sees if the input is the score & num in one string or not
+    :param arg:
+    :return: bool - true if it is, false else
+    """
+    try:
+        int(arg.strip().split()[1])
+        return True
+    except (ValueError, IndexError):
+        return False
+
+
+def set_two_score(chr, sng):
+    try:
+        ability = sng.strip().split()[0]
+        score = sng.strip().split()[1]
+        old = getattr(chr, ability)
+        setattr(chr, ability, score)
+        new = getattr(chr, ability)
+        return True if new != old else False
+    except AssertionError:
+        return False
+
+
+def set_one_score(chr, sng, scores):
+    try:
+        old = getattr(chr, sng)
+        for item in scores:
+            print(item)
+        play_choice = input("Which score do you want to assign to " + sng)
+        assert int(play_choice) in scores, print(play_choice + " isn't in the list you're allowed to use.")
+        setattr(chr, sng, int(play_choice))
+        new = getattr(chr, sng)
+        return True if new != old else False
+    except AssertionError:
+        return False
+
+
+def add_language(chr, languages, race=False, clas=False):
+    if race:
+        for item in languages:
+            chr.languages.append(item)
+    elif clas:
+        for item in languages:
+            chr.languages.append(item)
 
