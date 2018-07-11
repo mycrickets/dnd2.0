@@ -13,16 +13,8 @@ def main():
             chr = character.Character(5)
             chr.set_race()
             chr.set_class()
-            print("strength: " + str(chr.strength))
-            print("wisdom: " + str(chr.wisdom))
-            print("intelligence: " + str(chr.intelligence))
-            print("dexterity: " + str(chr.dexterity))
-            print("charisma: " + str(chr.charisma))
-            print("constitution: " + str(chr.constitution))
-            print(chr.race.size)
-            print(chr.race.weight)
-            print(chr.race.age)
-            print(chr.race.height)
+            utilities.score_to_string(chr)
+            utilities.character_to_string(chr)
 
             # chr.to_string()
         elif command == "help":

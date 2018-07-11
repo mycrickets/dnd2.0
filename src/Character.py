@@ -15,9 +15,17 @@ class Character:
         self.wisdom = 0
         #utilities.init_scores(self, self.level)
         self.race = None
+        self.race_name = ""
         self.clas = None
+        self.class_name = ""
+        self.alignment = ""
+        self.name = ""
+        self.player_name = ""
+        self.gender = ""
+        self.sex = ""
         self.background = ""
         self.personality = ""
+        self.trait = ""
         self.ideals = ""
         self.flaws = ""
         self.bonds = ""
@@ -25,6 +33,7 @@ class Character:
     def set_race(self):
         race = Dragonborn(self.level)
         self.race = race
+        self.race_name = "dragonborn"
         self.strength += self.race.str_mod
         self.dexterity += self.race.dex_mod
         self.wisdom += self.race.wis_mod

@@ -14,9 +14,10 @@ class Dragonborn(BaseRace.BaseRace):
         self.height_low = 200
         self.height_high = 300
         self.attacks = []
-        self.color = ""
+        self.color = "red"
         self.weapons = []
         self.size = "medium"
+        self.subrace = "no subrace"
         self.options = {
             "black": ["acid", "dex", "line 5' by 30'"],
             "blue": ["lightning", "dex", "line 5' by 30'"],
@@ -34,7 +35,7 @@ class Dragonborn(BaseRace.BaseRace):
         self.get_height(self)
         self.get_weight(self)
         utilities.add_language(self, ["draconic", "common"], True)
-        self.set_color()
+        # self.set_color()
         self.set_weapon()
         self.set_resistance()
         self.set_mod(2, 0, 0, 0, 1, 0)

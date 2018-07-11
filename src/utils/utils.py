@@ -10,7 +10,8 @@ def ability_score_increase(chr):
     :param chr: character object to manipulate
     :return: nothing
     """
-    choice = input("Level Up: do you want to level up 'one' ability score by two points, or 'two' scores by one each?\n")
+    choice = input(
+        "Level Up: do you want to level up 'one' ability score by two points, or 'two' scores by one each?\n")
     while True:
         for item in chr.stats:
             print(item)
@@ -139,7 +140,7 @@ def init_scores(chr):
                 d2 = r.randint(1, 6)
                 d3 = r.randint(1, 6)
                 d4 = r.randint(1, 6)
-                end = (d1+d2+d3+d4) - min(d1, d2, d3, d4)
+                end = (d1 + d2 + d3 + d4) - min(d1, d2, d3, d4)
                 scores.append(int(end))
                 assigned += 1
             if sum(scores) >= 70:
@@ -256,20 +257,61 @@ def add_language(chr, languages, race=False, clas=False):
 
 
 def combat_to_string(chr):
+    # armor, weapons, equipment, cantrips, spells, spell dc, spell saving throw
     pass
 
 
 def score_to_string(chr):
-    pass
+    # level, str->cha, hit dice, max hp, speed, swim speed, fly speed
+    level = "level: \t" + str(chr.level)
+    strength = "strength: \t" + str(chr.strength)
+    dexterity = "dexterity: \t" + str(chr.dexterity)
+    wisdom = "wisdom: \t" + str(chr.wisdom)
+    intelligence = "intelligence: \t" + str(chr.intelligence)
+    charisma = "charimsa: \t" + str(chr.charisma)
+    constitution = "constitution: \t" + str(chr.constitution)
+    hit_dice = "hit dice: \t" + str(chr.clas.hit_dice)
+    max_hp = "max hp: \t" + str(chr.clas.hp)
+    speed = "speed: \t" + str(chr.race.speed)
+    swim_spd = "swimming speed: \t" + str(chr.race.swim_spd)
+    fly_speed = "flying speed: \t" + str(chr.race.fly_spd)
+    output = [level, strength, dexterity, wisdom, intelligence, charisma, constitution, hit_dice, max_hp, speed, swim_spd, fly_speed]
+    for item in output:
+        print(item)
 
 
 def feature_to_string(chr):
+    # skills, features, saving throws, languages, proficiencies, feats, resistances, disadvantages, advantages
     pass
 
 
 def special_to_string(chr):
+    # class/race specific: color for dragonborn
     pass
 
 
 def character_to_string(chr):
-    pass
+    # name, play_name, age, sex, gender, height, weight, race, subrace, class, archetype, background, personality trait,
+    # ideal, flaw, bond, alignment
+    name = "name: \t" + chr.name
+    play_name = "player name: \t" + chr.player_name
+    gender = "gender: \t" + chr.gender
+    sex = "sex: \t" + chr.sex
+    age = "age: \t" + str(chr.race.age)
+    weight = "weight: \t" + str(chr.race.weight) + " lbs"
+    height = "height: \t" + str(chr.race.height) + " inches"
+    race = "race: \t" + str(chr.race_name)
+    subrace = "subrace: \t" + chr.race.subrace
+    clas = "class: \t" + chr.class_name
+    archetype = "archetype: \t" + chr.clas.archetype
+    background = "background: \t" + chr.background
+    personality = "personality: \t" + chr.personality
+    trait = "trait: \t" + chr.trait
+    ideal = "ideal: \t" + chr.ideals
+    flaw = "flaw: \t" + chr.flaws
+    bond = "bond: \t" + chr.bonds
+    alignment = "alignment: \t" + chr.alignment
+
+    output = [name, play_name, gender, sex, age, weight, height, race, subrace, clas, archetype, background, personality, trait, ideal, flaw, bond, alignment]
+    for item in output:
+        print(item)

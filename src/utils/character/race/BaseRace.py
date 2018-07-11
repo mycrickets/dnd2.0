@@ -14,8 +14,9 @@ class BaseRace(base_chr.BaseChr, magic_chr.magic_chr):
         self.height = 0
         self.speed = 0
         self.swim_spd = 0
+        self.fly_spd = 0
         self.languages = []
-
+        self.subrace = ""
         self.str_mod = 0
         self.wis_mod = 0
         self.dex_mod = 0

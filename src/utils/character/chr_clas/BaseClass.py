@@ -4,19 +4,19 @@ import src.utils.utils as utilities
 
 
 class BaseClass(base_chr.BaseChr, magic_chr.magic_chr):
-    all_skills = None
+    all_skills = []
     hp = 0
-    hit_dice = None
+    hit_dice = ""
     prof_bonus = 0
-    archetype = None
-    saving_throws = None
-    skills = None
-    features = None
-    proficiencies = None
-    resistances = None
-    attack = None
-    armor = None
-    equip = None
+    archetype = ""
+    saving_throws = []
+    skills = []
+    features = []
+    proficiencies = []
+    resistances = []
+    attack = []
+    armor = []
+    equip = []
 
     def __init__(self, level):
         base_chr.BaseChr.__init__(self, level)
