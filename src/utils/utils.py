@@ -247,12 +247,17 @@ def set_one_score(chr, sng, scores):
         return False
 
 
-def add_language(chr, languages, race=False, clas=False):
+def add_language(chr, languages, race=False, clas=False, transfer=False):
     if race:
         for item in languages:
             chr.languages.append(item)
     elif clas:
         for item in languages:
+            chr.languages.append(item)
+    elif transfer:
+        for item in chr.race.languages:
+            chr.languages.append(item)
+        for item in chr.clas.languages:
             chr.languages.append(item)
 
 
@@ -287,7 +292,11 @@ def feature_to_string(chr):
 
 def special_to_string(chr):
     # class/race specific: color for dragonborn
-    pass
+    output = []
+    if chr.race_name == "dragonborn":
+        output.append("color: \t" + chr.race.color)
+    for item in output:
+        print(item)
 
 
 def character_to_string(chr):
