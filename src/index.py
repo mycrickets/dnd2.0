@@ -16,6 +16,7 @@ def main():
             utilities.score_to_string(chr)
             utilities.character_to_string(chr)
             utilities.special_to_string(chr)
+            utilities.feature_to_string(chr)
 
             # chr.to_string()
         elif command == "help":

@@ -247,18 +247,29 @@ def set_one_score(chr, sng, scores):
         return False
 
 
-def add_language(chr, languages, race=False, clas=False, transfer=False):
+def transfer_languages(chr, languages=None, race=False, clas=False, transfer=False):
     if race:
         for item in languages:
-            chr.languages.append(item)
+            add_language(chr, item)
     elif clas:
         for item in languages:
-            chr.languages.append(item)
+            add_language(chr, item)
     elif transfer:
-        for item in chr.race.languages:
-            chr.languages.append(item)
-        for item in chr.clas.languages:
-            chr.languages.append(item)
+        try:
+            for item in chr.race.languages:
+                    add_language(chr, item)
+        except AttributeError:
+            pass
+        try:
+            for item in chr.clas.languages:
+                    add_language(chr, item)
+        except AttributeError:
+            pass
+
+
+def add_language(chr, item):
+    if item not in chr.languages:
+        chr.languages.append(item)
 
 
 def combat_to_string(chr):
@@ -287,7 +298,40 @@ def score_to_string(chr):
 
 def feature_to_string(chr):
     # skills, features, saving throws, languages, proficiencies, feats, resistances, disadvantages, advantages
-    pass
+    skills = "skills: "
+    for item in chr.clas.skills:
+        skills += "\n" + item
+    features = "features: "
+    for item in chr.clas.features:
+        features += "\n" + item
+    saving_throws = "saving throws: "
+    for item in chr.clas.saving_throws:
+        saving_throws += "\n" + item
+    languages = "languages known: "
+    transfer_languages(chr, None, False, False, True)
+    for item in chr.languages:
+        languages += "\n" + item
+    proficiencies = "proficient in: "
+    for item in chr.clas.proficiencies:
+        proficiencies += "\n" + item
+    feats = "feats known: "
+    for item in chr.clas.feats:
+        feats += "\n" + item
+    resis = "resistant to: "
+    for item in chr.clas.resistances:
+        resis += "\n" + item
+    dis = "has permanent disadvantage to: "
+    for item in chr.clas.disadvantages:
+        dis += "\n" + item
+    adv = "has permanent advantage to: "
+    for item in chr.clas.advantages:
+        adv += "\n" + item
+    output = [skills, features, saving_throws, languages, proficiencies, feats, resis, dis, adv]
+    for item in output:
+        print(item + "\n")
+
+
+# NEED TRANSFER/ADD ITEM FOR RACE -> CHR <- CLASS
 
 
 def special_to_string(chr):

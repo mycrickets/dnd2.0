@@ -11,8 +11,12 @@ class BaseClass(base_chr.BaseChr, magic_chr.magic_chr):
     archetype = ""
     saving_throws = []
     skills = []
+    feats = []
     features = []
     proficiencies = []
+    advantages = []
+    disadvantages = []
+    languages = []
     resistances = []
     attack = []
     armor = []

@@ -34,7 +34,7 @@ class Dragonborn(BaseRace.BaseRace):
         self.get_age(self)
         self.get_height(self)
         self.get_weight(self)
-        utilities.add_language(self, ["draconic", "common"], True)
+        utilities.transfer_languages(self, ["draconic", "common"], True)
         # self.set_color()
         self.set_weapon()
         self.set_resistance()
