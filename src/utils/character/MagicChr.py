@@ -145,35 +145,35 @@ class MagicChr:
         :param spells: list of lists: [[level, [spells]], [level, [spells]]]
         :return: N/A
         """
-        for levels in spells:
-            for level in levels:
-                set_level = level[0]
-                spelllist = level[1]
-                plinth = ""
-                if set_level == "cantrip":
-                    plinth = self.cantrips
-                elif set_level == "one":
-                    plinth = self.one
-                elif set_level == "two":
-                    plinth = self.two
-                elif set_level == "three":
-                    plinth = self.three
-                elif set_level == "four":
-                    plinth = self.four
-                elif set_level == "five":
-                    plinth = self.five
-                elif set_level == "six":
-                    plinth = self.six
-                elif set_level == "seven":
-                    plinth = self.seven
-                elif set_level == "eight":
-                    plinth = self.eight
-                elif set_level == "nine":
-                    plinth = self.nine
-                plinth[0] += len(spelllist)
-                for item in spelllist:
-                    if item not in plinth[1]:
-                        plinth[1].append(item)
-                    else:
-                        plinth[0] -= 1
+        for level in spells:
+
+            set_level = level[0]
+            spelllist = level[1]
+            plinth = None
+            if set_level == "one":
+                plinth = self.one
+            elif set_level == "two":
+                plinth = self.two
+            elif set_level == "three":
+                plinth = self.three
+            elif set_level == "four":
+                plinth = self.four
+            elif set_level == "five":
+                plinth = self.five
+            elif set_level == "six":
+                plinth = self.six
+            elif set_level == "seven":
+                plinth = self.seven
+            elif set_level == "eight":
+                plinth = self.eight
+            elif set_level == "nine":
+                plinth = self.nine
+            else:
+                plinth = self.cantrips
+            plinth[0] += len(spelllist)
+            for item in spelllist:
+                if item not in plinth[1]:
+                    plinth[1].append(item)
+                else:
+                    plinth[0] -= 1
 

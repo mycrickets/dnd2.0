@@ -36,6 +36,7 @@ class Character:
 
     def set_race(self):
         race = input("what race are you?")
+        race = race.strip()
         if race == "dragonborn":
             race = Dragonborn(self.level)
             self.race_name = "dragonborn"

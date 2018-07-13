@@ -26,6 +26,7 @@ class Elf(BaseRace, MagicChr):
         self.features.append("trance")
 
         utilities.transfer_languages(self, ["common", "elvish"], True)
+        self.set_subrace()
 
     def set_subrace(self):
         self.subrace = input("Which Elvish subrace do you want to be: High, Dark, or Wood?")
@@ -33,18 +34,35 @@ class Elf(BaseRace, MagicChr):
         if self.subrace == "high":
             self.subrace = "High Elf"
             self.int_mod = 1
-            for item in ["longsword", "shortsword", "shortbow", "longbow"]:
-                self.proficiencies.append(item)
+            utilities.append_proficiencies(self, ["longsword", "shortsword", "shortbow", "longbow"])
             utilities.transfer_languages(self, input("High Elf Initialization: What language do you want to learn?"), True)
             self.cantrips[0] += 1
             self.cantrips[1].append(input("High Elf Initialization: What wizard cantrip do you want to learn?"))
         elif self.subrace == "dark":
             self.subrace = "Dark Elf"
             self.cha_mod = 1
-            self.proficiencies.remove("darkvision")
-            for item in ["superior darkvision", "rapier", "shortsword", "hand crossbow"]:
-                self.proficiencies.append(item)
+            try:
+                self.proficiencies.remove("darkvision")
+            except ValueError:
+                pass
+            utilities.append_proficiencies(self, ["superior darkvision", "rapier", "shortsword", "hand crossbow"])
             self.disadvantages.append("wisdom saving throws")
+            spell_cant = [["cantrip", ["Dancing Lights"]]]
+            spell_one = [["one", ["Faerie Fire"]]]
+            spell_two = [["two", ["Darkness"]]]
+            self.add_spell(spell_cant)
+            if self.level > 2:
+                self.add_spell(spell_one)
+            if self.level > 4:
+                self.add_spell(spell_two)
+        else:
+            self.subrace = "Wood Elf"
+            self.wis_mod = 1
+            utilities.append_proficiencies(self, ["longsword", "shortsword", "shortbow", "longbow"])
+            self.speed = 35
+            self.set_swim()
+            self.features.append("Mask of the Wild")
+
 
 
 

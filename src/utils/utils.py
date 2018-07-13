@@ -132,6 +132,11 @@ def equip(chr, items):
         chr.equipment.append(obj)
 
 
+def append_proficiencies(chr, profs):
+    for item in profs:
+        chr.proficiencies.append(item)
+
+
 def count_spells(chr):
     """
     returns the total amount of spells a character knows.
@@ -268,23 +273,28 @@ def set_one_score(chr, sng, scores):
 
 
 def transfer_languages(chr, languages=None, race=False, clas=False, transfer=False):
-    if race:
-        for item in languages:
-            add_language(chr, item)
-    elif clas:
-        for item in languages:
-            add_language(chr, item)
-    elif transfer:
-        try:
-            for item in chr.race.languages:
-                    add_language(chr, item)
-        except AttributeError:
-            pass
-        try:
-            for item in chr.clas.languages:
-                    add_language(chr, item)
-        except AttributeError:
-            pass
+    one = False
+    if isinstance(languages, str):
+        add_language(chr, languages)
+        one = True
+    if not one:
+        if race:
+            for item in languages:
+                add_language(chr, item)
+        elif clas:
+            for item in languages:
+                add_language(chr, item)
+        elif transfer:
+            try:
+                for item in chr.race.languages:
+                        add_language(chr, item)
+            except AttributeError:
+                pass
+            try:
+                for item in chr.clas.languages:
+                        add_language(chr, item)
+            except AttributeError:
+                pass
 
 
 def add_language(chr, item):
@@ -293,9 +303,36 @@ def add_language(chr, item):
 
 
 def combat_to_string(chr):
-    # armor, weapons, equipment, cantrips, spells, spell dc, spell saving throw
-
+    # armor, weapons, equipment
     pass
+
+
+def magic_to_string(chr):
+    # cantrips, spells, spell dc, spell saving throw
+    try:
+        cantrips = "cantrips known: "
+        for item in chr.cantrips:
+            cantrips += "\n" + item
+        i = 0
+        spells = ""
+        for spell in chr.spells:
+            for item in spell:
+                if isinstance(item, list):
+                    place = "Spells level " + str(i + 1) + ": \t"
+                    spells += place
+                    for thing in item:
+                        spells = spells + str(thing) + " "
+                    spells += "\n"
+                    i += 1
+        if spells == "":
+            spells = "No known spells"
+        spell_dc = "Spell DC: " + chr.magic_dc
+        spell_throw = "Spell Throw: " + chr.magic_throw
+        output = [cantrips, spells, spell_dc, spell_throw]
+        for item in output:
+            print(item)
+    except AttributeError:
+        print("hit error")
 
 
 def score_to_string(chr):

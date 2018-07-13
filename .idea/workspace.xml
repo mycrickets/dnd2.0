@@ -2,14 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88988547-7c4f-4f46-810b-d75eaaa519a9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Character.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/BaseChr.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/BaseChr.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/MagicChr.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/MagicChr.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/BaseClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/BaseClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/race/BaseRace.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/BaseRace.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/race/spec/dragonborn.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/dragonborn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/race/spec/dwarf.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/dwarf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/character/race/spec/elf.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/elf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.py" afterDir="false" />
     </list>
@@ -63,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="elf.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="elf.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utils/character/race/spec/elf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            <state relative-caret-position="433">
+              <caret line="41" column="28" lean-forward="true" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -90,7 +82,7 @@
       <file leaf-file-name="MagicChr.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/character/MagicChr.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="579">
+            <state relative-caret-position="843">
               <caret line="177" column="38" selection-start-line="177" selection-start-column="38" selection-end-line="177" selection-end-column="38" />
             </state>
           </provider>
@@ -111,8 +103,8 @@
       <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-551">
-              <caret line="48" column="16" lean-forward="true" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+            <state relative-caret-position="354">
+              <caret line="134" column="37" selection-start-line="134" selection-start-column="37" selection-end-line="134" selection-end-column="37" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -120,7 +112,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
@@ -189,13 +181,13 @@
         <option value="$PROJECT_DIR$/src/utils/character/race/spec/dragonborn.py" />
         <option value="$PROJECT_DIR$/src/Character.py" />
         <option value="$PROJECT_DIR$/src/utils/character/BaseChr.py" />
-        <option value="$PROJECT_DIR$/src/utils/utils.py" />
         <option value="$PROJECT_DIR$/src/utils/character/chr_clas/BaseClass.py" />
         <option value="$PROJECT_DIR$/src/utils/character/race/spec/dwarf.py" />
         <option value="$PROJECT_DIR$/src/utils/character/MagicChr.py" />
         <option value="$PROJECT_DIR$/src/utils/character/race/BaseRace.py" />
-        <option value="$PROJECT_DIR$/src/utils/character/race/spec/elf.py" />
         <option value="$PROJECT_DIR$/src/index.py" />
+        <option value="$PROJECT_DIR$/src/utils/utils.py" />
+        <option value="$PROJECT_DIR$/src/utils/character/race/spec/elf.py" />
       </list>
     </option>
   </component>
@@ -215,7 +207,7 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="488" />
+    <option name="x" value="781" />
     <option name="y" value="23" />
     <option name="width" value="899" />
     <option name="height" value="1027" />
@@ -370,15 +362,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="488" y="23" width="899" height="1027" extended-state="0" />
+    <frame x="781" y="23" width="899" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32903227" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24623656" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.178125" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24623656" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.17741935" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49597856" weight="0.16452742" />
       <window_info anchor="right" id="R Packages" order="3" weight="0.32967034" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
@@ -603,33 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/BaseClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-551">
-          <caret line="48" column="16" lean-forward="true" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/character/MagicChr.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="177" column="38" selection-start-line="177" selection-start-column="38" selection-end-line="177" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/character/race/BaseRace.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
@@ -640,13 +606,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/character/race/spec/elf.py">
+    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/BaseClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        <state relative-caret-position="553">
+          <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
           <folding>
-            <element signature="e#0#54#0" expanded="true" />
+            <element signature="e#0#47#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/MagicChr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="843">
+          <caret line="177" column="38" selection-start-line="177" selection-start-column="38" selection-end-line="177" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -656,6 +629,26 @@
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="134" column="37" selection-start-line="134" selection-start-column="37" selection-end-line="134" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/race/spec/elf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="41" column="28" lean-forward="true" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
