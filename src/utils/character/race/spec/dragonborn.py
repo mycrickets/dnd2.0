@@ -1,4 +1,3 @@
-import src.utils.character.BaseChr as BaseChr
 import src.utils.character.race.BaseRace as BaseRace
 import src.utils.utils as utilities
 
@@ -7,12 +6,12 @@ class Dragonborn(BaseRace.BaseRace):
     def __init__(self, level):
         BaseRace.BaseRace.__init__(self, level)
         self.resistances = []
-        self.age_low = 0
-        self.age_high = 100
-        self.weight_low = 100
-        self.weight_high = 200
-        self.height_low = 200
-        self.height_high = 300
+        self.age_low = 3
+        self.age_high = 80
+        self.weight_low = 200
+        self.weight_high = 400
+        self.height_low = 65
+        self.height_high = 85
         self.attacks = []
         self.color = "red"
         self.weapons = []

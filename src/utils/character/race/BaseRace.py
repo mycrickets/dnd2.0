@@ -1,21 +1,23 @@
-import src.utils.character.BaseChr as base_chr
-import src.utils.character.MagicChr as magic_chr
-import src.utils.utils as utilities
-
+from src.utils.character.BaseChr import BaseChr
+from src.utils.character.MagicChr import MagicChr
 import random as r
 
 
-class BaseRace(base_chr.BaseChr, magic_chr.magic_chr):
+class BaseRace(BaseChr, MagicChr):
     def __init__(self, level):
-        base_chr.BaseChr.__init__(self, level)
+        BaseChr.__init__(self, level)
         self.level = int(level)
         self.age = 0
         self.weight = 0
         self.height = 0
-        self.speed = 0
+        self.speed = 30
         self.swim_spd = 0
         self.fly_spd = 0
         self.languages = []
+        self.proficiencies = []
+        self.resistances = []
+        self.features = []
+        self.skills = []
         self.subrace = ""
         self.str_mod = 0
         self.wis_mod = 0
@@ -23,6 +25,13 @@ class BaseRace(base_chr.BaseChr, magic_chr.magic_chr):
         self.int_mod = 0
         self.cha_mod = 0
         self.con_mod = 0
+        self.set_swim()
+
+    def set_subrace(self):
+        pass
+
+    def set_swim(self):
+        self.swim_spd = self.speed / 2
 
     def get_age(self, chr):
         self.age = int(r.randrange(chr.age_low, chr.age_high))
@@ -40,4 +49,3 @@ class BaseRace(base_chr.BaseChr, magic_chr.magic_chr):
         self.int_mod = int(itl)
         self.cha_mod = int(cha)
         self.con_mod = int(con)
-

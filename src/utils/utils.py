@@ -29,6 +29,26 @@ def ability_score_increase(chr):
             print("I don't understand that. Please enter 'one' or 'two' next time!\n")
 
 
+def set_prof(chr, opts):
+    """
+    sets character proficiencies (not skill proficiencies) based on list of options given
+    :param opts: list of list of profs available to the character
+    """
+    flag = True
+    while flag:
+        try:
+            avail = set(opts) - set(chr.proficiencies)
+            print("Which do you want to be proficient in? Options are listed below")
+            for item in avail:
+                print(item)
+            choice = input("")
+            assert choice in avail, "That wasn't an option"
+            chr.proficiencies.append(choice)
+            flag = False
+        except AssertionError:
+            pass
+
+
 def alter_stat(chr, stat, chg):
     """
     used for updating/leveling up. functionality for increasing any abiltiy score by a given amount
@@ -38,9 +58,9 @@ def alter_stat(chr, stat, chg):
     :return: True in the case of a success, string response in the case of failure
     """
     if is_valid_input(stat):
-        old = chr.__getattribute__(stat)
+        old = getattr(chr, stat)
         setattr(chr, stat, old + chg)
-        new = chr.__getattribute__(stat)
+        new = getattr(chr, stat)
         if old != new:
             return True
         return "ERROR - did not update - contact admin"
@@ -55,7 +75,7 @@ def get_modifier(chr, stat):
     :return: the int of the modifier: +/- x
     """
     if is_valid_input(stat):
-        base = chr.__getattribute__(stat)
+        base = getattr(chr, stat)
         print(base)
         return int(math.floor(base - 10) / 2)
     return -300
@@ -193,7 +213,7 @@ def init_scores(chr):
 
 def is_valid_input(arg, choices=None, scores=None):
     if not choices:
-        choices = ["strength", "dexterity", "wisdom", "intelligence", "charisma", "constitution"]
+        choices = ["strength", "dexterity", "wisdom", "intelligence", "charisma", "constitution", "hp"]
     try:
         if is_one_string(arg):
             choice = arg.strip().split()[0]
@@ -274,6 +294,7 @@ def add_language(chr, item):
 
 def combat_to_string(chr):
     # armor, weapons, equipment, cantrips, spells, spell dc, spell saving throw
+
     pass
 
 
@@ -284,10 +305,10 @@ def score_to_string(chr):
     dexterity = "dexterity: \t" + str(chr.dexterity)
     wisdom = "wisdom: \t" + str(chr.wisdom)
     intelligence = "intelligence: \t" + str(chr.intelligence)
-    charisma = "charimsa: \t" + str(chr.charisma)
+    charisma = "charisma: \t" + str(chr.charisma)
     constitution = "constitution: \t" + str(chr.constitution)
     hit_dice = "hit dice: \t" + str(chr.clas.hit_dice)
-    max_hp = "max hp: \t" + str(chr.clas.hp)
+    max_hp = "max hp: \t" + str(chr.hp)
     speed = "speed: \t" + str(chr.race.speed)
     swim_spd = "swimming speed: \t" + str(chr.race.swim_spd)
     fly_speed = "flying speed: \t" + str(chr.race.fly_spd)

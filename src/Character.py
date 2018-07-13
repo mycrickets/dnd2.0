@@ -1,5 +1,7 @@
 from src.utils.character.chr_clas.spec.barbarian import Barbarian
 from src.utils.character.race.spec.dragonborn import Dragonborn
+from src.utils.character.race.spec.dwarf import Dwarf
+from src.utils.character.race.spec.elf import Elf
 
 import src.utils.utils as utilities
 
@@ -13,6 +15,7 @@ class Character:
         self.charisma = 0
         self.intelligence = 0
         self.wisdom = 0
+        self.hp = 0
         #utilities.init_scores(self, self.level)
         self.languages = []
         self.race = None
@@ -32,9 +35,18 @@ class Character:
         self.bonds = ""
 
     def set_race(self):
-        race = Dragonborn(self.level)
+        race = input("what race are you?")
+        if race == "dragonborn":
+            race = Dragonborn(self.level)
+            self.race_name = "dragonborn"
+        elif race == "dwarf":
+            race = Dwarf(self.level)
+            self.race_name = "dwarf"
+        elif race == "elf":
+            race = Elf(self.level)
+            self.race_name = "elf"
         self.race = race
-        self.race_name = "dragonborn"
+        self.hp += self.race.hp
         self.strength += self.race.str_mod
         self.dexterity += self.race.dex_mod
         self.wisdom += self.race.wis_mod

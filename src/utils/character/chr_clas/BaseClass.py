@@ -1,29 +1,27 @@
-import src.utils.character.BaseChr as base_chr
-import src.utils.character.MagicChr as magic_chr
+from src.utils.character.BaseChr import BaseChr
+from src.utils.character.MagicChr import MagicChr
 import src.utils.utils as utilities
 
 
-class BaseClass(base_chr.BaseChr, magic_chr.magic_chr):
-    all_skills = []
-    hp = 0
-    hit_dice = ""
-    prof_bonus = 0
-    archetype = ""
-    saving_throws = []
-    skills = []
-    feats = []
-    features = []
-    proficiencies = []
-    advantages = []
-    disadvantages = []
-    languages = []
-    resistances = []
-    attack = []
-    armor = []
-    equip = []
-
+class BaseClass(BaseChr, MagicChr):
     def __init__(self, level):
-        base_chr.BaseChr.__init__(self, level)
+        BaseChr.__init__(self, level)
+        self.all_skills = []
+        self.hit_dice = ""
+        self.prof_bonus = 0
+        self.archetype = ""
+        self.saving_throws = []
+        self.skills = []
+        self.feats = []
+        self.features = []
+        self.proficiencies = []
+        self.advantages = []
+        self.disadvantages = []
+        self.languages = []
+        self.resistances = []
+        self.attack = []
+        self.armor = []
+        self.equipment = []
 
     def init_hit_dice(self, die):
         """
@@ -78,26 +76,28 @@ class BaseClass(base_chr.BaseChr, magic_chr.magic_chr):
             flag = False
         return self.archetype
 
-    def set_equip(self, opts):
+    def set_equip(self, opts, wpn_armor=False):
         """
         sets character equipment based on list of list of options given
         [[wpn1, wpn2], [armor1, armor2], etc]
+        :param wpn_armor: if the list contains weapons: if so, they need to be in equip + wpns, otherwise only equipment
         :param opts: list of list, shown above. possibly refactored in the future
-        """
-        # TODO
-
-    def set_prof(self, opts):
-        """
-        sets character proficiencies (not skill proficiencies) based on list of options given
-        :param opts: list of list of profs available to the character
         """
         flag = True
         while flag:
-            avail = set(opts) - set(self.proficiencies)
-            print("Which do you want to be proficient in? Options are listed below")
-            for item in avail:
-                print(item)
-            choice = input("")
-            assert choice in avail, "That wasn't an option"
-            self.proficiencies.append(choice)
-            flag = False
+            try:
+                for lists in opts:
+                    print("Which do you want to equip?")
+                    for item in lists:
+                        print(item)
+                    choice = input("")
+                    assert choice in lists
+                    if wpn_armor:
+                        utilities.equip(self, choice)
+                    else:
+                        self.equipment.append(choice)
+                    flag = False
+            except AssertionError:
+                pass
+
+
