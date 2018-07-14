@@ -14,6 +14,8 @@ def main():
             chr = character.Character(5)
             chr.set_race()
             chr.set_class()
+            chr.trigger_end()
+            # above to get all features, equip, etc from race and class to character. otherwise not accessible.
             utilities.score_to_string(chr)
             utilities.character_to_string(chr)
             utilities.special_to_string(chr)

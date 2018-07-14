@@ -16,9 +16,7 @@ class Dwarf(BaseRace):
         self.speed = 25
         self.set_swim()
         self.size = "medium"
-        self.get_age(self)
-        self.get_height(self)
-        self.get_weight(self)
+        self.set_awh(self)
         self.resistances.append("poison damage")
 
         proficiencies = ["darkvision", "battleaxe", "handaxe", "throwing hammer", "warhammer"]

@@ -31,7 +31,13 @@ class BaseRace(BaseChr, MagicChr):
         pass
 
     def set_swim(self):
-        self.swim_spd = self.speed / 2
+        if self.swim_spd == 0 or 15:
+            self.swim_spd = self.speed / 2
+
+    def set_awh(self, chr):
+        self.get_weight(chr)
+        self.get_age(chr)
+        self.get_height(chr)
 
     def get_age(self, chr):
         self.age = int(r.randrange(chr.age_low, chr.age_high))

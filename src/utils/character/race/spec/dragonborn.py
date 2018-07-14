@@ -1,10 +1,10 @@
-import src.utils.character.race.BaseRace as BaseRace
+from src.utils.character.race.BaseRace import BaseRace
 import src.utils.utils as utilities
 
 
-class Dragonborn(BaseRace.BaseRace):
+class Dragonborn(BaseRace):
     def __init__(self, level):
-        BaseRace.BaseRace.__init__(self, level)
+        BaseRace.__init__(self, level)
         self.resistances = []
         self.age_low = 3
         self.age_high = 80
@@ -30,9 +30,7 @@ class Dragonborn(BaseRace.BaseRace):
             "white": ["cold", "con", "cone 15'"],
         }
 
-        self.get_age(self)
-        self.get_height(self)
-        self.get_weight(self)
+        self.set_awh(self)
         utilities.transfer_languages(self, ["draconic", "common"], True)
         # self.set_color()
         self.set_weapon()

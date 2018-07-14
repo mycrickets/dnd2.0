@@ -2,6 +2,9 @@ from src.utils.character.chr_clas.spec.barbarian import Barbarian
 from src.utils.character.race.spec.dragonborn import Dragonborn
 from src.utils.character.race.spec.dwarf import Dwarf
 from src.utils.character.race.spec.elf import Elf
+from src.utils.character.race.spec.gnome import Gnome
+from src.utils.character.race.spec.half_elf import HalfElf
+from src.utils.character.race.spec.half_orc import HalfOrc
 
 import src.utils.utils as utilities
 
@@ -39,13 +42,22 @@ class Character:
         race = race.strip()
         if race == "dragonborn":
             race = Dragonborn(self.level)
-            self.race_name = "dragonborn"
+            self.race_name = "Dragonborn"
         elif race == "dwarf":
             race = Dwarf(self.level)
-            self.race_name = "dwarf"
+            self.race_name = "Dwarf"
         elif race == "elf":
             race = Elf(self.level)
-            self.race_name = "elf"
+            self.race_name = "Elf"
+        elif race == "gnome":
+            race = Gnome(self.level)
+            self.race_name = "Gnome"
+        elif race in ["half elf", "half_elf"]:
+            race = HalfElf(self.level)
+            self.race_name = "Half Elf"
+        elif race in ["half orc", "half_orc"]:
+            race = HalfOrc(self.level)
+            self.race_name = "Half Orc"
         self.race = race
         self.hp += self.race.hp
         self.strength += self.race.str_mod
@@ -65,3 +77,12 @@ class Character:
     def set_personality(self):
         pass
 
+    def trigger_end(self):
+        self.fin_features = []
+        self.fin_skills = []
+        self.fin_profs = []
+        self.fin_feats = []
+        self.fin_langs = []
+        self.fin_weapons = []
+        self.fin_equip = []
+        self.fin_magic = []

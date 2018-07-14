@@ -24,7 +24,7 @@ class Elf(BaseRace, MagicChr):
         for item in ["being charmed", "magical damage"]:
             self.proficiencies.append(item)
         self.features.append("trance")
-
+        self.set_awh(self)
         utilities.transfer_languages(self, ["common", "elvish"], True)
         self.set_subrace()
 
@@ -47,14 +47,7 @@ class Elf(BaseRace, MagicChr):
                 pass
             utilities.append_proficiencies(self, ["superior darkvision", "rapier", "shortsword", "hand crossbow"])
             self.disadvantages.append("wisdom saving throws")
-            spell_cant = [["cantrip", ["Dancing Lights"]]]
-            spell_one = [["one", ["Faerie Fire"]]]
-            spell_two = [["two", ["Darkness"]]]
-            self.add_spell(spell_cant)
-            if self.level > 2:
-                self.add_spell(spell_one)
-            if self.level > 4:
-                self.add_spell(spell_two)
+            self.add_spell([[[0, "cantrip"], ["Dancing Lights"]], [[2, "one"], ["Faerie Fire"]], [[4, "two"], ["Darkness"]]], self.level)
         else:
             self.subrace = "Wood Elf"
             self.wis_mod = 1

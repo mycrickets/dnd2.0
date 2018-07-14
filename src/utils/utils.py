@@ -4,7 +4,31 @@ import src.utils.dictionary as dictionary
 import src.utils.spell_dict as spell_dict
 
 
-def ability_score_increase(chr):
+def valid_skills():
+    return ["athletics", "acrobatics", "sleight of hand", "stealth", "arcana", "history", "investigation", "nature",
+            "religion", "animal handling", "insight", "medicine", "perception", "survival", "deception", "intimidation",
+            "performance", "persuasion"]
+
+
+def chr_race_mod(input, race=False):
+    if race:
+        opts = {"strength": "str_mod",
+                "dexterity": "dex_mod",
+                "wisdom": "wis_mod",
+                "intelligence": "int_mod",
+                "charisma": "cha_mod",
+                "constitution": "con_mod"}
+    else:
+        opts = {"strength": "strength",
+                "dexterity": "dexterity",
+                "wisdom": "wisdom",
+                "intelligence": "intelligence",
+                "charisma": "charisma",
+                "constitution": "constitution"}
+    return opts[input]
+
+
+def ability_score_increase(chr, race=False):
     """
     the functionality for levelling up: gets called to level up/increase an ability score. only functionality for finding out stat and value.
     :param chr: character object to manipulate
@@ -13,20 +37,41 @@ def ability_score_increase(chr):
     choice = input(
         "Level Up: do you want to level up 'one' ability score by two points, or 'two' scores by one each?\n")
     while True:
-        for item in chr.stats:
-            print(item)
+        six_to_string(chr, race)
         if choice == "one":
             stat = input("Which ability do you want to increase by two points? They're listed above\n")
-            alter_stat(chr, stat, 2)
-            break
+            if is_valid_input(stat):
+                alter_stat(chr, chr_race_mod(stat, race), 2, True)
+                break
+            else:
+                print("I don't understand that. Please enter a correct skill")
         elif choice == "two":
             first = input("Which ability do you want to increase by one point?\n")
-            alter_stat(chr, first, 1)
+            alter_stat(chr, chr_race_mod(first, race), 1)
             second = input("Which other score do you want to increase by one point?\n")
-            alter_stat(chr, second, 1)
+            alter_stat(chr, chr_race_mod(second, race), 1)
             break
         else:
             print("I don't understand that. Please enter 'one' or 'two' next time!\n")
+            choice = input("Level Up: do you want to level up 'one' ability score by two points, or 'two' scores by one each?\n")
+
+
+def alter_stat(chr, stat, chg, valid=False):
+    """
+    used for updating/leveling up. functionality for increasing any abiltiy score by a given amount
+    :param chr: character object with scores to be modified
+    :param stat: the string stat to be changed
+    :param chg: the integer amount the stat is to be changed by
+    :return: True in the case of a success, string response in the case of failure
+    """
+    if valid or is_valid_input(stat):
+        old = getattr(chr, stat)
+        setattr(chr, stat, old + chg)
+        new = getattr(chr, stat)
+        if old != new:
+            return True
+        return "ERROR - did not update - contact admin"
+    return False
 
 
 def set_prof(chr, opts):
@@ -49,22 +94,24 @@ def set_prof(chr, opts):
             pass
 
 
-def alter_stat(chr, stat, chg):
-    """
-    used for updating/leveling up. functionality for increasing any abiltiy score by a given amount
-    :param chr: character object with scores to be modified
-    :param stat: the string stat to be changed
-    :param chg: the integer amount the stat is to be changed by
-    :return: True in the case of a success, string response in the case of failure
-    """
-    if is_valid_input(stat):
-        old = getattr(chr, stat)
-        setattr(chr, stat, old + chg)
-        new = getattr(chr, stat)
-        if old != new:
-            return True
-        return "ERROR - did not update - contact admin"
-    return False
+def set_skills(chr, opts):
+    flag = True
+    while flag:
+        try:
+            if isinstance(opts, list):
+                avail = set(opts) - set(chr.skills)
+                print("Which skill do you want to be proficient in? Options are listed below")
+                for item in avail:
+                    print(item)
+                ch = input("")
+            else:
+                ch = opts
+                avail = ch
+            if is_valid_input(ch, valid_skills()) and is_valid_input(ch, avail):
+                chr.skills.append(ch)
+            flag = False
+        except AssertionError:
+            pass
 
 
 def get_modifier(chr, stat):
@@ -350,6 +397,26 @@ def score_to_string(chr):
     swim_spd = "swimming speed: \t" + str(chr.race.swim_spd)
     fly_speed = "flying speed: \t" + str(chr.race.fly_spd)
     output = [level, strength, dexterity, wisdom, intelligence, charisma, constitution, hit_dice, max_hp, speed, swim_spd, fly_speed]
+    for item in output:
+        print(item)
+
+
+def six_to_string(chr, race=False):
+    if race:
+        strength = "strength mod: \t" + str(chr.str_mod)
+        dexterity = "dexterity mod: \t" + str(chr.dex_mod)
+        wisdom = "wisdom mod: \t" + str(chr.wis_mod)
+        intelligence = "intelligence mod: \t" + str(chr.int_mod)
+        charisma = "charisma mod: \t" + str(chr.cha_mod)
+        constitution = "constitution mod: \t" + str(chr.con_mod)
+    else:
+        strength = "strength: \t" + str(chr.strength)
+        dexterity = "dexterity: \t" + str(chr.dexterity)
+        wisdom = "wisdom: \t" + str(chr.wisdom)
+        intelligence = "intelligence: \t" + str(chr.intelligence)
+        charisma = "charisma: \t" + str(chr.charisma)
+        constitution = "constitution: \t" + str(chr.constitution)
+    output = [strength, dexterity, wisdom, intelligence, charisma, constitution]
     for item in output:
         print(item)
 
