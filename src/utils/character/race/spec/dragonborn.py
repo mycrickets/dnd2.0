@@ -5,7 +5,6 @@ import src.utils.utils as utilities
 class Dragonborn(BaseRace):
     def __init__(self, level):
         BaseRace.__init__(self, level)
-        self.resistances = []
         self.age_low = 3
         self.age_high = 80
         self.weight_low = 200

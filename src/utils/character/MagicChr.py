@@ -146,6 +146,7 @@ class MagicChr:
         :param spells: list of lists: [[[(int) level, (str) level], [spells]], [level, [spells]]]
         :return: N/A
         """
+        chr_level = int(chr_level)
         for level in spells:
             set_level = level[0]
             spelllist = level[1]

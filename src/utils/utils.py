@@ -358,14 +358,15 @@ def magic_to_string(chr):
     # cantrips, spells, spell dc, spell saving throw
     try:
         cantrips = "cantrips known: "
-        for item in chr.cantrips:
+        for item in chr.fin_magic[0][1]:
             cantrips += "\n" + item
         i = 0
+        print(cantrips)
         spells = ""
-        for spell in chr.spells:
+        for spell in chr.fin_magic[1:]:
             for item in spell:
                 if isinstance(item, list):
-                    place = "Spells level " + str(i + 1) + ": \t"
+                    place = "Spells level " + str(i+1) + ": \t"
                     spells += place
                     for thing in item:
                         spells = spells + str(thing) + " "
@@ -373,9 +374,10 @@ def magic_to_string(chr):
                     i += 1
         if spells == "":
             spells = "No known spells"
+        print(spells)
         spell_dc = "Spell DC: " + chr.magic_dc
         spell_throw = "Spell Throw: " + chr.magic_throw
-        output = [cantrips, spells, spell_dc, spell_throw]
+        output = [spell_dc, spell_throw]
         for item in output:
             print(item)
     except AttributeError:
@@ -424,10 +426,10 @@ def six_to_string(chr, race=False):
 def feature_to_string(chr):
     # skills, features, saving throws, languages, proficiencies, feats, resistances, disadvantages, advantages
     skills = "skills: "
-    for item in chr.clas.skills:
+    for item in chr.fin_skills:
         skills += "\n" + item
     features = "features: "
-    for item in chr.clas.features:
+    for item in chr.fin_features:
         features += "\n" + item
     saving_throws = "saving throws: "
     for item in chr.clas.saving_throws:
@@ -437,10 +439,10 @@ def feature_to_string(chr):
     for item in chr.languages:
         languages += "\n" + item
     proficiencies = "proficient in: "
-    for item in chr.clas.proficiencies:
+    for item in chr.fin_profs:
         proficiencies += "\n" + item
     feats = "feats known: "
-    for item in chr.clas.feats:
+    for item in chr.fin_feats:
         feats += "\n" + item
     resis = "resistant to: "
     for item in chr.clas.resistances:

@@ -79,10 +79,65 @@ class Character:
 
     def trigger_end(self):
         self.fin_features = []
+        try:
+            for item in self.clas.features:
+                self.fin_features.append(item)
+            for item in self.race.features:
+                self.fin_features.append(item)
+        except AttributeError:
+            pass
         self.fin_skills = []
+        try:
+            for item in self.clas.skills:
+                self.fin_skills.append(item)
+            for item in self.race.skills:
+                self.fin_skills.append(item)
+        except AttributeError:
+            pass
         self.fin_profs = []
+        try:
+            for item in self.clas.proficiencies:
+                self.fin_profs.append(item)
+            for item in self.race.proficiencies:
+                self.fin_profs.append(item)
+        except AttributeError:
+            pass
         self.fin_feats = []
-        self.fin_langs = []
+        try:
+            for item in self.clas.feats:
+                self.fin_feats.append(item)
+        except AttributeError:
+            pass
         self.fin_weapons = []
+        try:
+            for item in self.race.weapons:
+                self.fin_weapons.append(item)
+            for item in self.clas.weapons:
+                self.fin_weapons.append(item)
+        except AttributeError:
+            pass
+        self.fin_attacks = []
+        try:
+            for item in self.race.attacks:
+                self.fin_attacks.append(item)
+            for item in self.clas.attacks:
+                self.fin_attacks.append(item)
+        except AttributeError:
+            pass
         self.fin_equip = []
+        try:
+            for item in self.race.equip:
+                self.fin_equip.append(item)
+            for item in self.clas.equip:
+                self.fin_equip.append(item)
+        except AttributeError:
+            pass
         self.fin_magic = []
+        try:
+            for item in self.race.spells:
+                self.fin_magic.append(item)
+            for item in self.clas.spells:
+                self.fin_magic.append(item)
+        except AttributeError:
+            pass
+        utilities.transfer_languages(self, None, False, False, True)

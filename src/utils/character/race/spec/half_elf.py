@@ -35,7 +35,7 @@ class HalfElf(BaseRace, MagicChr):
             if ch == "weapon":
                 utilities.append_proficiencies(self, ["longsword", "shortsword", "shortbow", "longbow"])
             elif ch == "cantrip":
-                self.add_spell([[0, "cantrip", [input("What wizard cantrip do you want to learn?")]]], self.level)
+                self.add_spell([[[0, "cantrip"], [input("What wizard cantrip do you want to learn?")]]], self.level)
                 self.magic_throw = "intelligence"
             elif ch == "fleet":
                 self.speed = 35
