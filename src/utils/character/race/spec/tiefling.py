@@ -9,7 +9,8 @@ class Tiefling(BaseRace):
         MagicChr.__init__(self)
         self.level = int(level)
         self.int_mod = 1
-        utilities.alter_stat(self, input("Do you want to increase charisma or dexterity? "), 2, False)
+        ch = input("Do you want to increase charisma or dexterity? ")
+        utilities.alter_stat(self, "cha_mod" if ch == "charisma" else "dex_mod", 2, False)
         self.age_low = 16
         self.age_high = 80
         self.weight_low = 80
@@ -20,7 +21,7 @@ class Tiefling(BaseRace):
         self.speed = 30
         self.set_awh(self)
         self.set_swim()
-        self.proficiencies.append("darkvision")
+        self.features.append("darkvision")
         self.resistances.append("fire damage")
         utilities.transfer_languages(self, ["common", "infernal"], True)
 

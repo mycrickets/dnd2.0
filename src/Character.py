@@ -5,6 +5,9 @@ from src.utils.character.race.spec.elf import Elf
 from src.utils.character.race.spec.gnome import Gnome
 from src.utils.character.race.spec.half_elf import HalfElf
 from src.utils.character.race.spec.half_orc import HalfOrc
+from src.utils.character.race.spec.halfling import Halfling
+from src.utils.character.race.spec.human import Human
+from src.utils.character.race.spec.tiefling import Tiefling
 
 import src.utils.utils as utilities
 
@@ -38,7 +41,7 @@ class Character:
         self.bonds = ""
 
     def set_race(self):
-        race = input("what race are you?")
+        race = input("what race are you?\n")
         race = race.strip()
         if race == "dragonborn":
             race = Dragonborn(self.level)
@@ -58,6 +61,15 @@ class Character:
         elif race in ["half orc", "half_orc"]:
             race = HalfOrc(self.level)
             self.race_name = "Half Orc"
+        elif race == "halfling":
+            race = Halfling(self.level)
+            self.race_name = "Halfling"
+        elif race == "human":
+            race = Human(self.level)
+            self.race_name = "Human"
+        elif race == "tiefling":
+            race = Tiefling(self.level)
+            self.race_name = "Tiefling"
         self.race = race
         self.hp += self.race.hp
         self.strength += self.race.str_mod
@@ -133,11 +145,39 @@ class Character:
         except AttributeError:
             pass
         self.fin_magic = []
+        self.fin_dc = 0
+        self.fin_throw = ""
         try:
             for item in self.race.spells:
                 self.fin_magic.append(item)
+            self.fin_dc = self.race.magic_dc
+            self.fin_throw = self.race.magic_throw
             for item in self.clas.spells:
                 self.fin_magic.append(item)
+        except AttributeError:
+            pass
+        self.fin_resis = []
+        try:
+            for item in self.race.resistances:
+                self.fin_resis.append(item)
+            for item in self.clas.resistances:
+                self.fin_resis.append(item)
+        except AttributeError:
+            pass
+        self.fin_dis = []
+        try:
+            for item in self.race.disadvantages:
+                self.fin_dis.append(item)
+            for item in self.clas.disadvantages:
+                self.fin_dis.append(item)
+        except AttributeError:
+            pass
+        self.fin_adv = []
+        try:
+            for item in self.race.advantages:
+                self.fin_adv.append(item)
+            for item in self.clas.advantages:
+                self.fin_adv.append(item)
         except AttributeError:
             pass
         utilities.transfer_languages(self, None, False, False, True)

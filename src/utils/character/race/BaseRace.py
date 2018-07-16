@@ -12,6 +12,7 @@ class BaseRace(BaseChr, MagicChr):
         self.height = 0
         self.speed = 30
         self.swim_spd = 0
+        self.hp = 0
         self.fly_spd = 0
         self.languages = []
         self.proficiencies = []

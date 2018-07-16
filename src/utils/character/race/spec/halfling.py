@@ -17,7 +17,7 @@ class Halfling(BaseRace):
         self.speed = 25
         self.set_swim()
         self.set_awh(self)
-        self.advantage = ["being frightened"]
+        self.advantages = ["being frightened"]
         utilities.transfer_languages(self, ["common", "halfling"], True)
         features = ["Lucky", "Brave", "Nimble"]
         for item in features:
@@ -31,7 +31,7 @@ class Halfling(BaseRace):
             self.subrace = "Stout Halfling"
             self.con_mod = 1
             self.resistances.append("poison damage")
-            self.advantage.append("poison damage")
+            self.advantages.append("poison damage")
         else:
             self.subrace = "Lightfoot Halfling"
             self.cha_mod = 1

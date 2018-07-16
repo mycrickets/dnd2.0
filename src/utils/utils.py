@@ -375,12 +375,12 @@ def magic_to_string(chr):
         if spells == "":
             spells = "No known spells"
         print(spells)
-        spell_dc = "Spell DC: " + chr.magic_dc
-        spell_throw = "Spell Throw: " + chr.magic_throw
+        spell_dc = "Spell DC: " + str(chr.fin_dc)
+        spell_throw = "Spell Throw: " + chr.fin_throw
         output = [spell_dc, spell_throw]
         for item in output:
             print(item)
-    except AttributeError:
+    except (AttributeError, IndexError):
         print("hit error")
 
 
@@ -445,13 +445,13 @@ def feature_to_string(chr):
     for item in chr.fin_feats:
         feats += "\n" + item
     resis = "resistant to: "
-    for item in chr.clas.resistances:
+    for item in chr.fin_resis:
         resis += "\n" + item
     dis = "has permanent disadvantage to: "
-    for item in chr.clas.disadvantages:
+    for item in chr.fin_dis:
         dis += "\n" + item
     adv = "has permanent advantage to: "
-    for item in chr.clas.advantages:
+    for item in chr.fin_adv:
         adv += "\n" + item
     output = [skills, features, saving_throws, languages, proficiencies, feats, resis, dis, adv]
     for item in output:
