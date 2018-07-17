@@ -20,7 +20,7 @@ class Elf(BaseRace, MagicChr):
         self.magic_throw = "charisma"
         self.disadvantages = []
         self.features.append("darkvision")
-        self.skills.append("proficiency")
+        self.skills.append("perception")
         for item in ["being charmed", "magical damage"]:
             self.proficiencies.append(item)
         self.features.append("trance")

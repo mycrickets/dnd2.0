@@ -22,44 +22,41 @@ class BaseClass(BaseChr, MagicChr):
         self.attack = []
         self.armor = []
         self.equipment = []
+        self.weapons = []
+        self.str_mod = 0
+        self.wis_mod = 0
+        self.dex_mod = 0
+        self.int_mod = 0
+        self.cha_mod = 0
+        self.con_mod = 0
+
+    def init_prof_bonus(self):
+        self.prof_bonus = 2
+        if self.level > 4:
+            self.prof_bonus = 3
+        if self.level > 8:
+            self.prof_bonus = 4
+        if self.level > 12:
+            self.prof_bonus = 5
+        if self.level > 16:
+            self.prof_bonus = 6
 
     def init_hit_dice(self, die):
         """
         initializes hit dice for character
         :param die: string of which die to add. d8, d10, d12 are most common
         """
-        self.hit_dice = str(self.level) + die
+        self.hit_dice = str(self.level) + "d" + str(die)
 
-    def init_hp(self, base, mod):
+    def init_hp(self, base, mod, die):
         """
         initialize hp for character
         :param base: base hp as integer: 8 or 10 is most common
         :param mod: which score is used to calculate increase in hp
         """
-        self.hp = int(base) + (utilities.get_modifier(self, mod) * self.level)
+        self.hp = int(base) + ((utilities.get_modifier(self, mod, True) + int(die)) * self.level)
 
-    def set_skills(self, amt, extra=None):
-        """
-        sets character skills based on amount of skills able to learn
-        :param extra: in case of character learning skills outside of their base skills for class.
-        :param amt: int total amount of skills able to learn
-        """
-        skill_set = self.all_skills
-        if extra:
-            skill_set = extra
-        for i in range(0, int(amt)):
-            flag = True
-            while flag:
-                choices = set(skill_set) - set(self.skills)
-                print("Which skill do you want to learn? Your choices are listed below")
-                for item in choices:
-                    print(item)
-                response = input("")
-                assert response in choices, "That wasn't an option"
-                self.skills.append(input(""))
-                flag = False
-
-    def set_archetype(self, opts):
+    def init_archetype(self, opts):
         """
         sets archetype string for character from options given
         :param opts: list of strings, options of archetypes to choose from
@@ -71,10 +68,58 @@ class BaseClass(BaseChr, MagicChr):
             for item in opts:
                 print(item)
             choice = input("")
-            assert choice in opts, "That wasn't an option."
-            self.archetype = choice
-            flag = False
+            if utilities.is_valid_input(choice, opts):
+                self.archetype = choice
+                flag = False
+            else:
+                pass
         return self.archetype
+
+    def level_arch(self, arch, choices):
+        """
+
+        :param arch: the total dictionary passed in
+        :param choices: the keys of the dictionaries to loop through
+        :return:
+        """
+        for opt in choices:
+            for item in arch[opt]:
+                if self.level > int(item[0]):
+                    flag = True
+                    while flag:
+                        flag = not self.append_item(opt, item[1])
+
+    def append_item(self, opt, item):
+        """
+
+        :param opt: the dict
+        :param item:
+        :return:
+        """
+        if opt == "proficiency":
+            self.proficiencies.append(item)
+        elif opt == "feature":
+            self.features.append(item)
+        elif opt == "skill":
+            if utilities.is_valid_input(item, utilities.valid_skills()):
+                self.skills.append(item)
+            else:
+                return False
+        elif opt == "resistance":
+            self.resistances.append(item)
+        elif opt == "advantage":
+            self.advantages.append(item)
+        elif opt == "disadvantage":
+            self.disadvantages.append(item)
+        elif opt == "stat":
+            utilities.alter_stat(self, item[0], item[1])
+        elif opt == "attack":
+            self.attack.append(item)
+        elif opt == "language":
+            self.languages.append(item)
+        elif opt == "spells":
+            self.add_spell(self.level, item)
+        return True
 
     def set_equip(self, opts, wpn_armor=False):
         """
@@ -83,21 +128,32 @@ class BaseClass(BaseChr, MagicChr):
         :param wpn_armor: if the list contains weapons: if so, they need to be in equip + wpns, otherwise only equipment
         :param opts: list of list, shown above. possibly refactored in the future
         """
-        flag = True
-        while flag:
-            try:
-                for lists in opts:
-                    print("Which do you want to equip?")
-                    for item in lists:
-                        print(item)
-                    choice = input("")
-                    assert choice in lists
-                    if wpn_armor:
-                        utilities.equip(self, choice)
-                    else:
-                        self.equipment.append(choice)
-                    flag = False
-            except AssertionError:
-                pass
+        for lists in opts:
+            print("Which do you want to equip?")
+            for item in lists:
+                print(item)
+            choice = input("")
+            if wpn_armor:
+                utilities.equip(self, choice)
+            else:
+                self.equipment.append(choice)
+
+    def level_features(self, opts):
+        """
+        adds features to character/class input based on option list provided
+        FOR FEATURES ONLY. ALL OTHER HAVE TO BE IN IND. CHARACTER CLASSES CLASS
+        :param opts: list of options & levels, similar to adding spells function
+        format: [[(int level), ["feature1", "feature2"]], [(int level2), ["feature3", "feature4"]]]
+        :return: N/A
+        """
+        for level in opts:
+            if self.level > int(level[0]):
+                for item in level[1]:
+                    self.features.append(item)
+
+    def level_scores(self, levels):
+        for item in levels:
+            if self.level > int(item):
+                utilities.ability_score_increase(self, True)
 
 

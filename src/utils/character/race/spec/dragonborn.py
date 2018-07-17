@@ -11,6 +11,8 @@ class Dragonborn(BaseRace):
         self.weight_high = 400
         self.height_low = 65
         self.height_high = 85
+        self.str_mod = 2
+        self.cha_mod = 1
         self.attacks = []
         self.color = "red"
         self.weapons = []
@@ -34,7 +36,6 @@ class Dragonborn(BaseRace):
         # self.set_color()
         self.set_weapon()
         self.set_resistance()
-        self.set_mod(2, 0, 0, 0, 1, 0)
 
     def set_color(self):
         flag = False

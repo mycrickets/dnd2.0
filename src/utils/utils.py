@@ -94,38 +94,45 @@ def set_prof(chr, opts):
             pass
 
 
-def set_skills(chr, opts):
-    flag = True
-    while flag:
-        try:
-            if isinstance(opts, list):
-                avail = set(opts) - set(chr.skills)
-                print("Which skill do you want to be proficient in? Options are listed below")
-                for item in avail:
-                    print(item)
-                ch = input("")
-            else:
-                ch = opts
-                avail = ch
-            if is_valid_input(ch, valid_skills()) and is_valid_input(ch, avail):
-                chr.skills.append(ch)
-            flag = False
-        except AssertionError:
-            pass
+def set_skills(chr, amt, opts):
+    for i in range(0, int(amt)):
+        flag = True
+        ch = ""
+        while flag:
+            try:
+                if isinstance(opts, list):
+                    avail = set(opts) - set(chr.skills)
+                    print("Which skill do you want to be proficient in? Options are listed below")
+                    for item in avail:
+                        print(item)
+                    ch = input("")
+                else:
+                    ch = opts
+                    avail = ch
+                if is_valid_input(ch, valid_skills()) and is_valid_input(ch, avail):
+                    chr.skills.append(ch)
+                    flag = False
+                else:
+                    print(ch + " is already accounted for, or not on the allowed list. Try again.")
+            except AssertionError:
+                print(ch + " is already accounted for, or not on the allowed list. Try again.")
 
 
-def get_modifier(chr, stat):
+def get_modifier(chr, stat, clas=False):
     """
     gets the ability score modifier for a score passed in
     :param self: the object passed in - necessary because function is abstracted
     :param stat: the string of the stat wanted to get the mod of
     :return: the int of the modifier: +/- x
     """
-    if is_valid_input(stat):
+    valid = False
+    if clas:
+        stat = chr_race_mod(stat, True)
+        valid = True
+    if is_valid_input(stat) or valid:
         base = getattr(chr, stat)
-        print(base)
         return int(math.floor(base - 10) / 2)
-    return -300
+    return None
 
 
 def search_dict(value):
@@ -174,14 +181,18 @@ def equip(chr, items):
     :param items: the array of item or items to equip to equipment & weapons
     :return: nothing
     """
-    for obj in items:
-        chr.weapons.append(obj)
-        chr.equipment.append(obj)
+    chr.weapons.append(items)
+    chr.equipment.append(items)
 
 
 def append_proficiencies(chr, profs):
     for item in profs:
         chr.proficiencies.append(item)
+
+
+def append_features(chr, features):
+    for item in features:
+        chr.features.append(item)
 
 
 def count_spells(chr):
@@ -359,7 +370,7 @@ def magic_to_string(chr):
     try:
         cantrips = "cantrips known: "
         for item in chr.fin_magic[0][1]:
-            cantrips += "\n" + item
+            cantrips += "\n\t" + item
         i = 0
         print(cantrips)
         spells = ""
@@ -381,7 +392,7 @@ def magic_to_string(chr):
         for item in output:
             print(item)
     except (AttributeError, IndexError):
-        print("hit error")
+        pass
 
 
 def score_to_string(chr):
@@ -427,32 +438,32 @@ def feature_to_string(chr):
     # skills, features, saving throws, languages, proficiencies, feats, resistances, disadvantages, advantages
     skills = "skills: "
     for item in chr.fin_skills:
-        skills += "\n" + item
+        skills += "\n\t" + item
     features = "features: "
     for item in chr.fin_features:
-        features += "\n" + item
+        features += "\n\t" + str(item)
     saving_throws = "saving throws: "
     for item in chr.clas.saving_throws:
-        saving_throws += "\n" + item
+        saving_throws += "\n\t" + item
     languages = "languages known: "
     transfer_languages(chr, None, False, False, True)
     for item in chr.languages:
-        languages += "\n" + item
+        languages += "\n\t" + item
     proficiencies = "proficient in: "
     for item in chr.fin_profs:
-        proficiencies += "\n" + item
+        proficiencies += "\n\t" + item
     feats = "feats known: "
     for item in chr.fin_feats:
-        feats += "\n" + item
+        feats += "\n\t" + item
     resis = "resistant to: "
     for item in chr.fin_resis:
-        resis += "\n" + item
+        resis += "\n\t" + item
     dis = "has permanent disadvantage to: "
     for item in chr.fin_dis:
-        dis += "\n" + item
+        dis += "\n\t" + item
     adv = "has permanent advantage to: "
     for item in chr.fin_adv:
-        adv += "\n" + item
+        adv += "\n\t" + item
     output = [skills, features, saving_throws, languages, proficiencies, feats, resis, dis, adv]
     for item in output:
         print(item + "\n")

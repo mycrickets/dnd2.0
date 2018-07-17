@@ -1,4 +1,3 @@
-from src.utils.character.chr_clas.spec.barbarian import Barbarian
 from src.utils.character.race.spec.dragonborn import Dragonborn
 from src.utils.character.race.spec.dwarf import Dwarf
 from src.utils.character.race.spec.elf import Elf
@@ -8,6 +7,8 @@ from src.utils.character.race.spec.half_orc import HalfOrc
 from src.utils.character.race.spec.halfling import Halfling
 from src.utils.character.race.spec.human import Human
 from src.utils.character.race.spec.tiefling import Tiefling
+
+from src.utils.character.chr_clas.spec.barbarian import Barbarian
 
 import src.utils.utils as utilities
 
@@ -64,12 +65,12 @@ class Character:
         elif race == "halfling":
             race = Halfling(self.level)
             self.race_name = "Halfling"
-        elif race == "human":
-            race = Human(self.level)
-            self.race_name = "Human"
         elif race == "tiefling":
             race = Tiefling(self.level)
             self.race_name = "Tiefling"
+        else:
+            race = Human(self.level)
+            self.race_name = "Human"
         self.race = race
         self.hp += self.race.hp
         self.strength += self.race.str_mod
@@ -80,8 +81,19 @@ class Character:
         self.constitution += self.race.con_mod
 
     def set_class(self):
-        dnd_class = Barbarian(self)
-        self.clas = dnd_class
+        char_class = input("What class are you?\n")
+        char_class = char_class.strip()
+        if char_class == "barbarian":
+            char_class = Barbarian(self)
+            self.class_name = "Barbarian"
+        self.clas = char_class
+        self.hp += self.clas.hp
+        self.strength = self.clas.str_mod
+        self.dexterity = self.clas.dex_mod
+        self.wisdom = self.clas.wis_mod
+        self.intelligence = self.clas.int_mod
+        self.charisma = self.clas.cha_mod
+        self.constitution = self.clas.con_mod
 
     def set_background(self):
         pass

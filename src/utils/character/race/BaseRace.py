@@ -48,11 +48,3 @@ class BaseRace(BaseChr, MagicChr):
 
     def get_height(self, chr):
         self.height = int(r.randrange(chr.height_low, chr.height_high))
-
-    def set_mod(self, str=0, dex=0, itl=0, wis=0, cha=0, con=0):
-        self.str_mod = int(str)
-        self.dex_mod = int(dex)
-        self.wis_mod = int(wis)
-        self.int_mod = int(itl)
-        self.cha_mod = int(cha)
-        self.con_mod = int(con)
