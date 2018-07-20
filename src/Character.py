@@ -9,6 +9,7 @@ from src.utils.character.race.spec.human import Human
 from src.utils.character.race.spec.tiefling import Tiefling
 
 from src.utils.character.chr_clas.spec.barbarian import Barbarian
+from src.utils.character.chr_clas.spec.bard import Bard
 
 import src.utils.utils as utilities
 
@@ -23,7 +24,7 @@ class Character:
         self.intelligence = 0
         self.wisdom = 0
         self.hp = 0
-        #utilities.init_scores(self, self.level)
+        utilities.init_scores(self)
         self.languages = []
         self.race = None
         self.race_name = ""
@@ -86,6 +87,10 @@ class Character:
         if char_class == "barbarian":
             char_class = Barbarian(self)
             self.class_name = "Barbarian"
+        elif char_class == "bard":
+            char_class = Bard(self)
+            self.class_name = "Bard"
+
         self.clas = char_class
         self.hp += self.clas.hp
         self.strength = self.clas.str_mod
@@ -160,14 +165,25 @@ class Character:
         self.fin_dc = 0
         self.fin_throw = ""
         try:
-            for item in self.race.spells:
-                self.fin_magic.append(item)
-            self.fin_dc = self.race.magic_dc
+            for i in range(0, len(self.race.spells)):
+                lvl = [[0], []]
+                lvl[0][0]+=int(self.race.spells[i][0])
+                for item in self.race.spells[i][1]:
+                    lvl[1].append(item)
+                lvl[0][0]+=int(self.clas.spells[i][0])
+                for item in self.clas.spells[i][1]:
+                    lvl[1].append(item)
+                self.fin_magic.append(lvl)
+            self.fin_dc = self.race.magic_dc + self.clas.prof_bonus
             self.fin_throw = self.race.magic_throw
-            for item in self.clas.spells:
-                self.fin_magic.append(item)
         except AttributeError:
-            pass
+            try:
+                for i in range(0, len(self.clas.spells)):
+                    self.fin_magic.append(self.clas.spells[i])
+                self.fin_dc = self.clas.magic_dc
+                self.fin_throw = self.clas.magic_throw
+            except AttributeError:
+                pass
         self.fin_resis = []
         try:
             for item in self.race.resistances:

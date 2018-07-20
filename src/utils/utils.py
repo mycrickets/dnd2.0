@@ -103,6 +103,7 @@ def set_skills(chr, amt, opts):
                 if isinstance(opts, list):
                     avail = set(opts) - set(chr.skills)
                     print("Which skill do you want to be proficient in? Options are listed below")
+                    print("Choice " + str(i+1) + "/" + str(amt))
                     for item in avail:
                         print(item)
                     ch = input("")
@@ -254,21 +255,17 @@ def init_scores(chr):
         if plinth:
             while not flag:
                 flag = set_two_score(chr, chr_score)
-                # print("You can't assign that to " + chr_score.strip().split()[0])
             choices.remove(chr_score.strip().split()[0])
             scores.remove(int(chr_score.strip().split()[1]))
             chr_choices.append(chr_score.strip().split()[0])
         else:
             while not flag:
                 flag = set_one_score(chr, chr_score, scores)
-                # if flag:
-                #   print("You can't assign that to " + chr_score)
             choices.remove(chr_score)
             chr_choices.append(chr_score)
             scores.remove(getattr(chr, chr_score))
-        print("hit me")
         if len(choices) < 2:
-            setattr(chr, choices[0], scores[0])
+            setattr(chr, choices[0], int(scores[0]))
             print(choices[0] + " was assigned: " + str(scores[0]))
             print("\n")
             break
@@ -309,7 +306,7 @@ def set_two_score(chr, sng):
         ability = sng.strip().split()[0]
         score = sng.strip().split()[1]
         old = getattr(chr, ability)
-        setattr(chr, ability, score)
+        setattr(chr, ability, int(score))
         new = getattr(chr, ability)
         return True if new != old else False
     except AssertionError:
@@ -322,7 +319,7 @@ def set_one_score(chr, sng, scores):
         for item in scores:
             print(item)
         play_choice = input("Which score do you want to assign to " + sng)
-        assert int(play_choice) in scores, print(play_choice + " isn't in the list you're allowed to use.")
+        assert int(play_choice) in scores, print(str(play_choice) + " isn't in the list you're allowed to use.")
         setattr(chr, sng, int(play_choice))
         new = getattr(chr, sng)
         return True if new != old else False
@@ -370,19 +367,16 @@ def magic_to_string(chr):
     try:
         cantrips = "cantrips known: "
         for item in chr.fin_magic[0][1]:
-            cantrips += "\n\t" + item
+            cantrips += "\n\t" + str(item)
         i = 0
         print(cantrips)
         spells = ""
         for spell in chr.fin_magic[1:]:
-            for item in spell:
-                if isinstance(item, list):
-                    place = "Spells level " + str(i+1) + ": \t"
-                    spells += place
-                    for thing in item:
-                        spells = spells + str(thing) + " "
-                    spells += "\n"
-                    i += 1
+            place = "Spells level " + str(i + 1) + ": \t\n"
+            spells += place
+            for item in spell[1]:
+                spells += "\t" + item + "\n"
+            i += 1
         if spells == "":
             spells = "No known spells"
         print(spells)
@@ -467,9 +461,6 @@ def feature_to_string(chr):
     output = [skills, features, saving_throws, languages, proficiencies, feats, resis, dis, adv]
     for item in output:
         print(item + "\n")
-
-
-# NEED TRANSFER/ADD ITEM FOR RACE -> CHR <- CLASS
 
 
 def special_to_string(chr):

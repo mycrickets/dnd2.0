@@ -84,10 +84,23 @@ class BaseClass(BaseChr, MagicChr):
         """
         for opt in choices:
             for item in arch[opt]:
-                if self.level > int(item[0]):
+                if isinstance(item[0], int):
+                    lvl = item[0]
+                else:
+                    lvl = item[0][0]
+                if self.level > lvl:
                     flag = True
                     while flag:
-                        flag = not self.append_item(opt, item[1])
+                        flag = not self.middleman(opt, item[1])
+
+    def middleman(self, opt, item):
+        if isinstance(item, list):
+            for ind in item:
+                return self.append_item(opt, ind)
+        elif isinstance(item, str):
+            return self.append_item(opt, item)
+        else:
+            return None
 
     def append_item(self, opt, item):
         """
@@ -96,6 +109,7 @@ class BaseClass(BaseChr, MagicChr):
         :param item:
         :return:
         """
+
         if opt == "proficiency":
             self.proficiencies.append(item)
         elif opt == "feature":
@@ -121,7 +135,7 @@ class BaseClass(BaseChr, MagicChr):
             self.add_spell(self.level, item)
         return True
 
-    def set_equip(self, opts, wpn_armor=False):
+    def set_equip(self, opts, wpn_armor):
         """
         sets character equipment based on list of list of options given
         [[wpn1, wpn2], [armor1, armor2], etc]

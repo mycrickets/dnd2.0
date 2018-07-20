@@ -33,7 +33,7 @@ class Dragonborn(BaseRace):
 
         self.set_awh(self)
         utilities.transfer_languages(self, ["draconic", "common"], True)
-        # self.set_color()
+        self.set_color()
         self.set_weapon()
         self.set_resistance()
 

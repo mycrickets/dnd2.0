@@ -37,6 +37,7 @@ class HalfElf(BaseRace, MagicChr):
             elif ch == "cantrip":
                 self.add_spell([[[0, "cantrip"], [input("What wizard cantrip do you want to learn?")]]], self.level)
                 self.magic_throw = "intelligence"
+                self.magic_dc = self.int_mod
             elif ch == "fleet":
                 self.speed = 35
                 self.set_swim()

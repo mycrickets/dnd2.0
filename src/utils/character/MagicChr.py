@@ -76,8 +76,7 @@ class MagicChr:
 
         elif clas in ["wizard", "sorcerer", "warlock", "bard", "cleric", "druid"]:
             self.cantrips[0] = int(cant_ct)
-            self.cantrips[1].append(input("Initialization: What " + str(cant_ct) + " " + clas + "cantrips do you want "
-                                                                                                "to add?"))
+            self.cantrips[1].append(input("Initialization: What " + str(cant_ct) + " " + clas + " cantrips do you want to add?"))
             if level > 3:
                 self.cantrips[0] += 1
                 self.cantrips[1].append(input("Level up: what other cantrip do you want to add?"))

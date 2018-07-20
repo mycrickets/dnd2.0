@@ -55,5 +55,6 @@ class Tiefling(BaseRace):
         if one != "":
             self.add_spell([[[0, "cantrip"], [cantrip]], [[2, "one"], [one]], [[4, "two"], [two]]], self.level)
         self.magic_throw = "charisma"
+        self.magic_dc = self.cha_mod
 
 

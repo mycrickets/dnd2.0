@@ -82,22 +82,12 @@ class Barbarian(BaseClass):
         elif arch_choice == "totem":
             animal = input("Totem archetype: What totem spirit do you want to embody? bear, eagle, wolf, elk, or tiger?\n")
             if animal == "bear":
-                arch['feature'] = [[0, "Totem Spirit: bear"], [2, "Aspect of the Beast: bear"], [13, "Totemic Attunement: bear"]]
                 arch['advantage'] = [[2, "strength"]]
-            elif animal == "eagle":
-                arch['feature'] = [[0, "Totem Spirit: eagle"], [2, "Aspect of the Beast: eagle"], [13, "Totemic Attunement: eagle"]]
-            elif animal == "wolf":
-                arch['feature'] = [[0, "Totem Spirit: wolf"], [2, "Aspect of the Beast: eagle"], [13, "Totemic Attunement: wolf"]]
-            elif animal == "elk":
-                arch['feature'] = [[0, "Totem Spirit: elk"], [2, "Aspect of the Beast: elk"], [13, "Totemic Attunement: elk"]]
-            else:
-                animal = "tiger"
-                arch['feature'] = [[0, "Totem Spirit: tiger"], [13, "Totemic Attunement: elk"]]
+            elif animal == "tiger":
                 if self.level > 2:
-                    utilities.set_skills([2, ["Athletics", "Acrobatics", "Stealth", "Survival"]])
-            arch['feature'].append([9, "Spirit Walker"])
+                    arch['skills'] = [2, ["Athletics", "Acrobatics", "Stealth", "Survival"]]
+            arch['feature'] = [[0, "Totem Spirit: " + animal], [2, "Aspect of the Beast: " + animal], [9, "Spirit Walker"], [13, "Totemic Attunement: " + animal]]
         else:
             arch_choice = "zealot"
             arch['feature'] = [[2, "Divine Fury"], [2, "Warrior of the Gods"], [5, "Fanatical Focus"], [9, "Zealous Presence"], [13, "Rage Beyond Death"]]
         self.level_arch(arch, list(arch.keys()))
-
