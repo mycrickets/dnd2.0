@@ -8,8 +8,8 @@ class Bard(BaseClass, MagicChr):
         BaseClass.__init__(self, char.level)
         MagicChr.__init__(self)
         cant_ct = 2
-        self.set_magic(self.level, cant_ct, "bard")
         self.level = int(char.level)
+        self.set_magic(self.level, cant_ct, "bard")
         self.str_mod = char.race.str_mod
         self.dex_mod = char.race.dex_mod
         self.wis_mod = char.race.wis_mod
@@ -44,7 +44,6 @@ class Bard(BaseClass, MagicChr):
             self.set_arch(arch_choice, char)
             self.set_expertise(char, 2)
         if self.level > 9:
-            pass
             self.set_expertise(char, 2)
 
     def add_instrument(self, amt):
@@ -86,21 +85,26 @@ class Bard(BaseClass, MagicChr):
         elif arch_choice == "sword":
             arch['proficiency'] = [[0, ["medium armor", "scimitar"]]]
             opts = ["dueling", "two weapon"]
-            style = input("College of Swords: Which fighting style do you want to join? They're listed below")
+            print("College of Swords: Which fighting style do you want to join? They're listed below")
+            print("dueling")
+            print("two weapon")
+            style = input("")
             arch['feature'] = [[0, "Blade Flourish"], [5, "Extra Attack"], [13, "Master's Flourish"]]
-            flag = False
+            flag = True
             while flag:
                 if utilities.is_valid_input(style, opts):
                     if style == "dueling":
-                        arch['feature'].append([0, ["Dueling (Bard"]])
+                        print("dueling\n\n")
+                        arch['feature'].append([0, ["Dueling (Bard)"]])
                     else:
+                        print("other archetype\n\n")
                         arch['feature'].append([0, ["Two-Weapon Fighting (Bard)"]])
-                    flag = True
+                    flag = False
         elif arch_choice == "valor":
-            arch['proficiency'] = [[0, ["medium armor", "shields", "martial weapons"]]]
+            arch['proficiency'] = [[0, ["medium armor"]], [0, ["shields"]], [0, ["martial weapons"]]]
             arch['feature'] = [[0, "Combat Inspiration"], [5, "Extra Attack"], [13, "Battle Magic"]]
         else:
             arch_choice = "whisper"
             arch['feature'] = [[0, ["Psychic Blades", "Words of Terror"]], [5, ["Mantle of Whispers"]], [13, ["Shadow Lore"]]]
-        self.level_arch(arch, list(arch.keys()))
+        self.level_arch(arch)
 

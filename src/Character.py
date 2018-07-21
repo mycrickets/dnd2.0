@@ -24,7 +24,7 @@ class Character:
         self.intelligence = 0
         self.wisdom = 0
         self.hp = 0
-        utilities.init_scores(self)
+        #utilities.init_scores(self)
         self.languages = []
         self.race = None
         self.race_name = ""

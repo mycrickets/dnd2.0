@@ -3,17 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="88988547-7c4f-4f46-810b-d75eaaa519a9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/Character.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/BaseChr.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/BaseChr.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/MagicChr.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/MagicChr.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/BaseClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/BaseClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/barbarian.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/barbarian.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/race/spec/dragonborn.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/dragonborn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/race/spec/elf.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/elf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/race/spec/half_elf.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/half_elf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/race/spec/tiefling.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/race/spec/tiefling.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/cleric.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/cleric.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/dnd2_0$index.coverage" NAME="index Coverage Results" MODIFIED="1532098769835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/dnd2_0$index.coverage" NAME="index Coverage Results" MODIFIED="1532100135600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -44,25 +36,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Character.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Character.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Character.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="79" column="46" lean-forward="true" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
+            <state relative-caret-position="-207">
+              <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
               <folding>
                 <element signature="e#0#63#0" expanded="true" />
+                <element signature="e#3605#7216#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="elf.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/character/race/spec/elf.py">
+      <file leaf-file-name="cleric.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/cleric.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="54" column="15" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
+            <state relative-caret-position="332">
+              <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
               <folding>
-                <element signature="e#0#54#0" expanded="true" />
+                <element signature="e#0#60#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bard.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="534">
+              <caret line="108" column="28" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#60#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,7 +76,7 @@
       <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
+            <state relative-caret-position="-2901">
               <caret line="261" column="27" lean-forward="true" selection-start-line="261" selection-start-column="27" selection-end-line="261" selection-end-column="27" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -80,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseRace.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/character/race/BaseRace.py">
+      <file leaf-file-name="BaseClass.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/BaseClass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+            <state relative-caret-position="62">
+              <caret line="77" column="29" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -159,15 +164,16 @@
         <option value="$PROJECT_DIR$/src/utils/character/chr_clas/spec/barbarian.py" />
         <option value="$PROJECT_DIR$/src/utils/character/MagicChr.py" />
         <option value="$PROJECT_DIR$/src/index.py" />
-        <option value="$PROJECT_DIR$/src/utils/character/chr_clas/BaseClass.py" />
         <option value="$PROJECT_DIR$/src/utils/character/race/spec/elf.py" />
         <option value="$PROJECT_DIR$/src/utils/character/race/spec/dragonborn.py" />
         <option value="$PROJECT_DIR$/src/utils/character/race/spec/half_elf.py" />
         <option value="$PROJECT_DIR$/src/utils/character/race/spec/tiefling.py" />
-        <option value="$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py" />
-        <option value="$PROJECT_DIR$/src/Character.py" />
         <option value="$PROJECT_DIR$/src/utils/character/BaseChr.py" />
         <option value="$PROJECT_DIR$/src/utils/utils.py" />
+        <option value="$PROJECT_DIR$/src/Character.py" />
+        <option value="$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py" />
+        <option value="$PROJECT_DIR$/src/utils/character/chr_clas/BaseClass.py" />
+        <option value="$PROJECT_DIR$/src/utils/character/chr_clas/spec/cleric.py" />
       </list>
     </option>
   </component>
@@ -187,8 +193,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1680" />
+    <option name="x" value="781" />
+    <option name="y" value="24" />
+    <option name="width" value="899" />
     <option name="height" value="1027" />
   </component>
   <component name="ProjectView">
@@ -341,7 +348,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
+    <frame x="781" y="24" width="899" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32903227" />
@@ -349,10 +356,10 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24623656" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24623656" />
       <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32967034" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.17741935" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49597856" visible="true" weight="0.12881564" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49597856" weight="0.22140609" />
       <window_info anchor="right" id="R Packages" order="3" weight="0.32967034" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="R Graphics" order="3" />
@@ -404,20 +411,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/Character.py</url>
-          <line>77</line>
-          <option name="timeStamp" value="115" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="116" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/rogue.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/sorcerer.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -538,16 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/BaseClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1269">
-          <caret line="92" column="31" lean-forward="true" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/character/race/spec/dragonborn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -569,16 +556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/character/race/spec/half_orc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
@@ -609,16 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="39" lean-forward="true" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/barbarian.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -639,10 +606,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/BaseChr.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/character/race/spec/elf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
+        <state relative-caret-position="766">
           <caret line="54" column="15" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Character.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-207">
+          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
+            <element signature="e#3605#7216#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/race/spec/half_orc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
@@ -659,9 +650,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/BaseClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="77" column="29" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
+        <state relative-caret-position="-2901">
           <caret line="261" column="27" lean-forward="true" selection-start-line="261" selection-start-column="27" selection-end-line="261" selection-end-column="27" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -669,15 +670,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/character/BaseChr.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Character.py">
+    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="79" column="46" lean-forward="true" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
+        <state relative-caret-position="534">
+          <caret line="108" column="28" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
           <folding>
-            <element signature="e#0#63#0" expanded="true" />
+            <element signature="e#0#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/cleric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#60#0" expanded="true" />
           </folding>
         </state>
       </provider>

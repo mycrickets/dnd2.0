@@ -75,13 +75,14 @@ class BaseClass(BaseChr, MagicChr):
                 pass
         return self.archetype
 
-    def level_arch(self, arch, choices):
+    def level_arch(self, arch):
         """
 
         :param arch: the total dictionary passed in
         :param choices: the keys of the dictionaries to loop through
         :return:
         """
+        choices = list(arch.keys())
         for opt in choices:
             for item in arch[opt]:
                 if isinstance(item[0], int):
