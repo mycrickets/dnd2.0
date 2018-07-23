@@ -49,7 +49,7 @@ class Cleric(BaseClass, MagicChr):
                              [[3, "two"], ["Magic Weapon", "Nystul's Magic Aura"]], [[5, "three"], ["Dispel Magic", "Magic Circle"]], [[9, "five"], ["Planar Binding", "Teleportation Circle"]]]
         elif arch_choice == "ambition":
             arch['feature'] = [[0, ["Warding Flame", "Invoke Duplicity"]], [5, "Cloak of Shadows"], [7, "Potent Spellcasting"], [16, "Improved Duplicity"]]
-            arch['spell'] =
+            arch['spell'] = []
         elif arch_choice == "city":
             pass
         elif arch_choice == "death":
