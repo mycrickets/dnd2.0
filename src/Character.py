@@ -10,6 +10,8 @@ from src.utils.character.race.spec.tiefling import Tiefling
 
 from src.utils.character.chr_clas.spec.barbarian import Barbarian
 from src.utils.character.chr_clas.spec.bard import Bard
+from src.utils.character.chr_clas.spec.cleric import Cleric
+
 
 import src.utils.utils as utilities
 
@@ -90,7 +92,9 @@ class Character:
         elif char_class == "bard":
             char_class = Bard(self)
             self.class_name = "Bard"
-
+        elif char_class == "cleric":
+            char_class = Cleric(self)
+            self.class_name = "Cleric"
         self.clas = char_class
         self.hp += self.clas.hp
         self.strength = self.clas.str_mod
@@ -167,10 +171,10 @@ class Character:
         try:
             for i in range(0, len(self.race.spells)):
                 lvl = [[0], []]
-                lvl[0][0]+=int(self.race.spells[i][0])
+                lvl[0][0] += int(self.race.spells[i][0])
                 for item in self.race.spells[i][1]:
                     lvl[1].append(item)
-                lvl[0][0]+=int(self.clas.spells[i][0])
+                lvl[0][0] += int(self.clas.spells[i][0])
                 for item in self.clas.spells[i][1]:
                     lvl[1].append(item)
                 self.fin_magic.append(lvl)
