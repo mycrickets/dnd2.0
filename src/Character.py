@@ -11,6 +11,7 @@ from src.utils.character.race.spec.tiefling import Tiefling
 from src.utils.character.chr_clas.spec.barbarian import Barbarian
 from src.utils.character.chr_clas.spec.bard import Bard
 from src.utils.character.chr_clas.spec.cleric import Cleric
+from src.utils.character.chr_clas.spec.druid import Druid
 
 
 import src.utils.utils as utilities
@@ -45,7 +46,8 @@ class Character:
         self.bonds = ""
 
     def set_race(self):
-        race = input("what race are you?\n")
+        #race = input("what race are you?\n")
+        race = "half orc"
         race = race.strip()
         if race == "dragonborn":
             race = Dragonborn(self.level)
@@ -62,7 +64,7 @@ class Character:
         elif race in ["half elf", "half_elf"]:
             race = HalfElf(self.level)
             self.race_name = "Half Elf"
-        elif race in ["half orc", "half_orc"]:
+        elif race in ["half orc", "half_orc", "halforc"]:
             race = HalfOrc(self.level)
             self.race_name = "Half Orc"
         elif race == "halfling":
@@ -95,6 +97,9 @@ class Character:
         elif char_class == "cleric":
             char_class = Cleric(self)
             self.class_name = "Cleric"
+        elif char_class == "druid":
+            char_class = Druid(self)
+            self.class_name = "Druid"
         self.clas = char_class
         self.hp += self.clas.hp
         self.strength = self.clas.str_mod

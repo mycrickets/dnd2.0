@@ -92,14 +92,28 @@ class BaseClass(BaseChr, MagicChr):
                 if self.level > lvl:
                     flag = True
                     while flag:
-                        flag = not self.middleman(opt, item[1])
+                        if opt == "spells":
+                            flag = not self.middleman(opt, item)
+                        else:
+                            flag = not self.middleman(opt, item[1])
 
     def middleman(self, opt, item):
         if isinstance(item, list):
+            if isinstance(item[0], int):
+                pass
+            else:
+                if isinstance(item[0][0], int):
+                    if not self.append_item(opt, item):
+                        return False
+                    return True
             for ind in item:
-                return self.append_item(opt, ind)
+                if not self.append_item(opt, ind):
+                    return False
+            return True
         elif isinstance(item, str):
-            return self.append_item(opt, item)
+            if not self.append_item(opt, item):
+                return False
+            return True
         else:
             return None
 
@@ -133,7 +147,7 @@ class BaseClass(BaseChr, MagicChr):
         elif opt == "language":
             self.languages.append(item)
         elif opt == "spells":
-            self.add_spell(self.level, item)
+            self.add_spell(item, self.level)
         return True
 
     def set_equip(self, opts, wpn_armor):
@@ -163,8 +177,11 @@ class BaseClass(BaseChr, MagicChr):
         """
         for level in opts:
             if self.level > int(level[0]):
-                for item in level[1]:
-                    self.features.append(item)
+                if isinstance(level[1], str):
+                    self.features.append(level[1])
+                else:
+                    for item in level[1]:
+                        self.features.append(item)
 
     def level_scores(self, levels):
         for item in levels:

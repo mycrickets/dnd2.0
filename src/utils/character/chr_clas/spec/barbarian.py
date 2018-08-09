@@ -14,19 +14,16 @@ class Barbarian(BaseClass):
         self.int_mod = char.race.int_mod
         self.cha_mod = char.race.cha_mod
         self.con_mod = char.race.con_mod
-
         all_skills = list({"animal handling", "athletics", "intimidation", "nature", "perception", "survival"} - set(char.race.skills))
         archetype_opts = ["cannibal", "ancestor", "berserker", "storm", "totem", "zealot"]
         if char.race_name == "dwarf":
             archetype_opts.append("battlerager")
         level_features = [[1, ["Reckless Attack", "Danger Sense"]], [4, ["Extra Attack", "Fast Movement"]], [6, ["Feral Instinct"]], [8, ["Brutal Critical"]],
                           [10, ["Relentless Rage"]], [14, ["Persistant Rage"]], [17, ["Indomitable Might"]], [20, ["Primal Champion"]]]
-
         utilities.append_features(self, ["Rage", "Unarmored Defense"])
         utilities.append_proficiencies(self, ["light armor", "medium armor", "shields", "simple weapons", "martial weapons"])
         equip_opts = [["greataxe", "any other martial melee weapon (please input)"], ["two handaxes", "any other simple melee weapon (please input)"]]
         self.saving_throws = ["strength", "constitution"]
-
         if self.level > 1:
             self.advantages.append("Dexterity against effects you can see")
         if self.level > 2:

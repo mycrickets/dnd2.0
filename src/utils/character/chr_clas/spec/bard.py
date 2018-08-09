@@ -81,7 +81,7 @@ class Bard(BaseClass, MagicChr):
             all_skills = list(set(utilities.valid_skills()) - set(char.race.skills) - set(self.skills))
             utilities.set_skills(self, 1, all_skills)
             arch['feature'] = [[0, "Tumbling Fool"], [5, "Fool's Insight"], [13, "Fool's Luck"]]
-            arch['spell'] = [[[5, "two"], ["Detect Thoughts"]]]
+            arch['spells'] = [[[5, "two"], ["Detect Thoughts"]]]
         elif arch_choice == "sword":
             arch['proficiency'] = [[0, ["medium armor", "scimitar"]]]
             opts = ["dueling", "two weapon"]
