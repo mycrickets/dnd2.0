@@ -1,6 +1,5 @@
 import src.utils.utils as utilities
 import src.Character as character
-import random as r
 
 
 def main():
