@@ -11,7 +11,7 @@ def main():
         command = command.strip()
         if command == "create":
             print("creation of character")
-            chr = character.Character(5)
+            chr = character.Character(6)
             chr.set_race()
             chr.set_class()
             chr.trigger_end()

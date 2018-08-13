@@ -104,7 +104,7 @@ def set_skills(chr, amt, opts):
                     avail = set(opts) - set(chr.skills)
                     print("Which skill do you want to be proficient in? Options are listed below")
                     print("Choice " + str(i+1) + "/" + str(amt))
-                    for item in avail:
+                    for item in sorted(avail):
                         print(item)
                     ch = input("")
                 else:
@@ -136,18 +136,24 @@ def get_modifier(chr, stat, clas=False):
     return None
 
 
-def get_from_list(list, amt):
+def get_from_list(list, amt, desc=None):
+    addition = " "
+    if desc:
+        addition += desc + " "
     for i in range(0, int(amt)):
         flag = True
         ch = ""
         while flag:
             try:
-                print("Which do you want to have?")
+                print("Which" + addition + "do you want to have?")
                 for item in list:
                     print(item)
                 ch = input("")
                 if is_valid_input(ch, list):
                     return ch
+                else:
+                    print(ch + " isn't in the list")
+                    assert 1 == 2
             except AssertionError:
                 print(ch + " is already accounted for, or not on the allowed list. Try again.")
 

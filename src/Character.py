@@ -12,11 +12,14 @@ from src.utils.character.chr_clas.spec.barbarian import Barbarian
 from src.utils.character.chr_clas.spec.bard import Bard
 from src.utils.character.chr_clas.spec.cleric import Cleric
 from src.utils.character.chr_clas.spec.druid import Druid
+from src.utils.character.chr_clas.spec.fighter import Fighter
+from src.utils.character.chr_clas.spec.monk import Monk
 
 
 import src.utils.utils as utilities
 
 
+# noinspection PyAttributeOutsideInit
 class Character:
     def __init__(self, level):
         self.level = int(level)
@@ -27,7 +30,7 @@ class Character:
         self.intelligence = 0
         self.wisdom = 0
         self.hp = 0
-        #utilities.init_scores(self)
+        # utilities.init_scores(self)
         self.languages = []
         self.race = None
         self.race_name = ""
@@ -45,8 +48,21 @@ class Character:
         self.flaws = ""
         self.bonds = ""
 
+        '''race/class specific'''
+        # Cleric
+        self.divine_ct = None
+        # Fighter
+        self.maneuvers = None
+        self.styles = None
+        self.sup_dice_ct = None
+        self.sup_dice = None
+        # Monk
+        self.ki_features = None
+        self.ki_dc = None
+        self.elem_feat = None
+
     def set_race(self):
-        #race = input("what race are you?\n")
+        # race = input("what race are you?\n")
         race = "half orc"
         race = race.strip()
         if race == "dragonborn":
@@ -97,9 +113,23 @@ class Character:
         elif char_class == "cleric":
             char_class = Cleric(self)
             self.class_name = "Cleric"
+            self.divine_ct = char_class.divine_ct
         elif char_class == "druid":
             char_class = Druid(self)
             self.class_name = "Druid"
+        elif char_class == "fighter":
+            char_class = Fighter(self)
+            self.class_name = "Fighter"
+            self.maneuvers = char_class.maneuvers
+            self.styles = char_class.styles
+            self.sup_dice_ct = char_class.sup_dice_ct
+            self.sup_dice = char_class.sup_dice
+        elif char_class == "monk":
+            char_class = Monk(self)
+            self.class_name = "Monk"
+            self.ki_features = char_class.ki_features
+            self.ki_dc = char_class.ki_dc
+            self.elem_feat = char_class.elem_feat
         self.clas = char_class
         self.hp += self.clas.hp
         self.strength = self.clas.str_mod

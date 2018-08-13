@@ -30,7 +30,7 @@ class Cleric(BaseClass, MagicChr):
         self.set_equip(equip_opts, False)
         utilities.set_skills(self, 2, all_skills)
         self.init_hit_dice(8)
-        self.init_hp(8, "constitution", "8")
+        self.init_hp(8, "constitution", 8)
         self.equipment.append("Shield")
         self.equipment.append(input("What holy symbol do you want to use?\n"))
         self.level_features(level_features)

@@ -22,9 +22,9 @@ class Fighter(BaseClass, MagicChr):
         utilities.append_proficiencies(self, ["All armors", "All shields", "All weapons"])
         self.set_equip(wpn_opts, True)
         self.set_equip(eqp_opts, False)
-        spnch = utilities.get_from_list(["leather armor and longbow", "chain mail"], 1)
+        spnch = utilities.get_from_list(["leather armor and longbow", "chain mail"], 1, "selection")
         if spnch == "leather armor and longbow":
-            self.set_equip(["Longbow with 20 arrows"], True)
+            utilities.equip(self, "Longbow with 20 arrows")
             self.armor.append(["Leather Armor", "11"])
         else:
             self.armor.append(["Chain Mail", "16"])
@@ -33,6 +33,8 @@ class Fighter(BaseClass, MagicChr):
         self.init_hp(10, "constitution", "10")
         self.maneuvers = []
         self.styles = []
+        self.sup_dice_ct = None
+        self.sup_dice = None
         self.level_features(level_features)
         self.level_scores([3, 7, 11, 15, 18])
         self.set_style()
@@ -43,9 +45,26 @@ class Fighter(BaseClass, MagicChr):
     def set_style(self):
         style_opts = list({"archery", "defense", "dueling", "great weapon fighting", "protection", "two weapon fighting",
                            "mariner", "close quarters shooter", "tunnel fighter"} - set(self.styles))
-        ch = utilities.get_from_list(style_opts, 1)
-        self.styles.append(ch)
-        self.features.append(ch)
+        ch = utilities.get_from_list(style_opts, 1, "style")
+        self.styles.append(ch.capitalize())
+        self.features.append(ch.capitalize())
+
+    def set_maneuver(self, amt):
+        base_opt = ["Commander's Strike", "Disarming Attack", "Distracting Strike", "Evasive Footwork", "Feinting Attack", "Goading Attack", "Lunging Attack", "Maneuvering Attack"
+                    "Menacing Attack", "Parry", "Riposte", "Sweeping Attack", "Trip Attack"]
+        fin_opt = set(base_opt) - set(self.maneuvers)
+        for i in range(0, amt):
+            print("Which Battle Master Maneuver do you want to take? They're printed below")
+            for item in sorted(fin_opt):
+                print(item)
+            choice = input("")
+            flag = True
+            while flag:
+                if choice in fin_opt:
+                    self.maneuvers.append(choice)
+                    flag = False
+                else:
+                    print("That's not in the list. Try again")
 
     def arcane_shot(self, amt):
         base_opt = ["Banishing Arrow", "Beguiling Arrow", "Bursting Arrow", "Enfeebling Arrow", "Grasping Arrow", "Piercing Arrow", "Seeking Arrow", "Shadow Arrow"]
@@ -67,8 +86,10 @@ class Fighter(BaseClass, MagicChr):
         arch = {}
         if arch_choice == "arcane":
             MagicChr.__init__(self)
-            cantrip = utilities.get_from_list(["druidcraft", "prestidigitation"], 1)
-            self.add_spell([cantrip], 0)
+            self.magic_throw = "intelligence"
+            self.magic_dc = 8 + self.prof_bonus + self.int_mod
+            cantrip = utilities.get_from_list(["druidcraft", "prestidigitation"], 1, "cantrip")
+            self.add_spell([[0, "cantrip"], [cantrip]], 0)
             utilities.set_skills(self, 1, ["arcana", "nature"])
             self.arcane_choices = []
             self.arcane_shot_desc = []
@@ -76,34 +97,68 @@ class Fighter(BaseClass, MagicChr):
                 if self.level > trig:
                     self.arcane_shot(1)
             arch['feature'] = [[6, ["Magic Arrow", "Curving Shot"]], [14, "Ever-Ready Shot"]]
+
         elif arch_choice == "battle":
-            pass
+            self.sup_dice_ct = 6 if self.level > 14 else 5 if self.level > 6 else 4
+            self.sup_dice = str(self.sup_dice_ct) + "d12" if self.level > 17 else "d10" if self.level > 9 else "d8"
+            arch['feature'] = [[0, ["Superiority Dice", "Maneuvers"]], [6, "Know Your Enemy"], [14, "Relentless"]]
+            for level in [0, 0, 0, 6, 6, 9, 9, 14, 14]:
+                if self.level > level:
+                    self.set_maneuver(1)
+
         elif arch_choice == "brute":
-            pass
+            arch['feature'] = [[0, "Brute Force"], [6, "Brutish Durability"], [14, "Devastating Critical"], [17, "Survivor"]]
+            if self.level > 9:
+                self.set_style()
+
         elif arch_choice == "cavalier":
-            ch = utilities.get_from_list(["language", "skill"], 1)
+            ch = utilities.get_from_list(["language", "skill"], 1, "option")
             if ch == "language":
                 self.languages.append(input("What language do you want to learn?"))
             else:
-                arch['skill'] = [[0, utilities.get_from_list(["animal handling", "history", "insight", "performance", "persuasion"], 0)]]
+                utilities.set_skills(self, 1, ["animal handling", "history", "insight", "performance", "persuasion"])
             arch['feature'] = [[0, ["Born to the Saddle", "Unwavering Maneuver"]], [6, "Warding Maneuver"], [9, "Hold the Line"], [14, "Ferocious Charger"], [17, "Vigilant Defender"]]
+
         elif arch_choice == "champion":
             arch['feature'] = [[0, "Improved Critical"], [6, "Remarkable Athlete"], [14, "Superior Critical"], [17, "Survivor"]]
             if self.level > 9:
                 self.set_style()
+
         elif arch_choice == "eldritch":
-            pass
+            MagicChr.set_magic(self, self.level, 2, "eldritch")
+            self.magic_dc = 8 + self.prof_bonus + self.int_mod
+            self.magic_throw = "intelligence"
+            arch['feature'] = [[0, "Weapon Bond"], [6, "War Magic"], [9, "Eldritch Strike"], [14, "Arcane Charge"], [17, "Improved War Magic"]]
+
         elif arch_choice == "monster":
-            pass
+            ch = utilities.get_from_list(["proficient in a new skill", "proficient in a new tool"], 1)
+            if ch == "proficient in a new tool":
+                self.proficiencies.append(input("What toolset do you want to be proficient in?"))
+            else:
+                utilities.set_skills(self, 2, ["arcana", "history", "insight", "investigation", "nature", "perception"])
+            self.sup_dice_ct = 6 if self.level > 14 else 5 if self.level > 6 else 4
+            self.sup_dice = str(self.sup_dice_ct) + "d12" if self.level > 17 else "d10" if self.level > 9 else "d8"
+            arch['feature'] = [[0, ["Superiority Dice", "Hunter's Mysticism"]], [6, "Monster Slayer"], [14, "Relentless"]]
         elif arch_choice == "purple":
-            pass
+            arch['feature'] = [[0, "Rallying Cry"], [6, "Royal Envoy"], [9, "Inspiring Surge"], [14, "Bulwark"]]
+            if self.level > 6:
+                if "persuasion" not in self.skills or char.skills:
+                    self.skills.append("persuasion")
+                else:
+                    utilities.set_skills(self, 1, ["animal handling", "insight", "intimidation", "performance"])
+
         elif arch_choice == "samurai":
             arch['feature'] = [[0, "Fighting Spirit"], [6, "Elegant Courtier"], [9, "Tireless Spirit"], [14, "Rapid Strike"], [17, "Strength Before Death"]]
-            arch['skill'] = [[6, utilities.get_from_list(["history", "insight", "performance", "persuasion"], 1)]]
+            arch['skill'] = [[6, utilities.get_from_list(["history", "insight", "performance", "persuasion"], 1, "skill")]]
+
         elif arch_choice == "scout":
-            pass
+            utilities.set_skills(self, 3, ["acrobatics", "athletics", "investigation", "medicine", "nature", "perception", "stealth", "survival"])
+            arch['feature'] = [[0, ["Natural Explorer (Fighter)", "Superiority Dice"]], [14, "Relentless"]]
+            self.sup_dice_ct = 6 if self.level > 14 else 5 if self.level > 6 else 4
+            self.sup_dice = str(self.sup_dice_ct) + "d12" if self.level > 17 else "d10" if self.level > 9 else "d8"
+
         else:
             arch_choice = "sharpshooter"
             arch['feature'] = [[0, "Steady Aim"], [6, "Careful Eyes"], [9, "Close-Quarters Shooting"], [14, "Rapid Strike"], [17, "Snap Shot"]]
-            arch['skill'] = [[6, utilities.get_from_list(["perception", "investigation", "survival"], 1)]]
+            arch['skill'] = [[6, utilities.get_from_list(["perception", "investigation", "survival"], 1, "skill")]]
         self.level_arch(arch)

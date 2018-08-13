@@ -69,11 +69,8 @@ class BaseClass(BaseChr, MagicChr):
                 print(item)
             choice = input("")
             if utilities.is_valid_input(choice, opts):
-                self.archetype = choice
-                flag = False
-            else:
-                pass
-        return self.archetype
+                self.archetype = choice.capitalize()
+                return choice
 
     def level_arch(self, arch):
         """
@@ -99,9 +96,7 @@ class BaseClass(BaseChr, MagicChr):
 
     def middleman(self, opt, item):
         if isinstance(item, list):
-            if isinstance(item[0], int):
-                pass
-            else:
+            if not isinstance(item[0], int):
                 if isinstance(item[0][0], int):
                     if not self.append_item(opt, item):
                         return False
