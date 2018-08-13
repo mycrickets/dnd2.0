@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88988547-7c4f-4f46-810b-d75eaaa519a9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Character.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Character.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/MagicChr.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/MagicChr.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/background/BaseBackground.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/background/BaseBackground.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/BaseClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/BaseClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/barbarian.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/barbarian.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/cleric.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/cleric.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/druid.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/druid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/fighter.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/fighter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/monk.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/monk.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/paladin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/paladin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/ranger.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/ranger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/rogue.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/rogue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/sorcerer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/sorcerer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/warlock.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/warlock.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/wizard.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/character/chr_clas/spec/wizard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,8 +39,8 @@
           <file leaf-file-name="Character.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Character.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1152">
-                  <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+                <state relative-caret-position="779">
+                  <caret line="199" column="14" selection-start-line="199" selection-start-column="14" selection-end-line="199" selection-end-column="14" />
                   <folding>
                     <element signature="e#0#63#0" expanded="true" />
                     <element signature="e#5076#8691#0" />
@@ -65,11 +49,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="index.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/index.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="15" selection-start-line="15" selection-end-line="15" />
+                <state relative-caret-position="345">
+                  <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
                 </state>
               </provider>
             </entry>
@@ -77,8 +61,8 @@
           <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/utils/utils.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-226">
-                  <caret line="305" column="90" selection-start-line="305" selection-start-column="90" selection-end-line="305" selection-end-column="90" />
+                <state relative-caret-position="397">
+                  <caret line="147" column="16" lean-forward="true" selection-start-line="147" selection-start-column="16" selection-end-line="147" selection-end-column="16" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
                   </folding>
@@ -107,11 +91,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="wizard.py" pinned="false" current-in-tab="true">
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="bard.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="15">
+                  <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="wizard.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/wizard.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
+                <state relative-caret-position="413">
+                  <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
                   <folding>
                     <element signature="e#0#60#0" expanded="true" />
                   </folding>
@@ -119,15 +116,20 @@
               </provider>
             </entry>
           </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="warlock.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="barbarian.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/barbarian.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="591">
+                  <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="warlock.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/warlock.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="450">
-                  <caret line="30" column="39" lean-forward="true" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+                <state relative-caret-position="732">
+                  <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
                   <folding>
                     <element signature="e#0#60#0" expanded="true" />
                   </folding>
@@ -200,6 +202,7 @@
       <find>car</find>
       <find>fly</find>
       <find>self.patron</find>
+      <find>circle</find>
     </findStrings>
     <replaceStrings>
       <replace>level</replace>
@@ -212,6 +215,7 @@
       <replace>spell_lvl</replace>
       <replace>'spells'</replace>
       <replace>self.archetype</replace>
+      <replace>arch_choice</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -253,7 +257,6 @@
         <option value="$PROJECT_DIR$/src/utils/character/race/spec/half_elf.py" />
         <option value="$PROJECT_DIR$/src/utils/character/race/spec/tiefling.py" />
         <option value="$PROJECT_DIR$/src/utils/character/BaseChr.py" />
-        <option value="$PROJECT_DIR$/src/index.py" />
         <option value="$PROJECT_DIR$/src/utils/character/chr_clas/spec/barbarian.py" />
         <option value="$PROJECT_DIR$/src/utils/character/chr_clas/spec/paladin.py" />
         <option value="$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py" />
@@ -267,10 +270,11 @@
         <option value="$PROJECT_DIR$/src/utils/character/background/BaseBackground.py" />
         <option value="$PROJECT_DIR$/src/utils/character/chr_clas/spec/rogue.py" />
         <option value="$PROJECT_DIR$/src/utils/character/chr_clas/spec/sorcerer.py" />
-        <option value="$PROJECT_DIR$/src/utils/utils.py" />
-        <option value="$PROJECT_DIR$/src/Character.py" />
         <option value="$PROJECT_DIR$/src/utils/character/chr_clas/spec/warlock.py" />
+        <option value="$PROJECT_DIR$/src/utils/utils.py" />
         <option value="$PROJECT_DIR$/src/utils/character/chr_clas/spec/wizard.py" />
+        <option value="$PROJECT_DIR$/src/Character.py" />
+        <option value="$PROJECT_DIR$/src/index.py" />
       </list>
     </option>
   </component>
@@ -340,23 +344,6 @@
               <item name="utils" type="462c0819:PsiDirectoryNode" />
               <item name="character" type="462c0819:PsiDirectoryNode" />
               <item name="chr_clas" type="462c0819:PsiDirectoryNode" />
-              <item name="spec" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dnd2.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dnd2.0" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="character" type="462c0819:PsiDirectoryNode" />
-              <item name="race" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dnd2.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dnd2.0" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="character" type="462c0819:PsiDirectoryNode" />
-              <item name="race" type="462c0819:PsiDirectoryNode" />
               <item name="spec" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -451,11 +438,11 @@
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32903227" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.23020834" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.23020834" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.171875" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49597856" weight="0.11880661" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.4875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49597856" visible="true" weight="0.11880661" />
       <window_info anchor="bottom" id="Statistic" order="0" weight="0.32903227" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="7" weight="0.32972136" />
@@ -595,13 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/barbarian.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/druid.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -702,13 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-143">
-          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/character/BaseChr.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -767,36 +740,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-226">
-          <caret line="305" column="90" selection-start-line="305" selection-start-column="90" selection-end-line="305" selection-end-column="90" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/character/MagicChr.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-196">
-          <caret line="136" column="43" selection-start-line="136" selection-start-column="43" selection-end-line="136" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/sorcerer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1371">
           <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
           <folding>
             <element signature="e#0#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="147" column="16" lean-forward="true" selection-start-line="147" selection-start-column="16" selection-end-line="147" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -811,21 +770,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Character.py">
+    <entry file="file://$PROJECT_DIR$/src/utils/character/MagicChr.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1152">
-          <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#63#0" expanded="true" />
-            <element signature="e#5076#8691#0" />
-          </folding>
+        <state relative-caret-position="-196">
+          <caret line="136" column="43" selection-start-line="136" selection-start-column="43" selection-end-line="136" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/warlock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="39" lean-forward="true" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+        <state relative-caret-position="732">
+          <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
           <folding>
             <element signature="e#0#60#0" expanded="true" />
           </folding>
@@ -834,11 +789,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/wizard.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
+        <state relative-caret-position="413">
+          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
           <folding>
             <element signature="e#0#60#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/barbarian.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/character/chr_clas/spec/bard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Character.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="199" column="14" selection-start-line="199" selection-start-column="14" selection-end-line="199" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
+            <element signature="e#5076#8691#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
         </state>
       </provider>
     </entry>

@@ -10,12 +10,28 @@ def main():
                         "'search spell' for any spell, 'help', or 'exit'? \n")
         command = command.strip()
         if command == "create":
-            print("creation of character")
-            chr = character.Character(6)
+            print("Creation of Character")
+            level = 1
+            flag = False
+            while not flag:
+                level = input("What level is your character?\n")
+                try:
+                    level = int(level)
+                    if level > 20:
+                        print("Your level can't be above 20. Try again.")
+                    if level < 1:
+                        print("Your level can't be lower than 1. Try again.")
+                    flag = True
+                except (TypeError, ValueError):
+                    print("Please enter a number")
+            chr = character.Character(int(level))
+            chr.set_background()
             chr.set_race()
             chr.set_class()
+            chr.set_personality()
             chr.trigger_end()
             # above to get all features, equip, etc from race and class to character. otherwise not accessible.
+            utilities.combat_to_string(chr)
             utilities.score_to_string(chr)
             utilities.character_to_string(chr)
             utilities.special_to_string(chr)

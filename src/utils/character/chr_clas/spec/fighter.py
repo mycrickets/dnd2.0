@@ -7,12 +7,12 @@ class Fighter(BaseClass, MagicChr):
     def __init__(self, char):
         BaseClass.__init__(self, char.level)
         self.level = int(char.level)
-        self.str_mod = char.race.str_mod
-        self.dex_mod = char.race.dex_mod
-        self.wis_mod = char.race.wis_mod
-        self.int_mod = char.race.int_mod
-        self.cha_mod = char.race.cha_mod
-        self.con_mod = char.race.con_mod
+        self.str_mod = char.strength
+        self.dex_mod = char.dexterity
+        self.wis_mod = char.wisdom
+        self.int_mod = char.intelligence
+        self.cha_mod = char.charisma
+        self.con_mod = char.constitution
         self.level_scores([3, 5, 7, 11, 13, 15, 18])
         all_skills = list({"acrobatics", "animal handling", "athletics", "history", "insight", "intimidation"} - set(char.race.skills))
         archetype_opts = ["arcane", "battle", "brute", "cavalier", "champion", "eldritch", "monster", "purple", "samurai", "scout", "sharpshooter"]
@@ -26,9 +26,9 @@ class Fighter(BaseClass, MagicChr):
         spnch = utilities.get_from_list(["leather armor and longbow", "chain mail"], 1, "selection")
         if spnch == "leather armor and longbow":
             utilities.equip(self, "Longbow with 20 arrows")
-            self.armor.append(["Leather Armor", "11"])
+            self.armor = ["Leather Armor", "11"]
         else:
-            self.armor.append(["Chain Mail", "16"])
+            self.armor = ["Chain Mail", "16"]
         utilities.set_skills(self, 2, all_skills)
         self.init_hit_dice("10")
         self.init_hp(10, "constitution", "10")

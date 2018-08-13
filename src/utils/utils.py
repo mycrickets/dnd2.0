@@ -258,7 +258,8 @@ def init_scores(chr):
             else:
                 scores = []
                 assigned = 0
-                print("BUG")
+                print("\n\n\n\n")
+                print("BUG at utils line 262")
                 print("\n\n\n\n")
     else:
         scores = [15, 14, 13, 12, 10, 8]
@@ -385,7 +386,24 @@ def add_language(chr, item):
 
 def combat_to_string(chr):
     # armor, weapons, equipment
-    pass
+    if chr.fin_armor:
+        armor = "armor: " + chr.fin_armor[0]
+        dc = "armor DC: " + str(chr.fin_armor[1])
+    else:
+        armor = "armor: No Armor"
+        dc = str(10 + get_modifier(chr, "dexterity"))
+    weapons = "weapons: "
+    for item in chr.fin_weapons:
+        weapons += "\n\t" + item.capitalize()
+    attack = "attacks: "
+    for item in chr.fin_attacks:
+        attack += "\n\t" + item.capitalize()
+    equipment = "equipment: "
+    for item in chr.fin_equip:
+        equipment += "\n\t" + item.capitalize()
+    output = [armor, dc, weapons, attack, equipment]
+    for item in output:
+        print(item + "\n")
 
 
 def magic_to_string(chr):
@@ -428,7 +446,17 @@ def score_to_string(chr):
     max_hp = "max hp: \t" + str(chr.hp)
     speed = "speed: \t" + str(chr.race.speed)
     swim_spd = "swimming speed: \t" + str(chr.race.swim_spd)
-    fly_speed = "flying speed: \t" + str(chr.race.fly_spd) + str(chr.clas.fly_speed)
+    try:
+        fly_speed = "flying speed: \t" + str(chr.race.fly_spd) + str(chr.clas.fly_speed)
+    except AttributeError:
+        try:
+            fly_speed = "flying speed: \t" + str(chr.race.fly_spd)
+        except AttributeError:
+            try:
+                fly_speed = "flying speed: \t" + str(chr.clas.fly_spd)
+            except AttributeError:
+                fly_speed = "flying speed: 0"
+
     output = [level, strength, dexterity, wisdom, intelligence, charisma, constitution, hit_dice, max_hp, speed, swim_spd, fly_speed]
     for item in output:
         print(item)

@@ -11,12 +11,12 @@ class Warlock(BaseClass, MagicChr):
         cant_ct = 2
         self.level = int(char.level)
         self.set_magic(self.level, cant_ct, "warlock")
-        self.str_mod = char.race.str_mod
-        self.dex_mod = char.race.dex_mod
-        self.wis_mod = char.race.wis_mod
-        self.int_mod = char.race.int_mod
-        self.cha_mod = char.race.cha_mod
-        self.con_mod = char.race.con_mod
+        self.str_mod = char.strength
+        self.dex_mod = char.dexterity
+        self.wis_mod = char.wisdom
+        self.int_mod = char.intelligence
+        self.cha_mod = char.charisma
+        self.con_mod = char.constitution
         self.level_scores([3, 7, 11, 15, 18])
         all_skills = list({"arcana", "deception", "history", "intimidation", "nature", "religion"} - set(char.race.skills))
         archetype_opts = ["Archfey", "Celestial", "Fiend", "Ghost in the Machine", "Great Old One", "Hexblade", "Raven Queen", "Seeker", "Undying"]
@@ -32,7 +32,7 @@ class Warlock(BaseClass, MagicChr):
         utilities.set_skills(self, 2, all_skills)
         self.init_hit_dice(8)
         self.init_hp(8, "constitution", 8)
-        for item in ["two daggers", input("Initialization: What simple weapon do you want to have?")]:
+        for item in ["two daggers", input("Initialization: What simple weapon do you want to have?\n")]:
             utilities.equip(self, item)
         self.armor = ["leather armor", "11"]
         self.invocations = []
@@ -157,11 +157,11 @@ class Warlock(BaseClass, MagicChr):
         self.pact = utilities.get_from_list(["Pact of the Chain", "Pact of the Tome", "Pact of the Blade"], 1, "pact")
         if self.pact == "Pact of the Chain":
             self.pact_desc.append("You learn the Find Familiar spell and can cast it as a ritual. The spell doesn't count against your number of spells known. When you cast the spell, you can choose one of the normal forms for your familiar or one of the following special forms: imp, pseudodragon, quasit or sprite. Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your familiar to make one attack of its own with its reaction.")
-            self.add_spell([[[0, "one"], "Find Familiar"]], self.level)
+            self.add_spell([[0, "one"], "Find Familiar"], self.level)
         elif self.pact == "Pact of the Tome":
             self.pact_desc.append("Your patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class's spell list (the three needn't be from the same list). While the book is on your person, you can cast those cantrips at will. They don't count against your number of cantrips known. If they don't appear on the warlock spell list, they are nonetheless warlock spells for you. If you lose your Book of Shadows, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous book. The book turns to ash when you die.")
             self.cantrips[0] += 3
-            self.cantrips[1].extend([input("Pact of the Tome: What cantrip do you want to learn?"), input("Pact of the Tome: What cantrip do you want to learn?"), input("Pact of the Tome: What cantrip do you want to learn?")])
+            self.cantrips[1].extend([input("Pact of the Tome: What cantrip do you want to learn?\n"), input("Pact of the Tome: What cantrip do you want to learn?\n"), input("Pact of the Tome: What cantrip do you want to learn?\n")])
         elif self.pact == "Pact of the Blade":
             self.pact_desc.append("You can use your action to create a pact weapon in your empty hand. You can choose the form that this melee weapon takes each time you create it. You are proficient with it while you wield it. This weapon counts as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage. Your pact weapon disappears if it is more than 5 feet away from you for 1 minute or more. It also disappears if you use this feature again, if you dismiss the weapon (no action required), or if you die.\nYou can transform one magic weapon into your pact weapon by performing a special ritual while you hold the weapon. You perform the ritual over the course of 1 hour, which can be done during a short rest. You can then dismiss the weapon, shunting it into an extra-dimensional space, and it appears whenever you create your pact weapon thereafter. You can't affect an artifact or a sentient weapon in this way. The weapon ceases being your pact weapon if you die, if you perform the 1-hour ritual on a different weapon, or if you use a 1-hour ritual to break your bond to it. The weapon appears at your feet if it is in the extra-dimensional space when the bond breaks.")
         else:

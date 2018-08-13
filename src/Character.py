@@ -19,6 +19,7 @@ from src.utils.character.chr_clas.spec.ranger import Ranger
 from src.utils.character.chr_clas.spec.rogue import Rogue
 from src.utils.character.chr_clas.spec.sorcerer import Sorcerer
 from src.utils.character.chr_clas.spec.warlock import Warlock
+from src.utils.character.chr_clas.spec.wizard import Wizard
 
 import src.utils.utils as utilities
 
@@ -53,6 +54,9 @@ class Character:
         self.bonds = ""
 
         '''race/class specific'''
+        # Barbarian
+        self.rage_ct = None
+        self.rage_dmg = None
         # Cleric
         self.divine_ct = None
         # Fighter
@@ -73,6 +77,9 @@ class Character:
         self.invocations = None
         self.pact = None
         self.pact_desc = None
+        # Wizard
+        self.spell_master = None
+        self.sig_spells = None
         # Fighter, Paladin, Ranger
         self.styles = None
         # Rogue, Bard
@@ -172,6 +179,10 @@ class Character:
             self.invocations = char_class.invocations
             self.pact = char_class.pact
             self.pact_desc = char_class.pact_desc
+        else:
+            char_class = Wizard(self)
+            self.spell_master = char_class.spell_master
+            self.sig_spells = char_class.sig_spells
         self.clas = char_class
         self.hp += self.clas.hp
         self.strength = self.clas.str_mod
@@ -182,9 +193,11 @@ class Character:
         self.constitution = self.clas.con_mod
 
     def set_background(self):
+        # TODO
         pass
 
     def set_personality(self):
+        # TODO
         pass
 
     def trigger_end(self):
@@ -222,8 +235,20 @@ class Character:
         try:
             for item in self.race.weapons:
                 self.fin_weapons.append(item)
+        except AttributeError:
+            pass
+        try:
             for item in self.clas.weapons:
                 self.fin_weapons.append(item)
+        except AttributeError:
+            pass
+        self.fin_armor = None
+        try:
+            self.fin_armor = self.race.armor
+        except AttributeError:
+            pass
+        try:
+            self.fin_armor = self.clas.armor
         except AttributeError:
             pass
         self.fin_attacks = []
@@ -238,6 +263,9 @@ class Character:
         try:
             for item in self.race.equip:
                 self.fin_equip.append(item)
+        except AttributeError:
+            pass
+        try:
             for item in self.clas.equip:
                 self.fin_equip.append(item)
         except AttributeError:

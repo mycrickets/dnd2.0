@@ -8,12 +8,12 @@ class Barbarian(BaseClass):
         self.level = int(char.level)
         self.rage_ct = 2
         self.rage_dmg = 2
-        self.str_mod = char.race.str_mod
-        self.dex_mod = char.race.dex_mod
-        self.wis_mod = char.race.wis_mod
-        self.int_mod = char.race.int_mod
-        self.cha_mod = char.race.cha_mod
-        self.con_mod = char.race.con_mod
+        self.str_mod = char.strength
+        self.dex_mod = char.dexterity
+        self.wis_mod = char.wisdom
+        self.int_mod = char.intelligence
+        self.cha_mod = char.charisma
+        self.con_mod = char.constitution
         self.level_scores([3, 7, 11, 15, 18])
         all_skills = list({"animal handling", "athletics", "intimidation", "nature", "perception", "survival"} - set(char.race.skills))
         archetype_opts = ["cannibal", "ancestor", "berserker", "storm", "totem", "zealot"]
