@@ -16,6 +16,7 @@ class Cleric(BaseClass, MagicChr):
         self.int_mod = char.race.int_mod
         self.cha_mod = char.race.cha_mod
         self.con_mod = char.race.con_mod
+        self.level_scores([3, 7, 11, 15, 18])
         self.divine_ct = 2 if self.level > 5 else 3 if self.level > 17 else 1
         all_skills = list({"history", "insight", "medicine", "persuasion", "religion"} - set(char.race.skills))
         archetype_opts = ["arcana", "ambition", "city", "death", "forge", "grave", "knowledge", "life", "light", "nature", "order", "protection", "solidarity", "strength", "tempest", "trickery", "war", "zeal"]
@@ -34,7 +35,6 @@ class Cleric(BaseClass, MagicChr):
         self.equipment.append("Shield")
         self.equipment.append(input("What holy symbol do you want to use?\n"))
         self.level_features(level_features)
-        self.level_scores([3, 7, 11, 15, 18])
         arch_choice = self.init_archetype(archetype_opts)
         self.set_arch(arch_choice)
 

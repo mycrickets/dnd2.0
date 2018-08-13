@@ -14,6 +14,7 @@ class Barbarian(BaseClass):
         self.int_mod = char.race.int_mod
         self.cha_mod = char.race.cha_mod
         self.con_mod = char.race.con_mod
+        self.level_scores([3, 7, 11, 15, 18])
         all_skills = list({"animal handling", "athletics", "intimidation", "nature", "perception", "survival"} - set(char.race.skills))
         archetype_opts = ["cannibal", "ancestor", "berserker", "storm", "totem", "zealot"]
         if char.race_name == "dwarf":
@@ -49,12 +50,10 @@ class Barbarian(BaseClass):
         utilities.set_skills(self, 2, all_skills)
         self.init_hit_dice(12)
         self.init_hp(12, "charisma", 12)
-        self.init_prof_bonus()
         self.level_features(level_features)
         self.set_equip(equip_opts, True)
         utilities.equip(self, "Javelin x4")
         self.equipment.append("Explorer's Pack")
-        self.level_scores([3, 7, 11, 15, 18])
 
     def set_arch(self, arch_choice):
         arch = {}

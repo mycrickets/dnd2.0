@@ -13,6 +13,7 @@ class Fighter(BaseClass, MagicChr):
         self.int_mod = char.race.int_mod
         self.cha_mod = char.race.cha_mod
         self.con_mod = char.race.con_mod
+        self.level_scores([3, 5, 7, 11, 13, 15, 18])
         all_skills = list({"acrobatics", "animal handling", "athletics", "history", "insight", "intimidation"} - set(char.race.skills))
         archetype_opts = ["arcane", "battle", "brute", "cavalier", "champion", "eldritch", "monster", "purple", "samurai", "scout", "sharpshooter"]
         level_features = [[0, "Second Wind"], [1, "Action Surge"], [4, "Extra Attack"], [8, "Indomitable"]]
@@ -36,7 +37,6 @@ class Fighter(BaseClass, MagicChr):
         self.sup_dice_ct = None
         self.sup_dice = None
         self.level_features(level_features)
-        self.level_scores([3, 7, 11, 15, 18])
         self.set_style()
         if self.level > 2:
             arch_choice = self.init_archetype(archetype_opts)

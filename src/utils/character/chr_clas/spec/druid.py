@@ -16,6 +16,7 @@ class Druid(BaseClass, MagicChr):
         self.int_mod = char.race.int_mod
         self.cha_mod = char.race.cha_mod
         self.con_mod = char.race.con_mod
+        self.level_scores([3, 7, 11, 15, 18])
         all_skills = list({"arcana", "animal handling", "insight", "medicine", "nature", "perception", "religion", "survival"} - set(char.race.skills))
         archetype_opts = ["dreams", "land", "moon", "shepherd", "spores", "twilight"]
         level_features = [[1, "Wild Shape"], [17, ["Timeless Body", "Beast Spells"]], [19, "Archdruid"]]
@@ -34,7 +35,6 @@ class Druid(BaseClass, MagicChr):
         for item in ["explorer's pack", "druidic focus"]:
             self.equipment.append(item)
         self.level_features(level_features)
-        self.level_scores([3, 7, 11, 15, 18])
         if self.level > 1:
             arch_choice = self.init_archetype(archetype_opts)
             self.set_arch(arch_choice)

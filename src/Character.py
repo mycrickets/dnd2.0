@@ -14,7 +14,11 @@ from src.utils.character.chr_clas.spec.cleric import Cleric
 from src.utils.character.chr_clas.spec.druid import Druid
 from src.utils.character.chr_clas.spec.fighter import Fighter
 from src.utils.character.chr_clas.spec.monk import Monk
-
+from src.utils.character.chr_clas.spec.paladin import Paladin
+from src.utils.character.chr_clas.spec.ranger import Ranger
+from src.utils.character.chr_clas.spec.rogue import Rogue
+from src.utils.character.chr_clas.spec.sorcerer import Sorcerer
+from src.utils.character.chr_clas.spec.warlock import Warlock
 
 import src.utils.utils as utilities
 
@@ -53,18 +57,31 @@ class Character:
         self.divine_ct = None
         # Fighter
         self.maneuvers = None
-        self.styles = None
         self.sup_dice_ct = None
         self.sup_dice = None
         # Monk
         self.ki_features = None
         self.ki_dc = None
         self.elem_feat = None
+        # Rogue
+        self.sneak_dmg = None
+        # Sorcerer
+        self.metamagic_features = None
+        self.color = None
+        self.fly_speed = None
+        # Warlock
+        self.invocations = None
+        self.pact = None
+        self.pact_desc = None
+        # Fighter, Paladin, Ranger
+        self.styles = None
+        # Rogue, Bard
+        self.expert_skills = None
 
     def set_race(self):
-        # race = input("what race are you?\n")
+        # race = utilities.get_from_list(["Dragonborn", "Dwarf", "Elf", "Gnome", "Half Elf", "Half Orc", "Halfling", "Tiefling", "Human"], 1, "race")
         race = "half orc"
-        race = race.strip()
+        race = race.strip().lower()
         if race == "dragonborn":
             race = Dragonborn(self.level)
             self.race_name = "Dragonborn"
@@ -102,8 +119,8 @@ class Character:
         self.constitution += self.race.con_mod
 
     def set_class(self):
-        char_class = input("What class are you?\n")
-        char_class = char_class.strip()
+        char_class = utilities.get_from_list(["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"], 1, "class")
+        char_class = char_class.strip().lower()
         if char_class == "barbarian":
             char_class = Barbarian(self)
             self.class_name = "Barbarian"
@@ -130,6 +147,31 @@ class Character:
             self.ki_features = char_class.ki_features
             self.ki_dc = char_class.ki_dc
             self.elem_feat = char_class.elem_feat
+        elif char_class == "paladin":
+            char_class = Paladin(self)
+            self.class_name = "Paladin"
+            self.styles = char_class.styles
+        elif char_class == "ranger":
+            char_class = Ranger(self)
+            self.class_name = "Ranger"
+            self.styles = char_class.styles
+        elif char_class == "rogue":
+            char_class = Rogue(self)
+            self.class_name = "Rogue"
+            self.sneak_dmg = char_class.sneak_dmg
+            self.expert_skills = char_class.expert_skills
+        elif char_class == "sorcerer":
+            char_class = Sorcerer(self)
+            self.class_name = "Sorcerer"
+            self.metamagic_features = char_class.metamagic_features
+            self.color = char_class.color
+            self.fly_speed = char_class.fly_speed
+        elif char_class == "warlock":
+            char_class = Warlock(self)
+            self.class_name = "Warlock"
+            self.invocations = char_class.invocations
+            self.pact = char_class.pact
+            self.pact_desc = char_class.pact_desc
         self.clas = char_class
         self.hp += self.clas.hp
         self.strength = self.clas.str_mod

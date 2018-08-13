@@ -140,22 +140,26 @@ def get_from_list(list, amt, desc=None):
     addition = " "
     if desc:
         addition += desc + " "
+    results = []
     for i in range(0, int(amt)):
         flag = True
         ch = ""
         while flag:
             try:
                 print("Which" + addition + "do you want to have?")
-                for item in list:
+                for item in sorted(list):
                     print(item)
                 ch = input("")
-                if is_valid_input(ch, list):
-                    return ch
+                if is_valid_input(ch, list) or is_valid_input(ch.capitalize(), list):
+                    if amt > 1:
+                        results.append(ch)
+                    else:
+                        return ch
                 else:
-                    print(ch + " isn't in the list")
                     assert 1 == 2
             except AssertionError:
-                print(ch + " is already accounted for, or not on the allowed list. Try again.")
+                print(ch + " isn't in the list")
+    return results
 
 
 def search_dict(value):
@@ -300,11 +304,11 @@ def is_valid_input(arg, choices=None, scores=None):
         if is_one_string(arg):
             choice = arg.strip().split()[0]
             score = int(arg.strip().split()[1])
-            assert choice in choices
+            assert choice in choices or choice.capitalize() in choices or choice.lower() in choices
             assert score in scores
             return True
         else:
-            assert arg in choices
+            assert arg in choices or arg.capitalize() in choices or arg.lower() in choices
             return True
     except AssertionError:
         return False
@@ -424,7 +428,7 @@ def score_to_string(chr):
     max_hp = "max hp: \t" + str(chr.hp)
     speed = "speed: \t" + str(chr.race.speed)
     swim_spd = "swimming speed: \t" + str(chr.race.swim_spd)
-    fly_speed = "flying speed: \t" + str(chr.race.fly_spd)
+    fly_speed = "flying speed: \t" + str(chr.race.fly_spd) + str(chr.clas.fly_speed)
     output = [level, strength, dexterity, wisdom, intelligence, charisma, constitution, hit_dice, max_hp, speed, swim_spd, fly_speed]
     for item in output:
         print(item)
@@ -454,7 +458,7 @@ def feature_to_string(chr):
     # skills, features, saving throws, languages, proficiencies, feats, resistances, disadvantages, advantages
     skills = "skills: "
     for item in chr.fin_skills:
-        skills += "\n\t" + item
+        skills += "\n\t" + item.capitalize()
     features = "features: "
     for item in chr.fin_features:
         features += "\n\t" + str(item)

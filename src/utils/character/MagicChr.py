@@ -5,7 +5,7 @@ class MagicChr:
     def __init__(self):
         self.magic_throw = ""
         self.magic_dc = 0
-        self.attack = ""
+        self.magic_attack = ""
         self.cantrips = [0, []]
         self.one = [0, []]
         self.two = [0, []]
@@ -134,14 +134,13 @@ class MagicChr:
             if level > 19:
                 self.seven[0] = 2
                 self.seven[1].append(input("Level up: What final level seven spell do you want to learn?"))
-        elif clas in ["eldritch"]:
-            if level > 3:
-                self.cantrips[0] += 1
-                self.cantrips[1].append(input("Level up: what final cantrip do you want to add?"))
+        elif clas in ["eldritch", "rogue"]:
             if level > 2:
                 self.one[0] += 2
                 self.one[1].append(input("Level up: What two level one spells do you want to learn?"))
             if level > 3:
+                self.cantrips[0] += 1
+                self.cantrips[1].append(input("Level up: what final cantrip do you want to add?"))
                 self.one[0] += 1
                 self.one[1].append(input("Level up: What other level one spell do you want to learn?"))
             if level > 6:

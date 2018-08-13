@@ -13,6 +13,7 @@ class Monk(BaseClass, MagicChr):
         self.int_mod = char.race.int_mod
         self.cha_mod = char.race.cha_mod
         self.con_mod = char.race.con_mod
+        self.level_scores([3, 7, 11, 15, 18])
         all_skills = list({"acrobatics", "athletics", "history", "insight", "religion", "stealth"} - set(char.race.skills))
         archetype_opts = ["drunken master", "four elements", "kensei", "long death", "open hand", "shadow", "sun soul", "tranquility"] # base hotel and casino
         level_features = [[0, ["Unarmored Defense", "Martial Arts"]], [1, ["Ki", "Unarmored Movement"]], [2, "Deflect Missiles"],
@@ -57,7 +58,6 @@ class Monk(BaseClass, MagicChr):
                         self.ki_features.append(feat)
                 else:
                     self.ki_features.append(ch)
-        self.level_scores([3, 7, 11, 15, 18])
         if self.level > 1:
             self.ki_dc = 8 + self.prof_bonus + self.wis_mod
         arch_choice = self.init_archetype(archetype_opts)

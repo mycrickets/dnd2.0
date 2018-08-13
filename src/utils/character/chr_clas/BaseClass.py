@@ -29,6 +29,7 @@ class BaseClass(BaseChr, MagicChr):
         self.int_mod = 0
         self.cha_mod = 0
         self.con_mod = 0
+        self.init_prof_bonus()
 
     def init_prof_bonus(self):
         self.prof_bonus = 2
@@ -68,9 +69,11 @@ class BaseClass(BaseChr, MagicChr):
             for item in opts:
                 print(item)
             choice = input("")
-            if utilities.is_valid_input(choice, opts):
+            if utilities.is_valid_input(choice, opts) or utilities.is_valid_input(choice.capitalize(), opts):
                 self.archetype = choice.capitalize()
                 return choice
+            else:
+                print(choice + " is not in the list below. Try again")
 
     def level_arch(self, arch):
         """
