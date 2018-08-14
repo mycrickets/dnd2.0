@@ -11,21 +11,24 @@ def valid_skills():
 
 
 def chr_race_mod(input, race=False):
-    if race:
-        opts = {"strength": "str_mod",
-                "dexterity": "dex_mod",
-                "wisdom": "wis_mod",
-                "intelligence": "int_mod",
-                "charisma": "cha_mod",
-                "constitution": "con_mod"}
-    else:
-        opts = {"strength": "strength",
-                "dexterity": "dexterity",
-                "wisdom": "wisdom",
-                "intelligence": "intelligence",
-                "charisma": "charisma",
-                "constitution": "constitution"}
-    return opts[input]
+    try:
+        if race:
+            opts = {"strength": "str_mod",
+                    "dexterity": "dex_mod",
+                    "wisdom": "wis_mod",
+                    "intelligence": "int_mod",
+                    "charisma": "cha_mod",
+                    "constitution": "con_mod"}
+        else:
+            opts = {"strength": "strength",
+                    "dexterity": "dexterity",
+                    "wisdom": "wisdom",
+                    "intelligence": "intelligence",
+                    "charisma": "charisma",
+                    "constitution": "constitution"}
+        return opts[input]
+    except KeyError:
+        return input
 
 
 def ability_score_increase(chr, race=False):
@@ -127,6 +130,7 @@ def get_modifier(chr, stat, clas=False):
     :return: the int of the modifier: +/- x
     """
     valid = False
+    print(str(chr))
     if clas:
         stat = chr_race_mod(stat, True)
         valid = True
