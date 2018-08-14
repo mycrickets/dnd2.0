@@ -22,7 +22,6 @@ backgrounds = {
         " Skill Proficiencies": " Deception, Insight ",
         " Tool Proficiencies": " Disguise Kit, and one type of artisan’s tools or gaming set ",
         " Equipment": " Disguise kit, common clothes, a Tears of Virulence emblem, a writ of free agency signed by the Lord Regent, a set of artisan’s tools or gaming set you are proficient with, and a pouch with 15 gp (payment for services rendered)",
-        " Lifestyle": " Moderate",
         " Feature": " Double Agent "
     },
     "Caravan Specialist": {
@@ -30,7 +29,7 @@ backgrounds = {
         " Tool Proficiencies": " Land Vehicles",
         " Languages": " One of your choice",
         " Equipment": " A whip, a tent, a regional map, a set of traveling clothes, and a belt pouch containing 10 gp",
-        " Lifestyle": " Poor",
+
         " Feature": " Wagonmaster "
     },
     "Charlatan": {
@@ -60,10 +59,10 @@ backgrounds = {
     },
     "Cormanthor Refugee": {
         " Skill Proficiencies": " Nature, Survival",
-        " Language Proficiencies": " Elven",
+        " Language": " Elven",
         " Tool Proficiencies": " One type of artisan's tools",
         " Equipment": " A two-person tent, artisan's tools, a holy symbol, a set of traveler's clothes, a belt pouch, 5 gp",
-        " Lifestyle": " Poor",
+
         " Feature": " Shelter of the Elven Clergy "
     },
     "Courtier": {
@@ -84,16 +83,16 @@ backgrounds = {
     "Dragon Casualty": {
         " Skill Proficiencies": " Intimidation, Survival",
         " Tool Proficiencies": " Special (see origin below)",
-        " Languages": " Draconic",
+        " Language": " Draconic",
         " Equipment": " A dagger, tattered rags, a loaf of moldy bread, a small cast-off scale belonging to Vorgansharax – the Maimed Virulence, and a pouch with 5 gp of various coins (salvaged during your escape from Phlan)",
-        " Lifestyle": " Wretched",
+
         " Feature": " Dragonscarred "
     },
     "Earthspur Miner": {
         " Skill Proficiencies": " Athletics, Survival ",
         " Languages": " Dwarven and Undercommon ",
         " Equipment": " A shovel or a miner's pick, a block and tackle, a climber's kit, a set of common clothes, and a belt pouch containing 5 gp",
-        " Lifestyle": " Poor",
+
         " Feature": " Deep Miner "
     },
     "Entertainer": {
@@ -125,7 +124,7 @@ backgrounds = {
         " Skill Proficiencies": " Deception, Sleight of Hand",
         " Tool Proficiencies": " thieves' tools, one type of musical instrument",
         " Equipment": " A battered alms box, a musical instrument, a cast-off military jacket, cap, or scarf, a set of common clothes, a belt pouch, and 10 gp",
-        " Lifestyle": " Poor",
+
         " Feature": " Red Plume and Mage Guild Contacts "
     },
     "Entertainer, Gladiator": {
@@ -145,7 +144,7 @@ backgrounds = {
         " Skill Proficiencies": " Athletics, Sleight of Hand",
         " Tool Proficiencies": " One type of gaming set, vehicles (water) ",
         " Equipment": " Fishing tackle, dice set, playing card set, or Three Dragon Ante set, a set of common clothes, rowboat, and a belt containing 5 gp",
-        " Lifestyle": " Poor",
+
         " Feature": " Harborfolk "
     },
     "Haunted One": {
@@ -165,15 +164,15 @@ backgrounds = {
         " Skill Proficiencies": " Insight, Persuasion",
         " Tool Proficiencies": " Vehicles (land) and vehicles (water)",
         " Equipment": " A fine set of clothes, a signet ring, a letter of introduction from your family's trading house, and a purse containing 25 gp",
-        " Lifestyle": " Wealthy",
-        " Feature (choose one)  Feature": " Factor  Alternate Feature"
+
+        " Feature": " Factor"
     },
     "Hillsfar Smuggler": {
         " Skill Proficiencies": " Perception, Stealth",
-        " Language Proficiencies": " One racial language",
+        " Languages": " One racial language",
         " Tool Proficiencies": " Forgery kit",
         " Equipment": " A forgery kit, a set of common clothes, a belt pouch, and 5 gp",
-        " Lifestyle": " Modest",
+
         " Feature": " Secret Passage "
     },
     "Inheritor": {
@@ -205,7 +204,7 @@ backgrounds = {
         " Skill Proficiencies": " Stealth, Animal Handling",
         " Tool Proficiencies": " One type of gaming set, vehicles (land)",
         " Equipment": " A set of dark common clothes, pack saddle, burglar’s pack and a belt pouch containing 5 gp",
-        " Lifestyle": " Poor",
+
         " Feature": " Black-Market Breeder "
     },
     "Noble, Knight": {
@@ -213,7 +212,7 @@ backgrounds = {
         " Tool Proficiencies": " One type of gaming set",
         " Languages": " One of your choice",
         " Equipment": " A set of fine clothes, a signet ring, a scroll of pedigree, and a purse containing 25 gp",
-        " Feature": " Position of Privilege  Variant Feature"
+        " Feature": " Position of Privilege "
     },
     "Knight of the Order": {
         " Skill Proficiencies": " Persuasion, plus one from among Arcana, History, Nature, and Religion, as appropriate for your order",
@@ -232,7 +231,7 @@ backgrounds = {
         " Skill Proficiencies": " Deception, Performance",
         " Tool Proficiencies": " One type of artistic artisan's tools and one musical instrument",
         " Equipment": " One set of artisan's tools or musical instrument, a set of fine clothes, and a purse containing 10 gp",
-        " Lifestyle": " Wealthy",
+
         " Feature": " Highborn "
     },
     "Noble": {
@@ -240,7 +239,7 @@ backgrounds = {
         " Tool Proficiencies": " One type of gaming set",
         " Languages": " One of your choice",
         " Equipment": " A set of fine clothes, a signet ring, a scroll of pedigree, and a purse containing 25 gp",
-        " Feature": " Position of Privilege  Variant Feature"
+        " Feature": " Position of Privilege "
     },
     "Outlander": {
         " Skill Proficiencies": " Athletics, Survival",
@@ -253,14 +252,14 @@ backgrounds = {
         " Skill Proficiencies": " Stealth, Survival",
         " Tool Proficiencies": " One type of artisan's tools, vehicles (land)",
         " Equipment": " A bag of caltrops (20), a small trinket that connects you to the life you once had before the occupation of Phlan, a healer's kit, a set of dark common clothes that includes a cloak and hood, and a belt pouch containing 5 gp",
-        " Lifestyle": " Poor",
+
         " Feature": " Guerilla "
     },
     "Phlan Refugee": {
         " Skill Proficiencies": " Insight, Athletics",
         " Languages": " One of your choosing",
         " Equipment": " A set of artisan’s tools (one of your choice), a token of the life you once knew, a set of traveler’s clothes, and a belt pouch containing 15 gp",
-        " Lifestyle": " Modest",
+
         " Feature": " Phlan Survivor "
     },
     "Sage": {
@@ -273,21 +272,21 @@ backgrounds = {
         " Skill Proficiencies": " Athletics, Perception",
         " Tool Proficiencies": " Navigator’s tools, vehicles (water)",
         " Equipment": " A belaying pin (club), 50 feet of silk rope, a lucky charm such as a rabbit foot or a small stone with a hole in the center (or you may roll for a random trinket on the Trinkets table in chapter 5), a set of common clothes, and a belt pouch containing 10 gp",
-        " Feature": " Ship's Passage  Variant Feature"
+        " Feature": " Ship's Passage "
     },
     "Secret Identity": {
         " Skill Proficiencies": " Deception, Stealth",
         " Tool Proficiencies": " Disguise kit, forgery kit",
         " Equipment": " A disguise kit, a forgery kit, a set of common clothes, a belt pouch, 5 gp",
-        " Lifestyle": " Modest",
+
         " Feature": " Secret Identity "
     },
     "Shade Fanatic": {
         " Skill Proficiencies": " Deception, Intimidation",
         " Tool Proficiencies": " Forgery Kit",
-        " Languages": " Netherese (or one language of your choice)",
+        " Language": " Netherese",
         " Equipment": " A forgery kit, a transparent cylinder of shadow that has no opening, a signet ring, a set of fine clothes, and 15 gp",
-        " Lifestyle": " Moderate",
+
         " Feature": " Secret Society "
     },
     "Soldier": {
@@ -300,22 +299,22 @@ backgrounds = {
         " Skill Proficiencies": " Deception, Perception",
         " Tool Proficiencies": " One type of gaming set, thieves' tools",
         " Equipment": " A small knife, a set of common clothes, a trinket from the life you stayed behind to defend, a belt pouch with 10 gp",
-        " Lifestyle": " Poor",
+
         " Feature": " Ex-Convict "
     },
     "Ticklebelly Nomad": {
         " Skill Proficiencies": " Nature, Animal Handling",
         " Tool Proficiencies": " Herbalism kit",
-        " Languages": " Giant",
+        " Language": " Giant",
         " Equipment": " Herbalism kit, a small article of jewelry that is distinct to your tribe, a hunting trap, a set of common clothes, and a belt pouch containing 5 gp",
-        " Lifestyle": " Poor",
+
         " Feature": " At Home in the Wild "
     },
     "Trade Sheriff": {
         " Skill Proficiencies": " Investigation, Persuasion",
-        " Languages": " Elven (or +1 Language of your choice)",
+        " Language": " Elven",
         " Equipment": " thieves' Tools, a gray cloak, Sheriff's insignia (badge) a set of fine clothes, and 17 gp",
-        " Lifestyle": " Moderate",
+
         " Feature": " Investigative Services "
     },
     "Urban Bounty Hunter": {

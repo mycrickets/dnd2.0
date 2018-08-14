@@ -2,6 +2,7 @@ import math
 import random as r
 import src.utils.dictionary as dictionary
 import src.utils.spell_dict as spell_dict
+from src.utils.background_dict import backgrounds
 
 
 def valid_skills():
@@ -140,6 +141,128 @@ def get_modifier(chr, stat, clas=False):
     return None
 
 
+def transfer_background_to_race(chr, race):
+    bg = chr.background
+    for addition in backgrounds.get(bg):
+        response = backgrounds.get(bg).get(addition)
+        response = response.strip()
+        addition = addition.strip()
+        if addition == "Skill Proficiencies":
+            if is_substring(["choose", "Choose", "type of", "Type of", "from among"], response):
+                response = get_skills_from_trigger_skill(response)
+            else:
+                response = response.strip().lower().split(",")
+            for item in response:
+                if item not in race.skills:
+                    race.skills.append(item)
+        elif addition == "Tool Proficiencies":
+            pass
+        elif addition == "Equipment":
+            items = response.split(",")
+            for piece in items:
+                if is_substring(["choose", "Choose", "type of", "Type of", "from among", "choice"], piece):
+                    race.equipment.append(get_equipment_from_trigger_eqp(piece))
+                else:
+                    race.equipment.append(piece.strip().lower())
+        elif addition == "Feature":
+            race.features.append(response.strip().lower())
+        elif addition == "Language":
+            race.languages.append(response.strip().lower())
+        elif addition == "Languages":
+            pass
+        else:
+            print(addition)
+    pass
+
+
+def is_substring(substrings, string):
+    for item in substrings:
+        if item in string:
+            return True
+    return False
+
+
+def get_equipment_from_trigger_eqp(response):
+    "A set of artisan’s tools or a musical instrument (one of your choice)"
+    response = response.strip()
+    amt = response.split(" ")
+    ct = -1
+    for item in amt:
+        if item == "(":
+            amt = amt.remove(amt.index(item))
+    for item in amt:
+        if item == ")":
+            amt = amt.remove(amt.index(item))
+    indices = [i for i, x in enumerate(amt) if x == "of"]
+    for item in indices:
+        if amt[item] == "of" and amt[item+1] == "your":
+            ct = amt[item-1]
+    ct = ct.replace("(", "]").replace(")", "]").split("]")
+    ct = "".join(ct)
+    if ct == "one":
+        ct = 1
+    else:
+        ct = 2
+    choices = response.split("or")
+    fin = []
+    for item in choices:
+        spt = list(item)
+        index = len(item)
+        for charr in spt:
+            if charr == "(":
+                index = spt.index(charr)
+        fin.append(item[:index])
+    for i in range(0, len(fin)):
+        fin[i] = fin[i].strip().lower()
+    flag = True
+    while flag:
+        print("Which piece of equipment do you want?")
+        for item in fin:
+            print(item)
+        ch = input("")
+        return ch
+
+
+def get_skills_from_trigger_skill(response):
+    results = []
+    split = response.split(",")
+    flag = False
+    i = 0
+    while not flag:
+        selection = split[i]
+        i += 1
+        if "from among" in selection:
+            hit = split[split.index(selection):]
+            rst = []
+            choices = []
+            for item in hit:
+                rst.extend(item.split(" "))
+            index = -1
+            for item in rst:
+                if item == "":
+                    rst.remove(item)
+            for item in rst:
+                if item.lower() in valid_skills():
+                    choices.append(item.lower())
+                if item == "from":
+                    index = rst.index(item)
+            ct = rst[index-1]
+            if ct == "one":
+                ct = 1
+            elif ct == "two":
+                ct = 2
+            else:
+                print(ct, " huh")
+            fin = get_from_list(choices, int(ct), "background skill")
+            results.extend(fin)
+            flag = True
+        else:
+            results.append(selection.lower())
+            if i == 2:
+                flag = True
+    return results
+
+
 def get_from_list(list, amt, desc=None):
     addition = " "
     if desc:
@@ -148,21 +271,33 @@ def get_from_list(list, amt, desc=None):
     for i in range(0, int(amt)):
         flag = True
         ch = ""
+        j = 1
         while flag:
             try:
-                print("Which" + addition + "do you want to have?")
-                for item in sorted(list):
-                    print(item)
-                ch = input("")
-                if is_valid_input(ch, list) or is_valid_input(ch.capitalize(), list):
+                if amt >= j:
+                    print("Which" + addition + "do you want to have?")
                     if amt > 1:
-                        results.append(ch)
+                        print(str(j) + "/" + str(amt))
+                    for item in sorted(set(list)-set(results)):
+                        print(item)
+                    ch = input("")
+                    if is_valid_input(ch, list) or is_valid_input(ch.capitalize(), list):
+                        if amt >= j:
+                            j += 1
+                            results.append(ch.strip())
+                        else:
+                            return ch
                     else:
-                        return ch
+                        assert 1 == 2
                 else:
-                    assert 1 == 2
+                    if len(results) == 1:
+                        return results[0]
+                    return results
             except AssertionError:
                 print(ch + " isn't in the list")
+
+    if len(results) == 1:
+        return results[0]
     return results
 
 
@@ -302,18 +437,24 @@ def init_scores(chr):
             break
 
 
-def is_valid_input(arg, choices=None, scores=None):
+def is_valid_input(arg, choices=None, scores=None, case_sensitive=False):
     if not choices:
         choices = ["strength", "dexterity", "wisdom", "intelligence", "charisma", "constitution", "hp"]
     try:
         if is_one_string(arg):
             choice = arg.strip().split()[0]
             score = int(arg.strip().split()[1])
-            assert choice in choices or choice.capitalize() in choices or choice.lower() in choices
+            if not case_sensitive:
+                assert choice in choices
+            else:
+                assert choice in choices or choice.capitalize() in choices or choice.lower() in choices
             assert score in scores
             return True
         else:
-            assert arg in choices or arg.capitalize() in choices or arg.lower() in choices
+            if not case_sensitive:
+                assert arg in choices
+            else:
+                assert arg in choices or arg.capitalize() in choices or arg.lower() in choices
             return True
     except AssertionError:
         return False
@@ -404,7 +545,7 @@ def combat_to_string(chr):
         attack += "\n\t" + item.capitalize()
     equipment = "equipment: "
     for item in chr.fin_equip:
-        equipment += "\n\t" + item.capitalize()
+        equipment += "\n\t" + item.strip().capitalize()
     output = [armor, dc, weapons, attack, equipment]
     for item in output:
         print(item + "\n")
@@ -490,7 +631,7 @@ def feature_to_string(chr):
     # skills, features, saving throws, languages, proficiencies, feats, resistances, disadvantages, advantages
     skills = "skills: "
     for item in chr.fin_skills:
-        skills += "\n\t" + item.capitalize()
+        skills += "\n\t" + item.strip().capitalize()
     features = "features: "
     for item in chr.fin_features:
         features += "\n\t" + str(item)
@@ -550,7 +691,7 @@ def character_to_string(chr):
     ideal = "ideal: \t" + chr.ideals
     flaw = "flaw: \t" + chr.flaws
     bond = "bond: \t" + chr.bonds
-    alignment = "alignment: \t" + chr.alignment
+    alignment = "alignment: \t" + chr.alignment.capitalize()
 
     output = [name, play_name, gender, sex, age, weight, height, race, subrace, clas, archetype, background, personality, trait, ideal, flaw, bond, alignment]
     for item in output:

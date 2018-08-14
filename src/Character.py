@@ -21,7 +21,11 @@ from src.utils.character.chr_clas.spec.sorcerer import Sorcerer
 from src.utils.character.chr_clas.spec.warlock import Warlock
 from src.utils.character.chr_clas.spec.wizard import Wizard
 
+from src.utils.background_dict import backgrounds
+
 import src.utils.utils as utilities
+
+import random as r
 
 
 # noinspection PyAttributeOutsideInit
@@ -46,7 +50,7 @@ class Character:
         self.player_name = ""
         self.gender = ""
         self.sex = ""
-        self.background = ""
+        self.background = None
         self.personality = ""
         self.trait = ""
         self.ideals = ""
@@ -85,6 +89,48 @@ class Character:
         # Rogue, Bard
         self.expert_skills = None
 
+    def set_background(self):
+        while True:
+            bg_names = backgrounds.keys()
+            print("Listing all Backgrounds:")
+            for item in bg_names:
+                print(item)
+            print("input 'choose' or 'search' to choose a background or find out more about that background")
+            choice = input("")
+            ch = choice.strip()
+            if ch == "choose":
+                flag = False
+                while not flag:
+                    bg = input("Which background do you want to have? input 'exit' to go back and search. This is case-sensitive\n")
+                    if bg.strip().lower() == "exit":
+                        flag = True
+                    elif utilities.is_valid_input(bg, bg_names):
+                        self.background = bg
+                        return
+                    else:
+                        print(bg + " isn't a recognized background.")
+            elif utilities.is_valid_input(ch, bg_names):
+                self.background = choice.strip()
+                return
+            elif ch == "search":
+                flag = False
+                while not flag:
+                    bg = input("Which background do you want to learn more about?\n")
+                    if utilities.is_valid_input(bg, bg_names):
+                        print("\n")
+                        for item in backgrounds.get(bg):
+                            print(item + ": " + backgrounds.get(bg).get(item))
+                        import time
+                        print("\n")
+                        time.sleep(1)
+                        flag = True
+                    else:
+                        print("That's not valid input. Try again.")
+            elif ch == "random":
+                self.background = bg_names[r.randrange(0, len(bg_names))]
+            else:
+                print(ch + " is not recognized as a command. Try again.")
+
     def set_race(self):
         # race = utilities.get_from_list(["Dragonborn", "Dwarf", "Elf", "Gnome", "Half Elf", "Half Orc", "Halfling", "Tiefling", "Human"], 1, "race")
         race = "half orc"
@@ -116,6 +162,7 @@ class Character:
         else:
             race = Human(self.level)
             self.race_name = "Human"
+        utilities.transfer_background_to_race(self, race)
         self.race = race
         self.hp += self.race.hp
         self.strength += self.race.str_mod
@@ -192,13 +239,34 @@ class Character:
         self.charisma = self.clas.cha_mod
         self.constitution = self.clas.con_mod
 
-    def set_background(self):
-        # TODO
-        pass
+    def set_alignment(self):
+        cols = ["lawful", "neutral", "chaotic", "true"]
+        rows = ["good", "neutral", "evil"]
+        flag = False
+        while not flag:
+            ch = input("What alignment are you?\n")
+            try:
+                split = ch.split(" ")
+                for i in range(0, 1):
+                    if utilities.is_valid_input(split[i].lower(), cols) or utilities.is_valid_input(split[1].lower(), rows):
+                        self.alignment = ch
+                        if self.alignment.lower() == "neutral neutral":
+                            self.alignment = "True Neutral"
+                        flag = True
+                    else:
+                        print(ch + " is not recognized as a valid input. Please try again.")
+            except IndexError:
+                print(ch + " is not recognized as a valid input. Please try again.")
 
     def set_personality(self):
-        # TODO
-        pass
+        self.name = input("What's your character's name?")
+        self.player_name = input("What's your name (the player)?")
+        self.gender = input("What's " + self.name + "'s gender?")
+        self.personality = input("Tell me a bit about" + self.name + "'s personality")
+        self.trait = input("What is " + self.name + "'s main trait?")
+        self.ideals = input("What are " + self.name + "'s ideals?")
+        self.flaws = input("What are " + self.name + "'s flaws?")
+        self.bonds = input("What are " + self.name + "'s bonds?")
 
     def trigger_end(self):
         self.fin_features = []
@@ -261,12 +329,12 @@ class Character:
             pass
         self.fin_equip = []
         try:
-            for item in self.race.equip:
+            for item in self.race.equipment:
                 self.fin_equip.append(item)
         except AttributeError:
             pass
         try:
-            for item in self.clas.equip:
+            for item in self.clas.equipment:
                 self.fin_equip.append(item)
         except AttributeError:
             pass

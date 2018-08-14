@@ -1,5 +1,5 @@
 import src.utils.utils as utilities
-import src.Character as character
+from src.Character import Character
 
 
 def main():
@@ -23,11 +23,12 @@ def main():
                     flag = True
                 except (TypeError, ValueError):
                     print("Please enter a number")
-            chr = character.Character(int(level))
+            chr = Character(int(level))
+            chr.set_personality()
+            chr.set_alignment()
             chr.set_background()
             chr.set_race()
             chr.set_class()
-            chr.set_personality()
             chr.trigger_end()
             # above to get all features, equip, etc from race and class to character. otherwise not accessible.
             utilities.combat_to_string(chr)
@@ -36,8 +37,6 @@ def main():
             utilities.special_to_string(chr)
             utilities.feature_to_string(chr)
             utilities.magic_to_string(chr)
-
-            # chr.to_string()
         elif command == "help":
             print("Type in: "
                   "\ncreate: \tcreate a new character"

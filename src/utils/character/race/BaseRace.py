@@ -17,6 +17,7 @@ class BaseRace(BaseChr, MagicChr):
         self.languages = []
         self.proficiencies = []
         self.resistances = []
+        self.equipment = []
         self.features = []
         self.skills = []
         self.subrace = ""
