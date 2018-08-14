@@ -665,8 +665,75 @@ def feature_to_string(chr):
 def special_to_string(chr):
     # class/race specific: color for dragonborn
     output = []
-    if chr.race_name == "dragonborn":
-        output.append("color: \t" + chr.race.color)
+    race = chr.race_name
+    classs = chr.class_name
+    if race == "dragonborn":
+        color = "color: \t" + chr.race.color
+        output.append(color)
+    if classs == "Barbarian":
+        rage_ct = "Rage Count: \t" + str(chr.clas.rage_ct)
+        rage_dmg = "Rage Damage: \t" + str(chr.clas.rage_dmg)
+        output.extend([rage_ct, rage_dmg])
+    if classs == "Cleric":
+        divine = "Divine Spell Count: " + str(chr.clas.divine_ct)
+        output.extend([divine])
+    if classs == "Fighter":
+        maneuvers = "Maneuvers: "
+        for item in chr.clas.maneuvers:
+            maneuvers += "\n\t" + item
+        ct = "Superior Dice Count: " + str(chr.clas.sup_dice_ct)
+        dice = "Superior Dice Damage: " + str(chr.clas.sup_dice)
+        output.extend([maneuvers, ct, dice])
+    if classs == "Monk":
+        features = "Ki Features: "
+        for item in chr.clas.ki_features:
+            features += "\n\t" + item
+        dc = "Ki DC: \n\n" + str(chr.clas.ki_dc)
+        elfeats = "Elemental Features: "
+        for item in chr.clas.elem_feat:
+            elfeats += "\n\t" + item
+        output.extend([features, dc, elfeats])
+    if classs == "Rogue":
+        output.extend(["Sneak Damage: " + chr.clas.sneak_dmg])
+    if classs == "Sorcerer":
+        metfeat = "Metamagic Features: "
+        for item in chr.clas.metamagic_features:
+            metfeat += "\n\t" + item
+        color = "Color: " + chr.clas.color
+        output.extend([metfeat, color])
+    if classs == "Warlock":
+        inv = "Invocations: "
+        for item in chr.clas.invocations:
+            inv += "\n\t" + item
+        pact = "Warlock Pact: " + chr.clas.pact
+        pact_desc = "Warlock Pact Description: " + chr.clas.pact_desc
+        pact_desc = pact_desc.split(" ")
+        sent = ""
+        fin_desc = ""
+        for item in pact_desc:
+            sent += item
+            if len(sent) > 40:
+                fin_desc += sent + "\n"
+        fin_desc += sent
+        output.extend([inv, pact, fin_desc])
+    if classs == "Wizard":
+        spells = "Mastered Spells: "
+        for item in chr.clas.spell_master:
+            spells += "\n\t" + item
+        sig = "Signature Spells: "
+        for item in chr.clas.sig_spells:
+            sig += "\n\t" + item
+        output.extend([spells, sig])
+    if classs == "Fighter" or classs == "Paladin" or classs == "Ranger":
+        styles = "Styles: "
+        for item in chr.clas.styles:
+            styles += "\n\t" + item
+        output.extend([styles])
+    if classs == "Rogue" or classs == "Bard":
+        exp = "Expertise Skills: "
+        for item in chr.clas.expert_skills:
+            exp += "\n\t" + item
+        output.extend([exp])
     for item in output:
         print(item)
 

@@ -39,7 +39,7 @@ class Character:
         self.intelligence = 0
         self.wisdom = 0
         self.hp = 0
-        # utilities.init_scores(self)
+        utilities.init_scores(self)
         self.languages = []
         self.race = None
         self.race_name = ""
@@ -132,8 +132,7 @@ class Character:
                 print(ch + " is not recognized as a command. Try again.")
 
     def set_race(self):
-        # race = utilities.get_from_list(["Dragonborn", "Dwarf", "Elf", "Gnome", "Half Elf", "Half Orc", "Halfling", "Tiefling", "Human"], 1, "race")
-        race = "half orc"
+        race = utilities.get_from_list(["Dragonborn", "Dwarf", "Elf", "Gnome", "Half Elf", "Half Orc", "Halfling", "Tiefling", "Human"], 1, "race")
         race = race.strip().lower()
         if race == "dragonborn":
             race = Dragonborn(self.level)
@@ -171,6 +170,8 @@ class Character:
         self.intelligence += self.race.int_mod
         self.charisma += self.race.cha_mod
         self.constitution += self.race.con_mod
+        for i in range(0, len(self.race.skills)):
+            self.race.skills[i] = self.race.skills[1].strip()
 
     def set_class(self):
         char_class = utilities.get_from_list(["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"], 1, "class")
@@ -262,7 +263,7 @@ class Character:
         self.name = input("What's your character's name?")
         self.player_name = input("What's your name (the player)?")
         self.gender = input("What's " + self.name + "'s gender?")
-        self.personality = input("Tell me a bit about" + self.name + "'s personality")
+        self.personality = input("Tell me a bit about " + self.name + "'s personality")
         self.trait = input("What is " + self.name + "'s main trait?")
         self.ideals = input("What are " + self.name + "'s ideals?")
         self.flaws = input("What are " + self.name + "'s flaws?")
