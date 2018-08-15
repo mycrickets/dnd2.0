@@ -41,3 +41,5 @@ All creature content + rules are the intellectual property of Wizards of the Coa
 This program is not affiliated with Wizards of the Coast in any way.
 
 Wizards of the Coast, Dungeons & Dragons, and their logos are trademarks of Wizards of the Coast LLC in the United States and other countries. © 2018 Wizards.
+
+Some Content Used Under The [Open Game License](https://dnd.wizards.com/articles/features/systems-reference-document-srd)
