@@ -23,8 +23,8 @@ def main():
                 except (TypeError, ValueError):
                     print("Please enter a number")
             chr = Character(int(level))
-            # chr.set_personality()
-            # chr.set_alignment()
+            chr.set_personality()
+            chr.set_alignment()
             chr.set_background()
             chr.set_race()
             chr.set_class()

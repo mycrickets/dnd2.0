@@ -740,7 +740,6 @@ def feature_to_string(chr):
     }
     skills = "skills: "
     for item in valid_skills():
-        print(item, "item")
         mod = 0
         if item in chr.fin_skills:
             print("item in fin skills")
@@ -748,11 +747,9 @@ def feature_to_string(chr):
             if chr.expert_skills:
                 mod += int(chr.clas.prof_bonus)
         for yo in skil_dict:
-            print(yo, "yo")
-            for k, v in yo:
+            for v in skil_dict.get(yo):
                 if item in v:
-                    mod += int(get_modifier(chr, k))
-        print(mod, "modifier")
+                    mod += int(get_modifier(chr, yo))
         skills += "\n\t" + item.strip().capitalize() + " + " + str(mod)
     features = "features: "
     for item in chr.fin_features:
