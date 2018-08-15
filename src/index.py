@@ -1,5 +1,5 @@
-import src.utils.utils as utilities
-from src.Character import Character
+from utils.utils import *
+from Character import Character
 
 
 def main():
@@ -30,12 +30,12 @@ def main():
             chr.set_class()
             chr.trigger_end()
             # above to get all features, equip, etc from race and class to character. otherwise not accessible.
-            utilities.combat_to_string(chr)
-            utilities.score_to_string(chr)
-            utilities.character_to_string(chr)
-            utilities.special_to_string(chr)
-            utilities.feature_to_string(chr)
-            utilities.magic_to_string(chr)
+            combat_to_string(chr)
+            score_to_string(chr)
+            character_to_string(chr)
+            special_to_string(chr)
+            feature_to_string(chr)
+            magic_to_string(chr)
         elif command == "help":
             print("Type in: "
                   "\ncreate: \tcreate a new character"
@@ -53,7 +53,7 @@ def main():
                 srch = word.strip().lower()
                 if srch == "exit":
                     flag = False
-                print(utilities.search_dict(srch))
+                print(search_dict(srch))
                 print("\n")
         elif command == "search spell":
             flag = True
@@ -65,7 +65,7 @@ def main():
                 srch = word.strip().lower()
                 if srch == "exit":
                     flag = False
-                print(utilities.search_spell_dict(srch))
+                print(search_spell_dict(srch))
                 print("\n")
         elif command == "exit":
             print("thank you!")
