@@ -1,6 +1,6 @@
-from src.utils.character.chr_clas.BaseClass import BaseClass
-from src.utils.character.MagicChr import MagicChr
-import src.utils.utils as utilities
+from utils.character.chr_clas.BaseClass import BaseClass
+from utils.character.MagicChr import MagicChr
+import utils.utils as utilities
 
 
 class Fighter(BaseClass, MagicChr):

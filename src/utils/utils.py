@@ -1,8 +1,8 @@
 import math
 import random as r
-import src.utils.dictionary as dictionary
-import src.utils.spell_dict as spell_dict
-from src.utils.background_dict import backgrounds
+import utils.dictionary as dictionary
+import utils.spell_dict as spell_dict
+from utils.background_dict import backgrounds
 
 
 def valid_skills():
