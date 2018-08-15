@@ -1,4 +1,4 @@
-from utils.utils import *
+import utils.utils as utilities
 from Character import Character
 
 
@@ -30,12 +30,12 @@ def main():
             chr.set_class()
             chr.trigger_end()
             # above to get all features, equip, etc from race and class to character. otherwise not accessible.
-            combat_to_string(chr)
-            score_to_string(chr)
-            character_to_string(chr)
-            special_to_string(chr)
-            feature_to_string(chr)
-            magic_to_string(chr)
+            utilities.combat_to_string(chr)
+            utilities.score_to_string(chr)
+            utilities.character_to_string(chr)
+            utilities.special_to_string(chr)
+            utilities.feature_to_string(chr)
+            utilities.magic_to_string(chr)
         elif command == "help":
             print("Type in: "
                   "\ncreate: \tcreate a new character"
@@ -43,6 +43,7 @@ def main():
                   "\nsearch spell: \t search for any spell."
                   "\nhelp: \t\tdisplay this menu"
                   "\nexit: \t\texit the program")
+
         elif command == "search feature":
             flag = True
             while flag:
@@ -53,8 +54,9 @@ def main():
                 srch = word.strip().lower()
                 if srch == "exit":
                     flag = False
-                print(search_dict(srch))
+                print(utilities.search_dict(srch))
                 print("\n")
+
         elif command == "search spell":
             flag = True
             while flag:
@@ -65,11 +67,13 @@ def main():
                 srch = word.strip().lower()
                 if srch == "exit":
                     flag = False
-                print(search_spell_dict(srch))
+                print(utilities.search_spell_dict(srch))
                 print("\n")
+
         elif command == "exit":
             print("thank you!")
             break
+
         else:
             print(command + " is not recognized as a command. please try again!")
 
