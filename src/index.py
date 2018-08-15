@@ -3,7 +3,6 @@ from src.Character import Character
 
 
 def main():
-
     while True:
         command = input("what do you want to do? 'create' character, 'search feature' for any feature or proficiency, "
                         "'search spell' for any spell, 'help', or 'exit'? \n")
@@ -44,7 +43,6 @@ def main():
                   "\nsearch spell: \t search for any spell."
                   "\nhelp: \t\tdisplay this menu"
                   "\nexit: \t\texit the program")
-
         elif command == "search feature":
             flag = True
             while flag:
@@ -57,7 +55,6 @@ def main():
                     flag = False
                 print(utilities.search_dict(srch))
                 print("\n")
-
         elif command == "search spell":
             flag = True
             while flag:
@@ -70,11 +67,9 @@ def main():
                     flag = False
                 print(utilities.search_spell_dict(srch))
                 print("\n")
-
         elif command == "exit":
             print("thank you!")
             break
-
         else:
             print(command + " is not recognized as a command. please try again!")
 
