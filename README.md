@@ -33,7 +33,8 @@ python -m pytest test
 Append ```-vv``` to see testing output responses.
 
 
-###NOTE
+
+### NOTE
 
 All creature content + rules are the intellectual property of Wizards of the Coast.
 

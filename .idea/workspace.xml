@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="88988547-7c4f-4f46-810b-d75eaaa519a9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/utils_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/utils_test.py" afterDir="false" />
-    </list>
+    <list default="true" id="88988547-7c4f-4f46-810b-d75eaaa519a9" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,8 +47,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="240">
-                <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+              <first_editor relative-caret-position="615">
+                <caret line="41" column="158" selection-start-line="41" selection-start-column="158" selection-end-line="41" selection-end-column="158" />
               </first_editor>
               <second_editor />
             </state>
@@ -323,7 +319,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="1057" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="7" weight="0.328125" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -331,8 +326,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32916668" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.328125" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.22916667" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.234375" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4945946" visible="true" weight="0.099574015" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.234375" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4945946" visible="true" weight="0.099574015" />
       <window_info anchor="bottom" id="Statistic" order="0" weight="0.328125" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="7" weight="0.32972136" />
@@ -427,13 +422,6 @@
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -724,11 +712,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="5" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="240">
-            <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <first_editor relative-caret-position="615">
+            <caret line="41" column="158" selection-start-line="41" selection-start-column="158" selection-end-line="41" selection-end-column="158" />
           </first_editor>
           <second_editor />
         </state>
