@@ -1,5 +1,5 @@
-from utils.character.BaseChr import BaseChr
-from utils.character.MagicChr import MagicChr
+from src.utils.character.BaseChr import BaseChr
+from src.utils.character.MagicChr import MagicChr
 import random as r
 
 

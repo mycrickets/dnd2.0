@@ -1,6 +1,6 @@
-from utils.character.BaseChr import BaseChr
-from utils.character.MagicChr import MagicChr
-import utils.utils_file as utilities
+from src.utils.character.BaseChr import BaseChr
+from src.utils.character.MagicChr import MagicChr
+import src.utils.utils as utilities
 
 
 class BaseClass(BaseChr, MagicChr):

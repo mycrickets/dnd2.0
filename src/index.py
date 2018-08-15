@@ -1,4 +1,4 @@
-from utils.utils_file import *
+from utils.utils import *
 from Character import Character
 
 

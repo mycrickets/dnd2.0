@@ -1,5 +1,5 @@
-from utils.character.race.BaseRace import BaseRace
-import utils.utils_file as utilities
+from src.utils.character.race.BaseRace import BaseRace
+import src.utils.utils as utilities
 
 
 class HalfOrc(BaseRace):
