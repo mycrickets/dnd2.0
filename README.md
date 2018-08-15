@@ -1,38 +1,24 @@
 # dnd2.0
 a major update and overhaul of the previous project: dnd. Mostly rebuilt from the ground up
 
-#### Virtual Environment
-
-It is advised to use a virtual environment (or some alternative) to manage dependencies
-
-##### Activate
-
-Enter your virtual environment and install dependencies first
-
+### Running
+Windows: take these steps
+```sh
+search -> open Command Prompt (cmd)
+navigate to directory that the dnd2.0 file is located
+type: 
+> cd src
+> python3 index.py
+follow prompts
 ```
-source /venv/bin/activate
-```
-
-##### Deactivate
-
-Deactivate virtual environment when no more manipulation of the virtual environment is needed
-
-```bash
-deactivate
-```
-
-#### Installing
-
-```bash
-pip install -r requirements.txt
-```
-
-#### Updating
-
-Takes the dependencies installed in the virtual environment and places them in a requirements document
-
-```bash
-pip freeze > requirements.txt
+Mac:
+```sh
+search -> open Terminal
+navigate to directory that the dnd2.0 file is located
+type: 
+> cd src
+> python3 index.py
+follow prompts
 ```
 
 ### Testing
@@ -45,3 +31,12 @@ Testing runs all unit and integration test that are packaged under the `test/uni
 python -m pytest test
 ```
 Append ```-vv``` to see testing output responses.
+
+
+###NOTE
+
+All creature content + rules are the intellectual property of Wizards of the Coast.
+
+This program is not affiliated with Wizards of the Coast in any way.
+
+Wizards of the Coast, Dungeons & Dragons, and their logos are trademarks of Wizards of the Coast LLC in the United States and other countries. © 2018 Wizards.
