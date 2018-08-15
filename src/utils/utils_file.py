@@ -491,6 +491,9 @@ def init_scores(chr):
             else:
                 scores = []
                 assigned = 0
+                print("\n\n\n\n")
+                print("BUG at utils line 262")
+                print("\n\n\n\n")
     else:
         scores = [15, 14, 13, 12, 10, 8]
     while 0 <= len(chr_choices) < 6:
