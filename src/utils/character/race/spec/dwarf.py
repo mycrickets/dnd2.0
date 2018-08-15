@@ -1,5 +1,5 @@
-from src.utils.character.race.BaseRace import BaseRace
-import src.utils.utils as utilities
+from utils.character.race.BaseRace import BaseRace
+import utils.utils_file as utilities
 
 
 class Dwarf(BaseRace):

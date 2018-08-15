@@ -1,6 +1,6 @@
-from src.utils.character.race.BaseRace import BaseRace
-from src.utils.character.MagicChr import MagicChr
-import src.utils.utils as utilities
+from utils.character.race.BaseRace import BaseRace
+from utils.character.MagicChr import MagicChr
+import utils.utils_file as utilities
 
 
 class HalfElf(BaseRace, MagicChr):

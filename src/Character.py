@@ -1,29 +1,29 @@
-from src.utils.character.race.spec.dragonborn import Dragonborn
-from src.utils.character.race.spec.dwarf import Dwarf
-from src.utils.character.race.spec.elf import Elf
-from src.utils.character.race.spec.gnome import Gnome
-from src.utils.character.race.spec.half_elf import HalfElf
-from src.utils.character.race.spec.half_orc import HalfOrc
-from src.utils.character.race.spec.halfling import Halfling
-from src.utils.character.race.spec.human import Human
-from src.utils.character.race.spec.tiefling import Tiefling
+from utils.character.race.spec.dragonborn import Dragonborn
+from utils.character.race.spec.dwarf import Dwarf
+from utils.character.race.spec.elf import Elf
+from utils.character.race.spec.gnome import Gnome
+from utils.character.race.spec.half_elf import HalfElf
+from utils.character.race.spec.half_orc import HalfOrc
+from utils.character.race.spec.halfling import Halfling
+from utils.character.race.spec.human import Human
+from utils.character.race.spec.tiefling import Tiefling
 
-from src.utils.character.chr_clas.spec.barbarian import Barbarian
-from src.utils.character.chr_clas.spec.bard import Bard
-from src.utils.character.chr_clas.spec.cleric import Cleric
-from src.utils.character.chr_clas.spec.druid import Druid
-from src.utils.character.chr_clas.spec.fighter import Fighter
-from src.utils.character.chr_clas.spec.monk import Monk
-from src.utils.character.chr_clas.spec.paladin import Paladin
-from src.utils.character.chr_clas.spec.ranger import Ranger
-from src.utils.character.chr_clas.spec.rogue import Rogue
-from src.utils.character.chr_clas.spec.sorcerer import Sorcerer
-from src.utils.character.chr_clas.spec.warlock import Warlock
-from src.utils.character.chr_clas.spec.wizard import Wizard
+from utils.character.chr_clas.spec.barbarian import Barbarian
+from utils.character.chr_clas.spec.bard import Bard
+from utils.character.chr_clas.spec.cleric import Cleric
+from utils.character.chr_clas.spec.druid import Druid
+from utils.character.chr_clas.spec.fighter import Fighter
+from utils.character.chr_clas.spec.monk import Monk
+from utils.character.chr_clas.spec.paladin import Paladin
+from utils.character.chr_clas.spec.ranger import Ranger
+from utils.character.chr_clas.spec.rogue import Rogue
+from utils.character.chr_clas.spec.sorcerer import Sorcerer
+from utils.character.chr_clas.spec.warlock import Warlock
+from utils.character.chr_clas.spec.wizard import Wizard
 
-from src.utils.background_dict import backgrounds
+from utils.background_dict import backgrounds
 
-import src.utils.utils as utilities
+import utils.utils_file as utilities
 
 import random as r
 

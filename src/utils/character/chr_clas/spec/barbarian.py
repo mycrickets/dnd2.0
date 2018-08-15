@@ -1,5 +1,5 @@
-from src.utils.character.chr_clas.BaseClass import BaseClass
-import src.utils.utils as utilities
+from utils.character.chr_clas.BaseClass import BaseClass
+import utils.utils_file as utilities
 
 
 class Barbarian(BaseClass):

@@ -1,8 +1,8 @@
 import math
 import random as r
-import src.utils.dictionary as dictionary
-import src.utils.spell_dict as spell_dict
-from src.utils.background_dict import backgrounds
+from utils.dictionary import dictionary
+from utils.spell_dict import spells
+from utils.background_dict import backgrounds
 
 
 def valid_skills():
@@ -401,7 +401,7 @@ def search_dict(value):
     :param value: the word or phrase to be searched
     :return: the string of the definition, or the string of an error, in that case
     """
-    comp = dict((k.lower(), v.lower()) for k, v in dictionary.dictionary.items())
+    comp = dict((k.lower(), v.lower()) for k, v in dictionary.items())
     try:
         result = comp[value]
         response = "\n" + value + ": "
@@ -422,7 +422,7 @@ def search_spell_dict(spell):
     :param spell: spell name to be searched for
     :return: the string response.
     """
-    comp = dict((k.lower(), v) for k, v in spell_dict.spells.items())
+    comp = dict((k.lower(), v) for k, v in spells.items())
     try:
         response = "\n" + spell + ": "
         result = comp[spell.lower()]

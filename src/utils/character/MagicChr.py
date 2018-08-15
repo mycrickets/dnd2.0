@@ -1,4 +1,4 @@
-import src.utils.utils as utilities
+import utils.utils_file as utilities
 
 
 class MagicChr:
