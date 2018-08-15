@@ -730,9 +730,30 @@ def six_to_string(chr, race=False):
 
 def feature_to_string(chr):
     # skills, features, saving throws, languages, proficiencies, feats, resistances, disadvantages, advantages
+    skil_dict = {
+        'strength': ["athletics"],
+        'dexterity': ["acrobatics", "sleight of hand", "stealth"],
+        'intelligence': ["arcana", "history", "investigation", "nature", "religion"],
+        'wisdom': ["animal handling", "insight", "medicine", "perception", "survival"],
+        'charisma': ["deception", "intimidation", "performance", "persuasion"],
+        'constitution': []
+    }
     skills = "skills: "
-    for item in chr.fin_skills:
-        skills += "\n\t" + item.strip().capitalize()
+    for item in valid_skills():
+        print(item, "item")
+        mod = 0
+        if item in chr.fin_skills:
+            print("item in fin skills")
+            mod += int(chr.clas.prof_bonus)
+            if chr.expert_skills:
+                mod += int(chr.clas.prof_bonus)
+        for yo in skil_dict:
+            print(yo, "yo")
+            for k, v in yo:
+                if item in v:
+                    mod += int(get_modifier(chr, k))
+        print(mod, "modifier")
+        skills += "\n\t" + item.strip().capitalize() + " + " + str(mod)
     features = "features: "
     for item in chr.fin_features:
         features += "\n\t" + str(item)

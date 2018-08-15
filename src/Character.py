@@ -32,14 +32,14 @@ import random as r
 class Character:
     def __init__(self, level):
         self.level = int(level)
-        self.strength = 0
-        self.dexterity = 0
-        self.constitution = 0
-        self.charisma = 0
-        self.intelligence = 0
-        self.wisdom = 0
+        self.strength = 10
+        self.dexterity = 10
+        self.constitution = 10
+        self.charisma = 10
+        self.intelligence = 10
+        self.wisdom = 10
         self.hp = 0
-        utilities.init_scores(self)
+        # utilities.init_scores(self)
         self.languages = []
         self.race = None
         self.race_name = ""
