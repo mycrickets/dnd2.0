@@ -47,7 +47,9 @@ class Elf(BaseRace, MagicChr):
                 pass
             utilities.append_proficiencies(self, ["superior darkvision", "rapier", "shortsword", "hand crossbow"])
             self.disadvantages.append("wisdom saving throws")
-            self.add_spell([[[0, "cantrip"], ["Dancing Lights"]], [[2, "one"], ["Faerie Fire"]], [[4, "two"], ["Darkness"]]], self.level)
+            spells = [[[0, "cantrip"], ["Dancing Lights"]], [[2, "one"], ["Faerie Fire"]], [[4, "two"], ["Darkness"]]]
+            for item in spells:
+                self.add_spell(item, self.level)
             self.magic_throw = "charisma"
             self.magic_dc = self.cha_mod
         else:

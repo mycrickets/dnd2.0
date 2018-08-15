@@ -53,7 +53,9 @@ class Tiefling(BaseRace):
             one = "Hellish Rebuke"
             two = "Darkness"
         if one != "":
-            self.add_spell([[[0, "cantrip"], [cantrip]], [[2, "one"], [one]], [[4, "two"], [two]]], self.level)
+            spells = [[[0, "cantrip"], [cantrip]], [[2, "one"], [one]], [[4, "two"], [two]]]
+            for item in spells:
+                self.add_spell(item, self.level)
         self.magic_throw = "charisma"
         self.magic_dc = self.cha_mod
 

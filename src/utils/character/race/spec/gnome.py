@@ -30,7 +30,7 @@ class Gnome(BaseRace, MagicChr):
         if self.subrace == "forest":
             self.subrace = "Forest Gnome"
             self.dex_mod = 1
-            self.add_spell([[0, "cantrip", ["Minor Illusion"]]], self.level)
+            self.add_spell([[0, "cantrip"], ["Minor Illusion"]], self.level)
             self.features.append("Speak with Small Beasts")
         elif self.subrace == "deep":
             self.subrace = "Deep Gnome"

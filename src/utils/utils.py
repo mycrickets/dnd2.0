@@ -642,7 +642,11 @@ def combat_to_string(chr):
         attack += "\n\t" + item.capitalize()
     equipment = "equipment: "
     for item in chr.fin_equip:
-        equipment += "\n\t" + item.strip().capitalize()
+        if isinstance(item, str):
+            equipment += "\n\t" + item.strip().capitalize()
+        elif isinstance(item, list):
+            for it in item:
+                equipment += "\n\t" + it.strip().capitalize()
     output = [armor, dc, weapons, attack, equipment]
     for item in output:
         print(item + "\n")

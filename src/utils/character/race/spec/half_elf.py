@@ -44,7 +44,9 @@ class HalfElf(BaseRace, MagicChr):
             elif ch == "mask":
                 self.features.append("Mask of the Wild")
             elif ch == "drow":
-                self.add_spell([[[0, "cantrip"], ["Dancing Lights"]], [[2, "one"], ["Faerie Fire"]], [[4, "two"], ["Darkness"]]],self.level)
+                spells = [[[0, "cantrip"], ["Dancing Lights"]], [[2, "one"], ["Faerie Fire"]], [[4, "two"], ["Darkness"]]]
+                for item in spells:
+                    self.add_spell(item, self.level)
                 self.magic_throw = "charisma"
             elif ch == "swim":
                 self.swim_spd = 30
