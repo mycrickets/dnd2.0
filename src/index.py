@@ -3,7 +3,6 @@ from Character import Character
 
 
 def main():
-
     while True:
         command = input("what do you want to do? 'create' character, 'search feature' for any feature or proficiency, "
                         "'search spell' for any spell, 'help', or 'exit'? \n")
