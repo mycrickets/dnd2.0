@@ -82,7 +82,6 @@ backgrounds = {
     },
     "Dragon Casualty": {
         " Skill Proficiencies": " Intimidation, Survival",
-        " Tool Proficiencies": " Special (see origin below)",
         " Language": " Draconic",
         " Equipment": " A dagger, tattered rags, a loaf of moldy bread, a small cast-off scale belonging to Vorgansharax – the Maimed Virulence, and a pouch with 5 gp of various coins (salvaged during your escape from Phlan)",
 
@@ -109,7 +108,7 @@ backgrounds = {
     },
     "Far Traveler": {
         " Skill Proficiencies": " Insight, Perception",
-        " Tool Proficiencies": " Any one musical instrument or gaming set of your choice, likely something native to your homeland",
+        " Tool Proficiencies": " Any one musical instrument or gaming set of your choice",
         " Languages": " Any one of your choice",
         " Equipment": " One set of traveler's clothes, any one musical instrument or gaming set you are proficient with, poorly wrought maps from your homeland that depict where you are in Faerun, a small piece of jewelry worth 10 gp in the style of your homeland's craftsmanship, and a pouch containing 5 gp",
         " Feature": " All Eyes On You "
@@ -319,7 +318,7 @@ backgrounds = {
     },
     "Urban Bounty Hunter": {
         " Skill Proficiencies": " Choose two from among Deception, Insight, Persuasion, and Stealth",
-        " Tool Proficiencies": " Choose two from among one type of gaming set, one musical instrument, and thieves' tools",
+        " Tool Proficiencies": " Choose one of gaming set, choose one musical instrument, and thieves' tools",
         " Equipment": " A set of clothes appropriate to your duties and a pouch containing 20 gp",
         " Feature": " Ear to the Ground "
     },

@@ -45,7 +45,7 @@ def ability_score_increase(chr, race=False):
         if choice == "one":
             stat = input("Which ability do you want to increase by two points? They're listed above\n")
             if is_valid_input(stat):
-                alter_stat(chr, chr_race_mod(stat, race), 2, True)
+                alter_stat(chr, chr_race_mod(stat, race), 2, race)
                 break
             else:
                 print("I don't understand that. Please enter a correct skill")
@@ -62,7 +62,7 @@ def ability_score_increase(chr, race=False):
 
 def alter_stat(chr, stat, chg, valid=False):
     """
-    used for updating/leveling up. functionality for increasing any abiltiy score by a given amount
+    used for updating/leveling up. functionality for increasing any ability score by a given amount
     :param chr: character object with scores to be modified
     :param stat: the string stat to be changed
     :param chg: the integer amount the stat is to be changed by
@@ -131,7 +131,6 @@ def get_modifier(chr, stat, clas=False):
     :return: the int of the modifier: +/- x
     """
     valid = False
-    print(str(chr))
     if clas:
         stat = chr_race_mod(stat, True)
         valid = True
@@ -156,7 +155,11 @@ def transfer_background_to_race(chr, race):
                 if item not in race.skills:
                     race.skills.append(item)
         elif addition == "Tool Proficiencies":
-            pass
+            if is_splittable(response) or is_substring(["choose", "Choose", "type of", "Type of", "from among", "choice"], response):
+                tools = get_tools(response)
+                race.proficiencies.extend(tools)
+            else:
+                race.proficiencies.append(response.strip().lower())
         elif addition == "Equipment":
             items = response.split(",")
             for piece in items:
@@ -169,7 +172,14 @@ def transfer_background_to_race(chr, race):
         elif addition == "Language":
             race.languages.append(response.strip().lower())
         elif addition == "Languages":
-            pass
+            if "and" in response:
+                lgs = response.split("and")
+                for i in range(0, len(lgs)):
+                    lgs[i] = lgs[i].lower().strip()
+            else:
+                lgs = get_lgs(response, race)
+            for item in lgs:
+                race.languages.append(item)
         else:
             print(addition)
     pass
@@ -182,8 +192,92 @@ def is_substring(substrings, string):
     return False
 
 
+def is_splittable(response):
+    try:
+        if len(response.split(",")) == 1:
+            if len(response.split("and")) > 1:
+                return True
+            if len(response.split("or")) > 1:
+                return True
+            return False
+    except ValueError:
+        return False
+    return True
+
+
+def get_tools(response):
+    tools = []
+    if is_substring(["choose", "Choose", "type of", "Type of", "from among", "or"], response):
+        items = response.split(",")
+        for question in items:
+            if not is_substring(["choose", "Choose", "type of", "Type of", "from among", "or"], question):
+                tools.append(question.lower().strip())
+            else:
+                if "or" in question:
+                    ch = question.split("or")
+                    for i in range(0, len(ch)):
+                        ch[i] = ch[i].strip("Your choice of ")
+                    for boy in ch:
+                        print(boy)
+                    tools.append(input("Which tool proficiency do you want? They're listed above\n"))
+                else:
+                    ct = question.lower().strip().split()[:1]
+                    if ct[0] == "one":
+                        ct = 1
+                    elif ct[0] == "two":
+                        ct = 2
+                    else:
+                        ct = 1
+                    for i in range(0, ct):
+                        yo = question.lower().strip().split()[1:]
+                        sh = ""
+                        for item in yo:
+                            sh += item + " "
+                        if "and" in sh:
+                            each = sh.split(" and ")
+                            for item in each:
+                                print("What " + item.strip() + " do you want to be proficient in?")
+                                tools.append(input(""))
+                        else:
+                            print(str(i + 1) + "/" + str(ct))
+                            print("What " + sh.strip() + " do you want to be proficient in?")
+                            tools.append(input(""))
+    else:
+        if "and" in response:
+            each = response.split(" and ")
+            for i in range(0, len(each)):
+                each[i] = each[i].strip().lower()
+            tools = each
+        else:
+            for item in response.split(","):
+                tools.append(item.lower().strip())
+    return tools
+
+
+def get_lgs(response, race):
+    results = []
+    response = response.strip().lower()
+    if "or" in response:
+        check = response.split()[:1]
+        if check not in race.languages:
+            race.languages.append(check)
+        else:
+            for i in range(0, 1):
+                print(str(i + 1) + "/" + str(1))
+                results.append(input("Background Initialization: What language do you want to learn?\n"))
+    else:
+        ct = response.split()[:1]
+        if ct == "one" or ct == "any":
+            ct = 1
+        else:
+            ct = 2
+        for i in range(0, ct):
+            print(str(i+1) + "/" + str(ct))
+            results.append(input("Background Initialization: What language do you want to learn?\n"))
+    return results
+
+
 def get_equipment_from_trigger_eqp(response):
-    "A set of artisan’s tools or a musical instrument (one of your choice)"
     response = response.strip()
     amt = response.split(" ")
     ct = -1
@@ -216,7 +310,7 @@ def get_equipment_from_trigger_eqp(response):
         fin[i] = fin[i].strip().lower()
     flag = True
     while flag:
-        print("Which piece of equipment do you want?")
+        print("Which piece of equipment or type of equipment do you want?")
         for item in fin:
             print(item)
         ch = input("")
@@ -381,7 +475,7 @@ def init_scores(chr):
     choices = ["strength", "dexterity", "wisdom", "intelligence", "charisma", "constitution"]
     chr_choices = []
     assigned = 0
-    choice = input("Do you want to 'roll' your scores, or use the 'basic' preset scores?")
+    choice = input("Do you want to 'roll' your scores, or use the 'basic' preset scores?\n")
     if choice.lower() == "roll":
         while flag:
             while assigned < 6:
@@ -490,7 +584,7 @@ def set_one_score(chr, sng, scores):
         old = getattr(chr, sng)
         for item in scores:
             print(item)
-        play_choice = input("Which score do you want to assign to " + sng)
+        play_choice = input("Which score do you want to assign to " + sng + "?\n")
         assert int(play_choice) in scores, print(str(play_choice) + " isn't in the list you're allowed to use.")
         setattr(chr, sng, int(play_choice))
         new = getattr(chr, sng)
@@ -532,6 +626,9 @@ def add_language(chr, item):
 def combat_to_string(chr):
     # armor, weapons, equipment
     if chr.fin_armor:
+        if isinstance(chr.fin_armor, list):
+            chr.fin_equip.append(chr.fin_armor)
+            chr.fin_armor = chr.fin_armor[0]
         armor = "armor: " + chr.fin_armor[0]
         dc = "armor DC: " + str(chr.fin_armor[1])
     else:
@@ -688,7 +785,7 @@ def special_to_string(chr):
         features = "Ki Features: "
         for item in chr.clas.ki_features:
             features += "\n\t" + item
-        dc = "Ki DC: \n\n" + str(chr.clas.ki_dc)
+        dc = "Ki DC: \t\t" + str(chr.clas.ki_dc)
         elfeats = "Elemental Features: "
         for item in chr.clas.elem_feat:
             elfeats += "\n\t" + item

@@ -10,7 +10,7 @@ def main():
         command = command.strip()
         if command == "create":
             print("Creation of Character")
-            level = 1
+            level = 10
             flag = False
             while not flag:
                 level = input("What level is your character?\n")

@@ -133,6 +133,7 @@ class Character:
 
     def set_race(self):
         race = utilities.get_from_list(["Dragonborn", "Dwarf", "Elf", "Gnome", "Half Elf", "Half Orc", "Halfling", "Tiefling", "Human"], 1, "race")
+        # race = "Half Orc" - for testing
         race = race.strip().lower()
         if race == "dragonborn":
             race = Dragonborn(self.level)
@@ -260,14 +261,14 @@ class Character:
                 print(ch + " is not recognized as a valid input. Please try again.")
 
     def set_personality(self):
-        self.name = input("What's your character's name?")
-        self.player_name = input("What's your name (the player)?")
-        self.gender = input("What's " + self.name + "'s gender?")
-        self.personality = input("Tell me a bit about " + self.name + "'s personality")
-        self.trait = input("What is " + self.name + "'s main trait?")
-        self.ideals = input("What are " + self.name + "'s ideals?")
-        self.flaws = input("What are " + self.name + "'s flaws?")
-        self.bonds = input("What are " + self.name + "'s bonds?")
+        self.name = input("What's your character's name?\n")
+        self.player_name = input("What's your name (the player)?\n")
+        self.gender = input("What's " + self.name + "'s gender?\n")
+        self.personality = input("Tell me a bit about " + self.name + "'s personality\n")
+        self.trait = input("What is " + self.name + "'s main trait?\n")
+        self.ideals = input("What are " + self.name + "'s ideals?\n")
+        self.flaws = input("What are " + self.name + "'s flaws?\n")
+        self.bonds = input("What are " + self.name + "'s bonds?\n")
 
     def trigger_end(self):
         self.fin_features = []
