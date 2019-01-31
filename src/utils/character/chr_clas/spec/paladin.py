@@ -28,7 +28,7 @@ class Paladin(BaseClass, MagicChr):
         eqp_opts = [["Priest's Pack", "Explorer's Pack"]]
         self.saving_throws = ["wisdom", "charisma"]
         self.magic_throw = "charisma"
-        self.magic_dc = 8 + self.prof_bonus + self.cha_mod
+        self.magic_dc = 8 + self.prof_bonus + utilities.get_modifier(self, "charisma", True)
         self.styles = []
         utilities.append_proficiencies(self, ["all armor", "shields", "simple weapons", "martial weapons"])
         self.set_equip(wpn_opts, True)

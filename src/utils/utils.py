@@ -469,6 +469,15 @@ def count_spells(chr):
     return 0
 
 
+def roll_dice(amt, side, add=0):
+    if amt < 0 or side < 0 or add < 0:
+        return 0
+    total = 0
+    for i in range(0,amt):
+        total += r.randint(1, side)
+    print(total + add)
+
+
 def init_scores(chr):
     flag = True
     scores = []
@@ -636,7 +645,12 @@ def combat_to_string(chr):
         dc = str(10 + get_modifier(chr, "dexterity"))
     weapons = "weapons: "
     for item in chr.fin_weapons:
-        weapons += "\n\t" + item.capitalize()
+        if isinstance(item, list):
+            for thing in item:
+                print(thing, item, chr.fin_weapons)
+                weapons += "\n\t" + thing
+        else:
+            weapons += "\n\t" + item
     attack = "attacks: "
     for item in chr.fin_attacks:
         attack += "\n\t" + item.capitalize()
@@ -646,7 +660,12 @@ def combat_to_string(chr):
             equipment += "\n\t" + item.strip().capitalize()
         elif isinstance(item, list):
             for it in item:
-                equipment += "\n\t" + it.strip().capitalize()
+                if isinstance(it, list):
+                    for being in it:
+                        equipment += "\n\t" + being.capitalize().strip()
+                else:
+                    equipment += "\n\t" + it.capitalize()
+    prof = "proficiency bonus: +" + str(chr.clas.prof_bonus)
     output = [armor, dc, weapons, attack, equipment]
     for item in output:
         print(item + "\n")
