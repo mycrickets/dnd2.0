@@ -27,7 +27,7 @@ class Dwarf(BaseRace):
         self.set_subrace()
 
     def set_subrace(self):
-        self.subrace = input("Which Dwarven subrace do you want to be? 'hill' or 'mountain'?")
+        self.subrace = input("Which Dwarven subrace do you want to be? 'hill' or 'mountain'?\n")
         if self.subrace == "hill":
             self.subrace = "Hill Dwarf"
             self.wis_mod = 1

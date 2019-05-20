@@ -30,6 +30,8 @@ def main():
             chr.set_class()
             chr.trigger_end()
             # above to get all features, equip, etc from race and class to character. otherwise not accessible.
+            print("\n\n***CHARACTER SHEET***\n\n")
+
             utilities.combat_to_string(chr)
             utilities.score_to_string(chr)
             utilities.character_to_string(chr)

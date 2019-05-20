@@ -761,7 +761,6 @@ def feature_to_string(chr):
     for item in valid_skills():
         mod = 0
         if item in chr.fin_skills:
-            print("item in fin skills")
             mod += int(chr.clas.prof_bonus)
             if chr.expert_skills:
                 mod += int(chr.clas.prof_bonus)
