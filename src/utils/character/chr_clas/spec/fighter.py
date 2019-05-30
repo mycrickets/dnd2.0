@@ -23,7 +23,7 @@ class Fighter(BaseClass, MagicChr):
         utilities.append_proficiencies(self, ["All armors", "All shields", "All weapons"])
         self.set_equip(wpn_opts, True)
         self.set_equip(eqp_opts, False)
-        spnch = utilities.get_from_list(["leather armor and longbow", "chain mail"], 1, "selection")
+        spnch = utilities.get_from_list(["leather armor and longbow", "chain mail"], 1)
         if spnch == "leather armor and longbow":
             utilities.equip(self, "Longbow with 20 arrows")
             self.armor = ["Leather Armor", "11"]
@@ -54,10 +54,11 @@ class Fighter(BaseClass, MagicChr):
                     "Menacing Attack", "Parry", "Riposte", "Sweeping Attack", "Trip Attack"]
         fin_opt = set(base_opt) - set(self.maneuvers)
         for i in range(0, amt):
-            print("Which Battle Master Maneuver do you want to take? They're printed below")
+            print("\nWhich Battle Master Maneuver do you want to take? They're printed below")
+            print("Choice " + i + "/" + amt)
             for item in sorted(fin_opt):
                 print(item)
-            choice = input("")
+            choice = input("\n")
             flag = True
             while flag:
                 if choice in fin_opt:

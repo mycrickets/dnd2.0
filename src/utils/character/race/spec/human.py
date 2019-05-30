@@ -22,6 +22,6 @@ class Human(BaseRace):
         self.speed = 30
         self.set_swim()
         self.set_awh(self)
-        utilities.transfer_languages(self, ["common", input("Which language do you want to learn? ")], True)
+        utilities.transfer_languages(self, ["common", input("Which one language do you want to learn? \n")], True)
 
 

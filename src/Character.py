@@ -13,6 +13,7 @@ from utils.character.chr_clas.spec.bard import Bard
 from utils.character.chr_clas.spec.cleric import Cleric
 from utils.character.chr_clas.spec.druid import Druid
 from utils.character.chr_clas.spec.fighter import Fighter
+from utils.character.chr_clas.spec.necromancer import Necromancer
 from utils.character.chr_clas.spec.monk import Monk
 from utils.character.chr_clas.spec.paladin import Paladin
 from utils.character.chr_clas.spec.ranger import Ranger
@@ -32,14 +33,14 @@ import random as r
 class Character:
     def __init__(self, level):
         self.level = int(level)
-        self.strength = 0
-        self.dexterity = 0
-        self.constitution = 0
-        self.charisma = 0
-        self.intelligence = 0
-        self.wisdom = 0
+        self.strength = 10
+        self.dexterity = 15
+        self.constitution = 15
+        self.charisma = 17
+        self.intelligence = 15
+        self.wisdom = 11
         self.hp = 0
-        utilities.init_scores(self)
+        # utilities.init_scores(self)
         self.languages = []
         self.race = None
         self.race_name = ""
@@ -90,14 +91,21 @@ class Character:
         self.expert_skills = None
 
     def set_background(self):
+        count = 1
         while True:
             bg_names = backgrounds.keys()
-            print("Listing all Backgrounds:")
-            for item in bg_names:
-                print(item)
-            print("input 'choose' or 'search' to choose a background or find out more about that background")
+            if count == 1:
+                print("Listing all Backgrounds:")
+                for item in bg_names:
+                    print(item)
+            print("\ninput 'list', 'choose', or 'search' to see all backgrounds, choose a background, or find out more about an inputted background\n" +
+                "You can also input 'random' to have a background chosen for you at random.\n")
             choice = input("")
             ch = choice.strip()
+            if ch == "list":
+                print("\nListing all Backgrounds:\n")
+                for item in bg_names:
+                    print(item)
             if ch == "choose":
                 flag = False
                 while not flag:
@@ -117,11 +125,9 @@ class Character:
                 while not flag:
                     bg = input("Which background do you want to learn more about?\n")
                     if utilities.is_valid_input(bg, bg_names):
-                        print("\n")
                         for item in backgrounds.get(bg):
-                            print(item + ": " + backgrounds.get(bg).get(item))
+                            print("\n" +item + ": " + backgrounds.get(bg).get(item) + "\n")
                         import time
-                        print("\n")
                         time.sleep(1)
                         flag = True
                     else:
@@ -132,8 +138,8 @@ class Character:
                 print(ch + " is not recognized as a command. Try again.")
 
     def set_race(self):
-        race = utilities.get_from_list(["Dragonborn", "Dwarf", "Elf", "Gnome", "Half Elf", "Half Orc", "Halfling", "Tiefling", "Human"], 1, "race")
-        # race = "Half Orc" - for testing
+        # race = utilities.get_from_list(["Dragonborn", "Dwarf", "Elf", "Gnome", "Half Elf", "Half Orc", "Halfling", "Tiefling", "Human"], 1, "race")
+        race = "Half Elf" #- for testing
         race = race.strip().lower()
         if race == "dragonborn":
             race = Dragonborn(self.level)
@@ -175,7 +181,7 @@ class Character:
             self.race.skills[i] = self.race.skills[1].strip()
 
     def set_class(self):
-        char_class = utilities.get_from_list(["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"], 1, "class")
+        char_class = utilities.get_from_list(["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Necromancer", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"], 1, "class")
         char_class = char_class.strip().lower()
         if char_class == "barbarian":
             char_class = Barbarian(self)
@@ -197,6 +203,10 @@ class Character:
             self.styles = char_class.styles
             self.sup_dice_ct = char_class.sup_dice_ct
             self.sup_dice = char_class.sup_dice
+        elif char_class == "necromancer":
+            char_class = Necromancer(self)
+            self.class_name = "Necromancer"
+            
         elif char_class == "monk":
             char_class = Monk(self)
             self.class_name = "Monk"

@@ -56,12 +56,12 @@ class Rogue(BaseClass, MagicChr):
             while not flag:
                 skills = set(char.race.skills).union(set(self.skills)) - set(self.expert_skills)
                 pot_skills = list(skills)
-                print("Expertise: Which skill do you want to double your proficiency bonus for?\n"
+                print("\nExpertise: Which skill do you want to double your proficiency bonus for?\n"
                       "Your known and valid skills are listed below")
                 print("Choice: " + str(i+1) + "/" + str(amt))
                 for item in sorted(pot_skills):
                     print(item)
-                ch = input("")
+                ch = input("\n")
                 if utilities.is_valid_input(ch, pot_skills):
                     self.expert_skills.append(ch)
                     flag = True

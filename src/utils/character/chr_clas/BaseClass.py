@@ -65,10 +65,10 @@ class BaseClass(BaseChr, MagicChr):
         """
         flag = True
         while flag:
-            print("Which archetype do you want to join? Your choices are listed below")
+            print("\nWhich archetype do you want to join? Your choices are listed below\n")
             for item in opts:
                 print(item)
-            choice = input("")
+            choice = input("\n")
             if utilities.is_valid_input(choice, opts) or utilities.is_valid_input(choice.capitalize(), opts):
                 self.archetype = choice.capitalize()
                 return choice
@@ -156,7 +156,7 @@ class BaseClass(BaseChr, MagicChr):
         :param opts: list of list, shown above. possibly refactored in the future
         """
         for lists in opts:
-            print("Which do you want to equip?")
+            print("\nWhich do you want to equip?\n")
             for item in lists:
                 print(item)
             choice = input("")

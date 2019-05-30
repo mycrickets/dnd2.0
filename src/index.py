@@ -8,36 +8,42 @@ def main():
                         "'search spell' for any spell, 'help', or 'exit'? \n")
         command = command.strip()
         if command == "create":
-            print("Creation of Character")
-            level = 10
+            print("\n\n\t\t*****\t\tCreation of Character\t\t*****\t\t\n\n")
+            level = 1
             flag = False
+            print("\n\n\t\t*****\t\tSetting Character Level and Base Ability Scores\t\t*****\t\t\n\n")
             while not flag:
                 level = input("What level is your character?\n")
                 try:
                     level = int(level)
                     if level > 20:
                         print("Your level can't be above 20. Try again.")
-                    if level < 1:
+                    elif level < 1:
                         print("Your level can't be lower than 1. Try again.")
-                    flag = True
+                    else:
+                        flag = True
                 except (TypeError, ValueError):
                     print("Please enter a number")
             chr = Character(int(level))
-            chr.set_personality()
+            print("\n\n\t\t*****\t\tSetting Character Personality\t\t*****\t\t\n\n")
+            #chr.set_personality()
             chr.set_alignment()
+            print("\n\n\t\t*****\t\tSetting Character Background\t\t*****\t\t\n\n")
             chr.set_background()
+            print("\n\n\t\t*****\t\tSetting Character Race\t\t*****\t\t\n\n")
             chr.set_race()
+            print("\n\n\t\t*****\t\tSetting Character Class\t\t*****\t\t\n\n")
             chr.set_class()
             chr.trigger_end()
             # above to get all features, equip, etc from race and class to character. otherwise not accessible.
-            print("\n\n***CHARACTER SHEET***\n\n")
+            print("\n\n\t\t*****\t\tCHARACTER SHEET\t\t*****\t\t\n\n")
 
-            utilities.combat_to_string(chr)
-            utilities.score_to_string(chr)
             utilities.character_to_string(chr)
-            utilities.special_to_string(chr)
+            utilities.score_to_string(chr)
             utilities.feature_to_string(chr)
+            utilities.special_to_string(chr)
             utilities.magic_to_string(chr)
+            utilities.combat_to_string(chr)
         elif command == "help":
             print("Type in: "
                   "\ncreate: \tcreate a new character"
@@ -56,6 +62,7 @@ def main():
                 srch = word.strip().lower()
                 if srch == "exit":
                     flag = False
+                    break
                 print(utilities.search_dict(srch))
                 print("\n")
 

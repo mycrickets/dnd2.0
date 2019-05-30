@@ -32,29 +32,46 @@ def chr_race_mod(input, race=False):
         return input
 
 
-def ability_score_increase(chr, race=False):
+def ability_score_increase(chr, race=False, predetermined="none"):
     """
-    the functionality for levelling up: gets called to level up/increase an ability score. only functionality for finding out stat and value.
+    the functionality for leveling up: gets called to level up/increase an ability score. only functionality for finding out stat and value.
     :param chr: character object to manipulate
     :return: nothing
     """
-    choice = input(
-        "Level Up: do you want to level up 'one' ability score by two points, or 'two' scores by one each?\n")
-    while True:
+    if predetermined == "none":
+        choice = input("\nLevel Up: do you want to level up 'one' ability score by two points, or 'two' scores by one each?\n")
+    else:
+        choice = predetermined
+    flag = True
+    while flag:
         six_to_string(chr, race)
         if choice == "one":
-            stat = input("Which ability do you want to increase by two points? They're listed above\n")
-            if is_valid_input(stat):
-                alter_stat(chr, chr_race_mod(stat, race), 2, race)
-                break
-            else:
-                print("I don't understand that. Please enter a correct skill")
+            while flag:
+                stat = input("Which ability do you want to increase by two points? They're listed above\n")
+                if is_valid_input(stat):
+                    alter_stat(chr, chr_race_mod(stat, race), 2, race)
+                    flag = False
+                    break
+                else:
+                    print("I don't understand that. Please enter a correct skill")
         elif choice == "two":
-            first = input("Which ability do you want to increase by one point?\n")
-            alter_stat(chr, chr_race_mod(first, race), 1)
-            second = input("Which other score do you want to increase by one point?\n")
-            alter_stat(chr, chr_race_mod(second, race), 1)
-            break
+            while flag:
+                first = input("Which ability do you want to increase by one point?\n")
+                if is_valid_input(first):
+                    alter_stat(chr, chr_race_mod(first, race), 1, race)
+                    flag = False
+                    break
+                else:
+                    print("I don't understand that. Please enter a correct skill")
+            flag = True
+            while flag:
+                second = input("Which other score do you want to increase by one point?\n")
+                if is_valid_input(second):
+                    alter_stat(chr, chr_race_mod(second, race), 1, race)
+                    flag = False
+                    break
+                else:
+                    print("I don't understand that. Please enter a correct skill")
         else:
             print("I don't understand that. Please enter 'one' or 'two' next time!\n")
             choice = input("Level Up: do you want to level up 'one' ability score by two points, or 'two' scores by one each?\n")
@@ -106,8 +123,8 @@ def set_skills(chr, amt, opts):
             try:
                 if isinstance(opts, list):
                     avail = set(opts) - set(chr.skills)
-                    print("Which skill do you want to be proficient in? Options are listed below")
-                    print("Choice " + str(i+1) + "/" + str(amt))
+                    print("\nWhich skill do you want to be proficient in? Options are listed below")
+                    print("Choice " + str(i+1) + "/" + str(amt) + "\n")
                     for item in sorted(avail):
                         print(item)
                     ch = input("")
@@ -162,9 +179,17 @@ def transfer_background_to_race(chr, race):
                 race.proficiencies.append(response.strip().lower())
         elif addition == "Equipment":
             items = response.split(",")
-            for piece in items:
-                if is_substring(["choose", "Choose", "type of", "Type of", "from among", "choice"], piece):
-                    race.equipment.append(get_equipment_from_trigger_eqp(piece))
+            choices = ""
+            joining_choices = False
+            for i in range(0, len(items)):
+                piece = items[i]
+                if (")" in piece) and joining_choices:
+                    choices += piece
+                    joining_choices = False
+                    race.equipment.append(get_equipment_from_trigger_eqp(choices))
+                elif "(" in piece or joining_choices:
+                    choices += piece + ","
+                    joining_choices = True
                 else:
                     race.equipment.append(piece.strip().lower())
         elif addition == "Feature":
@@ -207,19 +232,20 @@ def is_splittable(response):
 
 def get_tools(response):
     tools = []
-    if is_substring(["choose", "Choose", "type of", "Type of", "from among", "or"], response):
+    if is_substring(["choose", "Choose", "type of", "Type of", "from among", " or "], response):
         items = response.split(",")
         for question in items:
-            if not is_substring(["choose", "Choose", "type of", "Type of", "from among", "or"], question):
+            if not is_substring(["choose", "Choose", "type of", "Type of", "from among", " or "], question):
                 tools.append(question.lower().strip())
             else:
-                if "or" in question:
+                if " or " in question:
+                    print("\nWhich tool proficiency do you want to have? Your options are listed below.\n")
                     ch = question.split("or")
                     for i in range(0, len(ch)):
                         ch[i] = ch[i].strip("Your choice of ")
                     for boy in ch:
                         print(boy)
-                    tools.append(input("Which tool proficiency do you want? They're listed above\n"))
+                    tools.append(input(""))
                 else:
                     ct = question.lower().strip().split()[:1]
                     if ct[0] == "one":
@@ -257,7 +283,7 @@ def get_tools(response):
 def get_lgs(response, race):
     results = []
     response = response.strip().lower()
-    if "or" in response:
+    if " or " in response:
         check = response.split()[:1]
         if check not in race.languages:
             race.languages.append(check)
@@ -281,40 +307,62 @@ def get_equipment_from_trigger_eqp(response):
     response = response.strip()
     amt = response.split(" ")
     ct = -1
-    for item in amt:
-        if item == "(":
-            amt = amt.remove(amt.index(item))
-    for item in amt:
-        if item == ")":
-            amt = amt.remove(amt.index(item))
-    indices = [i for i, x in enumerate(amt) if x == "of"]
-    for item in indices:
-        if amt[item] == "of" and amt[item+1] == "your":
-            ct = amt[item-1]
-    ct = ct.replace("(", "]").replace(")", "]").split("]")
-    ct = "".join(ct)
-    if ct == "one":
-        ct = 1
+
+    if "(" in response and ")" in response and response.index("(") != 0:
+        choices = response.split("(")
+        for item in choices:
+            item = item.split(")")
+        description = choices[0]
+        choices = str(choices[1:])
+        choices = choices.split(",")
+        for item in choices:
+            item = item.split(" or ")
+        choices[0] = choices[0][2:]
+        choices[len(choices)-1] = choices[len(choices)-1][:-3]
+        flag = True
+        while flag:
+            print("Which" + description + "do you want?")
+            for item in choices:
+                print(item)
+            ch = input("")
+            return ch
     else:
-        ct = 2
-    choices = response.split("or")
-    fin = []
-    for item in choices:
-        spt = list(item)
-        index = len(item)
-        for charr in spt:
-            if charr == "(":
-                index = spt.index(charr)
-        fin.append(item[:index])
-    for i in range(0, len(fin)):
-        fin[i] = fin[i].strip().lower()
-    flag = True
-    while flag:
-        print("Which piece of equipment or type of equipment do you want?")
-        for item in fin:
-            print(item)
-        ch = input("")
-        return ch
+        for item in amt:
+            if item == "(":
+                amt = amt.remove(amt.index(item))
+        for item in amt:
+            if item == ")":
+                amt = amt.remove(amt.index(item))
+        indices = [i for i, x in enumerate(amt) if x == "of"]
+        for item in indices:
+            if amt[item] == "of" and amt[item+1] == "your":
+                ct = amt[item-1]
+        ct = ct.replace("(", "]").replace(")", "]").split("]")
+        ct = "".join(ct)
+        if ct == "one":
+            ct = 1
+        elif ct == "two":
+            ct = 2
+        else:
+            ct = 1
+        choices = response.split("or")
+        fin = []
+        for item in choices:
+            spt = list(item)
+            index = len(item)
+            for charr in spt:
+                if charr == "(":
+                    index = spt.index(charr)
+            fin.append(item[:index])
+        for i in range(0, len(fin)):
+            fin[i] = fin[i].strip().lower()
+        flag = True
+        while flag:
+            print("Which piece of equipment or type of equipment do you want?")
+            for item in fin:
+                print(item)
+            ch = input("")
+            return ch
 
 
 def get_skills_from_trigger_skill(response):
@@ -369,11 +417,15 @@ def get_from_list(list, amt, desc=None):
         while flag:
             try:
                 if amt >= j:
-                    print("Which" + addition + "do you want to have?")
+                    if desc == "class" or desc == "race":
+                        print("\nWhich " + desc + " is your character?")
+                    else:
+                        print("\nWhich" + desc + "do you want to have?")
                     if amt > 1:
                         print(str(j) + "/" + str(amt))
                     for item in sorted(set(list)-set(results)):
                         print(item)
+                    print("\n")
                     ch = input("")
                     if is_valid_input(ch, list) or is_valid_input(ch.capitalize(), list):
                         if amt >= j:
@@ -500,9 +552,6 @@ def init_scores(chr):
             else:
                 scores = []
                 assigned = 0
-                print("\n\n\n\n")
-                print("BUG at utils line 262")
-                print("\n\n\n\n")
     else:
         scores = [15, 14, 13, 12, 10, 8]
     while 0 <= len(chr_choices) < 6:
@@ -511,15 +560,17 @@ def init_scores(chr):
         plinth = False
         while not pennant:
             # each loop of assignment. either do score_num or score -> num
-            print("below are the scores you have left to assign")
+            print("\nbelow are the scores you have left to assign")
             for item in choices:
                 print(item)
-            print("below are the remaining scores:")
+            print("\nbelow are the remaining scores:")
             for item in scores:
                 print(item)
-            chr_score = input("Which score do you want to assign? please input from list above\n")
+            chr_score = input("\nWhich score do you want to assign? please input from list above\n")
             plinth = is_one_string(chr_score)
             pennant = is_valid_input(chr_score, choices, scores)
+            if not pennant:
+                print(chr_score + " is not valid input. please reinput.")
         flag = False
         if plinth:
             while not flag:
@@ -701,12 +752,12 @@ def magic_to_string(chr):
 def score_to_string(chr):
     # level, str->cha, hit dice, max hp, speed, swim speed, fly speed
     level = "level: \t" + str(chr.level)
-    strength = "strength: \t" + str(chr.strength)
-    dexterity = "dexterity: \t" + str(chr.dexterity)
-    wisdom = "wisdom: \t" + str(chr.wisdom)
-    intelligence = "intelligence: \t" + str(chr.intelligence)
-    charisma = "charisma: \t" + str(chr.charisma)
-    constitution = "constitution: \t" + str(chr.constitution)
+    strength = "strength: \t" + str(chr.strength) + "\t(" + str(get_modifier(chr, "strength")) + ")"
+    dexterity = "dexterity: \t" + str(chr.dexterity) + "\t(" + str(get_modifier(chr, "dexterity")) + ")"
+    wisdom = "wisdom: \t" + str(chr.wisdom) + "\t(" + str(get_modifier(chr, "wisdom")) + ")"
+    intelligence = "intelligence: \t" + str(chr.intelligence) + "\t(" + str(get_modifier(chr, "intelligence")) + ")"
+    charisma = "charisma: \t" + str(chr.charisma) + "\t(" + str(get_modifier(chr, "charisma")) + ")"
+    constitution = "constitution: \t" + str(chr.constitution) + "\t(" + str(get_modifier(chr, "constitution")) + ")"
     hit_dice = "hit dice: \t" + str(chr.clas.hit_dice)
     max_hp = "max hp: \t" + str(chr.hp)
     speed = "speed: \t" + str(chr.race.speed)
@@ -757,7 +808,7 @@ def feature_to_string(chr):
         'charisma': ["deception", "intimidation", "performance", "persuasion"],
         'constitution': []
     }
-    skills = "skills: "
+    skills = "Skills: "
     for item in valid_skills():
         mod = 0
         if item in chr.fin_skills:
@@ -769,13 +820,13 @@ def feature_to_string(chr):
                 if item in v:
                     mod += int(get_modifier(chr, yo))
         skills += "\n\t" + item.strip().capitalize() + " + " + str(mod)
-    features = "features: "
+    features = "Features: "
     for item in chr.fin_features:
         features += "\n\t" + str(item)
-    saving_throws = "saving throws: "
+    saving_throws = "Saving Throws: "
     for item in chr.clas.saving_throws:
         saving_throws += "\n\t" + item
-    languages = "languages known: "
+    languages = "Languages Known: "
     transfer_languages(chr, None, False, False, True)
     for item in chr.languages:
         languages += "\n\t" + item
