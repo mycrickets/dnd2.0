@@ -45,7 +45,7 @@ class Necromancer(BaseClass, MagicChr):
             arch['spells'] = [[[5, "cantrip"], ["Spare the Dying"]], [[5, "one"], ["Cure Wounds"]],
                              [[5, "two"], ["Lesser Restoration"]], [[5, "three"], ["Beacon of Hope", "Revivify"]], [[5, "four"], ["Death Ward"]], [[5, "five"], ["Greater Restoration"]], [[5, "seven"], ["Resurrection"]], [[5, "nine"], ["Mass Heal"]]]
         elif arch_choice == "reaper":
-            arch['spells'] = [[1, "one"], ["Inflict Wounds"], [[1, "three"], ["Revivify", "Speak with Dead"]], [[1, "five"], ["Commune", "Raise Dead"]], [[1, "seven"], ["Resurrection"]], [[1, "nine"], ["True Resurrection"]], [[5, "one"], [input("Death's Knowledge: Which three spells from any class spell list do you want to learn?\n")]]]
+            arch['spells'] = [[[1, "one"], ["Inflict Wounds"]], [[1, "three"], ["Revivify", "Speak with Dead"]], [[1, "five"], ["Commune", "Raise Dead"]], [[1, "seven"], ["Resurrection"]], [[1, "nine"], ["True Resurrection"]], [[5, "one"], [input("Death's Knowledge: Which three spells from any class spell list do you want to learn?\n")]]]
             arch['feature'] = [[1, "Death's Knowledge"], [5, "Improved Soul Harvest"], [9, "Necrosis Spellcasting"], [13, "Grim"]]
         else:
             arch_choice = "undertaker"

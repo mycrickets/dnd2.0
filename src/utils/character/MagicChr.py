@@ -30,6 +30,8 @@ class MagicChr:
         """
         level = int(level)
         cant_ct = int(cant_ct)
+        self.cantrips[0] = int(cant_ct)
+        self.cantrips[1].append(input("\nInitialization: Which " + str(cant_ct) + " " + clas + " cantrips do you want to learn?\n"))
         if clas in ["ranger", "paladin"]:
             if level > 1:
                 self.one[0] = 2
@@ -69,15 +71,16 @@ class MagicChr:
                 self.five[0] = 2
                 self.five[1].append(input("\nLevel up: What final level five spell do you want to learn?\n"))
         elif clas in ["wizard", "sorcerer", "warlock", "bard", "cleric", "druid", "necromancer"]:
+            if level > 0:
+                self.one[0] = 2
+                self.one[1].append(input("\nLevel up: What first level one spell do you want to learn?\n"))
+                self.one[1].append(input("\nLevel up: What second level one spell do you want to learn?\n"))
             if level > 3:
                 self.cantrips[0] += 1
                 self.cantrips[1].append(input("\nLevel up: what other cantrip do you want to add?"))
             if level > 9:
                 self.cantrips[0] += 1
                 self.cantrips[1].append(input("\nLevel up: what other cantrip do you want to add?"))
-                self.one[0] = 2
-                self.one[1].append(input("\nLevel up: What first level one spell do you want to learn?\n"))
-                self.one[1].append(input("\nLevel up: What second level one spell do you want to learn?\n"))
             if level > 1:
                 self.one[0] = 3
                 self.one[1].append(input("\nLevel up: What other level one spell do you want to learn?\n"))
@@ -159,8 +162,6 @@ class MagicChr:
             if level > 18:
                 self.four[0] += 1
                 self.four[1].append(input("\nLevel up: What level four spell do you want to learn?\n"))
-        self.cantrips[0] = int(cant_ct)
-        self.cantrips[1].append(input("\nInitialization: Which " + str(cant_ct) + " " + clas + " cantrips do you want to learn?\n"))
 
     def add_spell(self, spells, chr_level):
         """
@@ -169,6 +170,9 @@ class MagicChr:
         :param spells: list of lists: [[[(int) level, (str) level], [spells]], [level, [spells]]]
         :return: N/A
         """
+        print(spells)
+        print(chr_level)
+
         chr_level = int(chr_level)
         set_level = spells[0][0]
         spell_lvl = spells[0][1]

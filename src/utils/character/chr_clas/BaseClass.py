@@ -77,11 +77,12 @@ class BaseClass(BaseChr, MagicChr):
 
     def level_arch(self, arch):
         """
-
         :param arch: the total dictionary passed in
         :param choices: the keys of the dictionaries to loop through
         :return:
         """
+
+        print(arch)
         choices = list(arch.keys())
         for opt in choices:
             for item in arch[opt]:
@@ -117,12 +118,11 @@ class BaseClass(BaseChr, MagicChr):
 
     def append_item(self, opt, item):
         """
-
         :param opt: the dict
         :param item:
         :return:
         """
-
+        print(opt, item)
         if opt == "proficiency":
             self.proficiencies.append(item)
         elif opt == "feature":
@@ -145,6 +145,7 @@ class BaseClass(BaseChr, MagicChr):
         elif opt == "language":
             self.languages.append(item)
         elif opt == "spells":
+            print(opt, item)
             self.add_spell(item, self.level)
         return True
 
