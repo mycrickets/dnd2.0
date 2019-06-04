@@ -26,7 +26,7 @@ def main():
                     print("Please enter a number")
             chr = Character(int(level))
             print("\n\n\t\t*****\t\tSetting Character Personality\t\t*****\t\t\n\n")
-            #chr.set_personality()
+            chr.set_personality()
             chr.set_alignment()
             print("\n\n\t\t*****\t\tSetting Character Background\t\t*****\t\t\n\n")
             chr.set_background()

@@ -139,7 +139,7 @@ class Character:
 
     def set_race(self):
         # race = utilities.get_from_list(["Dragonborn", "Dwarf", "Elf", "Gnome", "Half Elf", "Half Orc", "Halfling", "Tiefling", "Human"], 1, "race")
-        race = "Half Elf" #- for testing
+        # race = "Half Elf" #- for testing
         race = race.strip().lower()
         if race == "dragonborn":
             race = Dragonborn(self.level)
